@@ -133,6 +133,7 @@
     <Compile Include="Controllers\BeneficiaryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EarningController.cs" />
+    <Compile Include="Controllers\FinanceController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3816,10 +3817,10 @@
     <Content Include="Views\Beneficiary\Index.cshtml" />
     <Content Include="Views\Beneficiary\Detail.cshtml" />
     <Content Include="Views\Contact\Create.cshtml" />
-    <Content Include="Views\Beneficiary\Test.cshtml" />
     <Content Include="Views\Attachement\Create.cshtml" />
     <Content Include="Views\Program\Create.cshtml" />
     <Content Include="Views\Earning\Create.cshtml" />
+    <Content Include="Views\Finance\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

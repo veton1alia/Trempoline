@@ -15,30 +15,25 @@ namespace Trempoline.Models
 
     public partial class Sejour
     {
-        public string _Commentaires;
         private string _ReferenceConvention;
         private string _EtatAccordMutualiste;
-
         public int IDSejour { get; set; }
         public System.DateTime DateEntree { get; set; }
         public Nullable<System.DateTime> HeureEntree { get; set; }
         public Nullable<System.DateTime> DateSortie { get; set; }
         public Nullable<System.DateTime> HeureSortie { get; set; }
-        public string Commentaires {
-            get { return _Commentaires.Trimmed(); }
-            set { _Commentaires = value; }
-        }
+        public string Commentaires { get; set; }
         public Nullable<int> IDBeneficiare { get; set; }
         public Nullable<System.DateTime> DateDebutConvention { get; set; }
         public Nullable<System.DateTime> DateFinConvention { get; set; }
-        public string ReferenceConvention
+        public string ReferenceConvention 
         {
             get { return _ReferenceConvention.Trimmed(); }
-            set { _ReferenceConvention = value; }
+            set { _ReferenceConvention = value; } 
         }
         public Nullable<bool> Prolongation { get; set; }
         public Nullable<System.DateTime> DateFinProlongation { get; set; }
-        public string EtatAccordMutualiste 
+        public string EtatAccordMutualiste
         {
             get { return _EtatAccordMutualiste.Trimmed(); }
             set { _EtatAccordMutualiste = value; }

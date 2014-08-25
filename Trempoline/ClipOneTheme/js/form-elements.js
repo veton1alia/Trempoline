@@ -22,6 +22,7 @@ var FormElements = function () {
     var runMaskInput = function () {
         $.mask.definitions['~'] = '[+-]';
         $('.input-mask-date').mask('99/99/9999');
+        $('.input-mask-banknumber').mask('999-999999-99');
         $('.input-mask-phone').mask('(999) 999-9999');
         $('.input-mask-eyescript').mask('~9.99 ~9.99 999');
         $(".input-mask-product").mask("a*-999-a999", {
@@ -96,9 +97,9 @@ var FormElements = function () {
         init: function () {
           /*  runInputLimiter();
             runAutosize();
-            runSelect2();
+            runSelect2(); */
             runMaskInput();
-            runMaskMoney();*/
+            //runMaskMoney();
             runDatePicker();
             runTimePicker();
          /*   runDateRangePicker();

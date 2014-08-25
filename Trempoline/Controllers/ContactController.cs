@@ -148,9 +148,28 @@ namespace Trempoline.Controllers
                 {
 
                     int beneficiaryId = contact.Beneficiary.IDBeneficiare;
-                    _Context.Entry(contact.Beneficiary).State = EntityState.Modified;
+                    _Context.Beneficiaire.Attach(contact.Beneficiary);
+                    DbEntityEntry<Beneficiaire> entry = _Context.Entry(contact.Beneficiary);
                  /*   _Context.Entry(_Context.Beneficiaire.SingleOrDefault(b => b.IDBeneficiare == beneficiaryId))
                             .CurrentValues.SetValues(contact.Beneficiary);*/
+
+                   // Beneficiaire beneficiaire = _Context.Beneficiaire.SingleOrDefault(b => b.IDBeneficiare == beneficiaryId);
+                    entry.Property(p => p.Nom).IsModified = true;
+                    entry.Property(p => p.Prenom).IsModified = true;
+                    entry.Property(p => p.DateNaissance).IsModified = true;
+                    entry.Property(p => p.LieuNaissance).IsModified = true;
+                    entry.Property(p => p.RegistreNational).IsModified = true;
+                    entry.Property(p => p.CarteIdentite).IsModified = true;
+                    entry.Property(p => p.IDNationalite).IsModified = true;
+                    entry.Property(p => p.IDTypePriseEnCharge).IsModified = true;
+                    entry.Property(p => p.IDEducateur).IsModified = true;
+                    entry.Property(p => p.CommentairesFicheContact).IsModified = true;
+
+                    if(contact.Beneficiary.PermisConduire.HasValue)
+                    {
+                        entry.Property(p => p.PermisConduire).IsModified = true;
+                        entry.Property(p => p.DatePermisConduire).IsModified = true;
+                    }
 
                     //delete all stays 
                     _Context.Sejour.Where(s => s.IDBeneficiare == beneficiaryId)

@@ -147,7 +147,7 @@
     <Property Name="RevenusAllocHandic" Type="Double" />
     <Property Name="MontantPensionAlim" Type="Double" />
     <Property Name="AutresRevenus" Type="Double" />
-    <Property Name="CommentairesRevenus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesRevenus" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="IDTypePriseEnCharge" Type="Int32" />
     <Property Name="IDEducateur" Type="Int32" />
     <Property Name="BanqueCompteVue" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />

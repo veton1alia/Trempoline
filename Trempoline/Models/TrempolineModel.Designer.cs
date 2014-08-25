@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'C:\Users\veton\documents\visual studio 2013\Projects\Trempoline\Trempoline\Models\TrempolineModel.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'C:\Users\veton\Documents\Visual Studio 2013\Projects\Trempoline\Trempoline\Models\TrempolineModel.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.

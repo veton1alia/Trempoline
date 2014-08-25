@@ -1,4 +1,4 @@
-﻿
+﻿@model Trempoline.Models.Beneficiaire
 
 @{
     Layout = null;
@@ -7,69 +7,97 @@
 
 <div class="tab-container">
 
-    @using (Html.BeginForm("Create", "Earning", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Create", "Earning", FormMethod.Post, new { @class = "form-horizontal", id="earnings_form" }))
     {
+        <div>
+            @Html.TextBoxFor(m => m.IDBeneficiare, new { type="hidden"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.RevenusCPAS,"Revenus CPAS : ", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-3">
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.RevenusCPAS, new { @class = "form-control textLeft", data_total = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
+            </div>
+            @Html.LabelFor(m => m.DateDebutRevenuCPAS, " Date début de revenus CPAS :", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(m => m.DateDebutRevenuCPAS,"{0:dd-MM-yyyy}", new { @class = "form-control date-picker", data_date_format = "dd-mm-yyyy" })
+            </div>
+        </div>
 
         <div class="form-group">
-            @Html.Label("RevenusCPAS", "Revenus CPAS : ", new { @class = "col-sm-2 label-control" })
+            @Html.LabelFor(m => m.RevenusIITMutuelle, "Revenus IIT Mutuelle :", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBox("RevenusCPAS", null, new { @class = "form-control" })
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.RevenusIITMutuelle, new { @class = "form-control textLeft", data_total = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
             </div>
+            @Html.LabelFor(m => m.DateDebutRevenuIITMutuelle, " Date début de revenus Mutuelle : ", new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(m => m.DateDebutRevenuIITMutuelle, "{0:dd-MM-yyyy}", new { @class = "form-control date-picker", data_date_format = "dd-mm-yyyy" })
+            </div>
+        </div>
 
-            @Html.Label("DateDebutRevenusCPAS", " Date début de revenus CPAS :", new { @class = "col-sm-3 label-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.RevenusAllocHandic, "Revenus alloc. Handicapé:", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBox("DateDebutRevenusCPAS", null, new { @class = "form-control date-picker" })
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.RevenusAllocHandic, new { @class = "form-control textLeft", data_total = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.Label("RevenusIITMutuelle", "Revenus IIT Mutuelle :", new { @class = "col-sm-2 label-control" })
+            @Html.LabelFor(m => m.MontantPensionAlim, "Pension alimentaire :", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBox("RevenusIITMutuelle", null,new { @class = "form-control" })
-            </div>
-            @Html.Label("DateDebutRevenusIITMutuelle", " Date début de revenus Mutuelle : ", new { @class = "col-sm-3 label-control" })
-            <div class="col-sm-3">
-                @Html.TextBox("DateDebutRevenusIITMutuelle", null, new { @class = "form-control date-picker" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.Label("RevenusAllocHandicape", "Revenus alloc. Handicapé:", new { @class = "col-sm-2 label-control" })
-            <div class="col-sm-3">
-                @Html.TextBox("RevenusAllocHandicape", null, new { @class = "form-control" })
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.MontantPensionAlim, new { @class = "form-control textLeft", data_total = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.Label("PensionAlimentaire", "Pension alimentaire :", new { @class = "col-sm-2 label-control" })
+            @Html.LabelFor(m => m.AutresRevenus, "Autres revenus :", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBox("PensionAlimentaire", null, new { @class = "form-control" })
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.AutresRevenus, new { @class = "form-control textLeft", data_total = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.Label("AutresRevenus", "Autres revenus :", new { @class = "col-sm-2 label-control" })
+            @Html.Label("TotalRevenus", "Total :", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-3">
-                @Html.TextBox("AutresRevenus", null, new { @class = "form-control" })
+                <span class="input-icon input-icon-right">
+                    @Html.TextBox("TotalRevenus", (object)@ViewBag.Total, new { @class = "form-control textLeft", disabled = String.Empty })
+                    <i class="fa fa-euro"></i>
+                </span>
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.Label("TotalRevenus", "Total :", new { @class = "col-sm-2 label-control" })
-            <div class="col-sm-3">
-                @Html.TextBox("TotalRevenus", null, new { @class = "form-control" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.Label("Commentaires", "Commentaires :", new { @class = "col-sm-2 label-control" })
+            @Html.LabelFor(m => m.CommentairesRevenus, "Commentaires :", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-9">
-                @Html.TextArea("Commentaires", null , 4 , 100 , new { @class = "form-control textAreaNoResize" })
+                @Html.TextAreaFor(m => m.CommentairesRevenus, 10, 100, new { @class = "form-control textAreaNoResize" })
+                @*@Html.TextAreaFor(m => m.CommentairesRevenus, "Commentaires" 4, 100, new { @class = "form-control textAreaNoResize" })*@
             </div>
         </div>
-        
 
+        <div class="form-group">
+            <div class="col-sm-3">
+                <button class="btn btn-default">Sauver</button>
+            </div>
+        </div>
     }
-
-
 </div>
+<script>
+    $(document).ready(function () {
+        FormElements.init();
+        Earning.init();
+    });
+</script>

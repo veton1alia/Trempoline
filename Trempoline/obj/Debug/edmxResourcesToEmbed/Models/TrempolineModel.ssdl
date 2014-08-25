@@ -111,7 +111,7 @@
     <Property Name="RevenusAllocHandic" Type="float" />
     <Property Name="MontantPensionAlim" Type="float" />
     <Property Name="AutresRevenus" Type="float" />
-    <Property Name="CommentairesRevenus" Type="varchar" MaxLength="10" />
+    <Property Name="CommentairesRevenus" Type="varchar" MaxLength="1000" />
     <Property Name="IDTypePriseEnCharge" Type="int" />
     <Property Name="IDEducateur" Type="int" />
     <Property Name="BanqueCompteVue" Type="char" MaxLength="100" />
@@ -1053,7 +1053,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Beneficiaire_PieceJointe_FK1">
-    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PieceJointe" Type="Self.PieceJointe" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Beneficiaire">
@@ -1077,7 +1079,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Beneficiaire_Sejour_FK1">
-    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Beneficiaire">

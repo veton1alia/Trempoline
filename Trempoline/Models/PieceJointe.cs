@@ -11,14 +11,15 @@ namespace Trempoline.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using Trempoline.Helpers;
     public partial class PieceJointe
     {
-        private string _LibellePiece;
         public int IDPieceJointe { get; set; }
+        
+        private string _LibellePiece;
         public string LibellePiece 
-        {
-            get { return _LibellePiece != null ? _LibellePiece.Trim() : null ; }
+        { 
+            get { return _LibellePiece.Trimmed(); }
             set { _LibellePiece = value; } 
         }
         public System.DateTime DatePiece { get; set; }
@@ -26,7 +27,6 @@ namespace Trempoline.Models
         public Nullable<int> IDTypeAction { get; set; }
         public byte[] Piece { get; set; }
         public string ContentType { get; set; }
-    
         public virtual Beneficiaire Beneficiaire { get; set; }
         public virtual TypeAction TypeAction { get; set; }
     }

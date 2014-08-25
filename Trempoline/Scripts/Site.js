@@ -100,8 +100,12 @@ var TabItem = (function ($) {
             //    default: return;
             //}
 
-            if (menu === "Contact") to("/Contact/" + editOrCreate()); 
-            else to("/" + menu + "/Create/" + route().id);
+            if (menu === "Contact") to("/Contact/" + editOrCreate());
+            else {
+                to("/" + menu + "/Create/" + route().id);
+            }
+
+            window.location.hash = "#tab=" + menu;
             
 
         });
@@ -120,6 +124,7 @@ var TabItem = (function ($) {
        */
     function route() {
         var p = window.location.pathname;
+        var tab = window.location.hash;
 
         if (p.indexOf("Beneficiary/Detail") > -1) {
             var data = p.substring(1).split('/');
@@ -127,7 +132,8 @@ var TabItem = (function ($) {
             if (data[2]) {
                 return {
                     edit: true,
-                    id: data[2]
+                    id: data[2],
+                    tab : tab !== '' ? tab.split('=')[1] : undefined
                 }
             }
 
@@ -139,13 +145,20 @@ var TabItem = (function ($) {
 
         init: function () {
             var r = route();
-            var hash = window.location.hash;
 
-            if (r.edit) {
+            if (r.edit && r.tab !== undefined)
+            {
+                to("/" + r.tab + "/Create/" + r.id + "#tab=" + r.tab);
+                $('a[data-menu=Contact]').parent().removeClass('active');
+                $("a[data-menu=" + r.tab + "]").parent().addClass('active');
+            }
+            else if (r.edit) {
                 to("/Contact/Edit/" + r.id);
             } else {
                 to("/Contact/Create");
             }
+
+            
 
             clickHandler(".tabbable ul li a");
         },
@@ -727,6 +740,59 @@ var SearchBeneficiaryDataTables = (function ($) {
             //   $('#BeneficiaryTable').dataTable();
             selectRow();
             deleteOrDetails();
+        }
+    }
+
+})(jQuery);
+
+var Earning = (function ($) {
+
+    function setupValidation()
+    {
+        $("#earnings_form").validate({
+            rules: {
+                RevenusCPAS: { number: true },
+                RevenusIITMutuelle: { number: true },
+                RevenusAllocHandic: { number: true },
+                MontantPensionAlim: { number: true },
+                AutresRevenus:      { number: true },
+            },
+            messages: {
+                RevenusCPAS: { number: "ce champ doîte être un nombre" },
+                RevenusIITMutuelle: { number: "ce champ doîte être un nombre" },
+                RevenusAllocHandic: { number: "ce champ doîte être un nombre" },
+                MontantPensionAlim: { number: "ce champ doîte être un nombre" },
+                AutresRevenus: { number: "ce champ doîte être u nombre" },
+            }
+        });
+
+        $("#earnings_form").submit(function (e) {
+
+            if(!$(this).valid)
+            {
+                e.preventDefault();
+            }
+
+        });
+    }
+
+    function total() {
+        $("#earnings_form input[data-total]").focusout(function () {
+            var total = 0;
+            $("#earnings_form input[data-total]").each(function (key, value) {
+                // console.log($(this).val());
+                var val = $(this).val();
+                if(val !== '')
+                    total += parseFloat($(this).val());
+            });
+
+            $('#TotalRevenus[name="TotalRevenus"]').val(total);
+        });
+    }
+    return {
+        init: function () {
+            setupValidation();
+            total();
         }
     }
 

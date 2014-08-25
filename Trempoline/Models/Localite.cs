@@ -11,16 +11,21 @@ namespace Trempoline.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using Trempoline.Helpers;
     public partial class Localite
     {
         public Localite()
         {
             this.Adresse = new HashSet<Adresse>();
         }
-    
+
+        private string _LocaliteNom;
         public int IDLocalite { get; set; }
-        public string LocaliteNom { get; set; }
+        public string LocaliteNom
+        {
+            get { return _LocaliteNom.Trimmed();}
+            set { _LocaliteNom = value; }
+        }
         public int CodePostal { get; set; }
     
         public virtual ICollection<Adresse> Adresse { get; set; }
