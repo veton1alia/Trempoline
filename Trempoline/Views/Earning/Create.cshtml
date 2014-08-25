@@ -1,0 +1,75 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+<div class="tab-container">
+
+    @using (Html.BeginForm("Create", "Earning", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+        <div class="form-group">
+            @Html.Label("RevenusCPAS", "Revenus CPAS : ", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("RevenusCPAS", null, new { @class = "form-control" })
+            </div>
+
+            @Html.Label("DateDebutRevenusCPAS", " Date début de revenus CPAS :", new { @class = "col-sm-3 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("DateDebutRevenusCPAS", null, new { @class = "form-control date-picker" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("RevenusIITMutuelle", "Revenus IIT Mutuelle :", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("RevenusIITMutuelle", null,new { @class = "form-control" })
+            </div>
+            @Html.Label("DateDebutRevenusIITMutuelle", " Date début de revenus Mutuelle : ", new { @class = "col-sm-3 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("DateDebutRevenusIITMutuelle", null, new { @class = "form-control date-picker" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("RevenusAllocHandicape", "Revenus alloc. Handicapé:", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("RevenusAllocHandicape", null, new { @class = "form-control" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("PensionAlimentaire", "Pension alimentaire :", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("PensionAlimentaire", null, new { @class = "form-control" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("AutresRevenus", "Autres revenus :", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("AutresRevenus", null, new { @class = "form-control" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("TotalRevenus", "Total :", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-3">
+                @Html.TextBox("TotalRevenus", null, new { @class = "form-control" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Commentaires", "Commentaires :", new { @class = "col-sm-2 label-control" })
+            <div class="col-sm-9">
+                @Html.TextArea("Commentaires", null , 4 , 100 , new { @class = "form-control textAreaNoResize" })
+            </div>
+        </div>
+        
+
+    }
+
+
+</div>

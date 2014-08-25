@@ -1,0 +1,144 @@
+﻿@model IEnumerable<Trempoline.Controllers.SearchBeneficiary>
+
+@{
+    ViewBag.Title = "Beneficiare recherche";
+}
+
+<div class="container container-plus">
+
+    <div class="borderGray" style="margin-top:20px; margin-bottom:20px;">
+
+        @using (Html.BeginForm("Index", "Beneficiary", FormMethod.Post))
+        {
+        <div class="row">
+            @Html.Label("Nom", "Nom : ", new { @class = "label-control col-sm-1" })
+            <div class="col-sm-3">
+                @Html.TextBox("Nom", null, new { @class = "form-control" })
+            </div>
+            @Html.Label("DateEntreeDebut", "Date 1ère Entrée entre : ", new { @class = "label-control col-sm-2" })
+            <div class="col-sm-2">
+                @Html.TextBox("DateEntreeDebut", null, new { @class = "form-control date-picker" })
+            </div>
+            <span class="col-sm-1" style="text-align:center;">
+                et
+            </span>
+            <div class="col-sm-2">
+                @Html.TextBox("DateEntreeFin", null, new { @class = "form-control date-picker" })
+            </div>
+        </div>
+        <div class="row">
+            @Html.Label("Prenom", "Prénom : ", new { @class = "label-control col-sm-1" })
+            <div class="col-sm-3">
+                @Html.TextBox("Prenom", null, new { @class = "form-control" })
+            </div>
+            <div class="col-sm-3 radioContainer">
+                <label class="label-control">En suivi : </label>
+                <div class="radios">
+                    <label class="label-control"><input type="radio" name="Suivi" value="Oui" /> Oui</label><br />
+                    <label class="label-control"><input type="radio" name="Suivi" value="Non" /> Non</label><br />
+                    <label class="label-control"><input type="radio" name="Suivi" value="OuiNon" /> Les deux</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @Html.Label("Secteur", "Secteur : ", new { @class = "label-control col-sm-1" })
+            <div class="col-sm-3">
+                <select name="Secteur" class="form-control">
+                    <option value=""></option>
+                    <option value="PremierContact">Premier contact</option>
+                    <option value="Accueil">Acceuil</option>
+                    <option value="CommunauteTherapeutique">Communauté thérapeutique</option>
+                    <option value="ReinsertionSociale">Réinsertion sociale</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="height:150px;">
+            <div class="col-sm-3 radioContainer">
+                <label class="label-control">Service Kangourou : </label>
+                <div class="radios" style="left:150px;">
+                    <label class="label-control"><input type="radio" name="ServiceKangourou" value="Oui" /> Oui</label><br />
+                    <label class="label-control"><input type="radio" name="ServiceKangourou" value="Non" /> Non</label><br />
+                    <label class="label-control"><input type="radio" name="ServiceKangourou" value="OuiNon" /> Les deux</label>
+                </div>
+            </div>
+            <div class="col-sm-3 radioContainer">
+                <label class="label-control">Service Parentalité : </label>
+                <div class="radios" style="left:150px;">
+                    <label class="label-control"><input type="radio" name="ServiceParentalite" value="Oui" /> Oui</label><br />
+                    <label class="label-control"><input type="radio" name="ServiceParentalite" value="Non" /> Non</label><br />
+                    <label class="label-control"><input type="radio" name="ServiceParentalite" value="OuiNon" /> Les deux</label>
+                </div>
+            </div>
+            <div class="col-sm-3 radioContainer">
+                <label class="label-control">Horus : </label>
+                <div class="radios">
+                    <label class="label-control"><input type="radio" name="Horus" value="Oui" /> Oui</label><br />
+                    <label class="label-control"><input type="radio" name="Horus" value="Non" /> Non</label><br />
+                    <label class="label-control"><input type="radio" name="Horus" value="OuiNon" /> Les deux</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-default">Valider</button>
+                <button type="reset" class="btn btn-default">Vider</button>
+            </div>
+        </div>
+
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <table class="table table-bordered table-hover" id="BeneficiaryTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Prénom
+                        </th>
+                        <th>
+                            Secteur
+                        </th>
+                        <th>
+                            Date 1ère entréé
+                        </th>
+                        <th>
+                            En Suivi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr data-id="@item.IDBeneficiaire">
+                                <td> @item.Nom </td>
+                                <td> @item.Prenom </td>
+                                <td> Secteur </td>
+                                <td> @item.DateEntree.Value.ToString("dd-MM-yyyy") </td>
+                                <td> Suivi </td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="span12">
+            <div class="row">
+                <div class="col-sm-7">
+                    <a href="/Beneficiary/Detail" id="Detail" class="btn btn-default">Détails</a>
+                </div>
+                <div class="col-sm-3" style="text-align:right;">
+                    <a href="/Beneficiary/Detail" class="btn btn-default">+</a>
+                    <a href="/Beneficiary/Delete" id="Delete" class="btn btn-default">-</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

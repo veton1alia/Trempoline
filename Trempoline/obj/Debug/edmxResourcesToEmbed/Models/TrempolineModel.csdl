@@ -1,0 +1,1760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrempolineDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="IDAction" />
+    </Key>
+    <Property Name="IDAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="IDTypeAction" Type="Int32" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="IDUser" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Valide" Type="Boolean" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Action_FK1" FromRole="Action" ToRole="Beneficiaire" />
+    <NavigationProperty Name="TypeAction" Relationship="Self.TypeAction_Action_FK1" FromRole="Action" ToRole="TypeAction" />
+    <NavigationProperty Name="User" Relationship="Self.User_Action_FK1" FromRole="Action" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Adresse">
+    <Key>
+      <PropertyRef Name="IDAdresse" />
+    </Key>
+    <Property Name="IDAdresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ligne1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Ligne2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Pays" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="IDTypeAdresse" Type="Int32" />
+    <Property Name="IDLocalite" Type="Int32" />
+    <NavigationProperty Name="AdresseBeneficiaire" Relationship="Self.Adresse_AdresseBeneficiaire_FK1" FromRole="Adresse" ToRole="AdresseBeneficiaire" />
+    <NavigationProperty Name="Localite" Relationship="Self.Localite_Adresse_FK1" FromRole="Adresse" ToRole="Localite" />
+    <NavigationProperty Name="TypeAdresse" Relationship="Self.TypeAdresse_Adresse_FK1" FromRole="Adresse" ToRole="TypeAdresse" />
+  </EntityType>
+  <EntityType Name="AdresseBeneficiaire">
+    <Key>
+      <PropertyRef Name="IDAdresseBeneficiaire" />
+    </Key>
+    <Property Name="IDAdresseBeneficiaire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="IDAdresse" Type="Int32" />
+    <NavigationProperty Name="Adresse" Relationship="Self.Adresse_AdresseBeneficiaire_FK1" FromRole="AdresseBeneficiaire" ToRole="Adresse" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_AdresseBeneficiaire_FK1" FromRole="AdresseBeneficiaire" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="AssistantSocial">
+    <Key>
+      <PropertyRef Name="IDAssistantSocial" />
+    </Key>
+    <Property Name="IDAssistantSocial" Type="Int32" Nullable="false" />
+    <Property Name="IDUser" Type="Int32" />
+    <NavigationProperty Name="BeneficiaireProgramme" Relationship="Self.AssistantSocial_BeneficiaireProgramme_FK1" FromRole="AssistantSocial" ToRole="BeneficiaireProgramme" />
+    <NavigationProperty Name="User" Relationship="Self.User_AssistantSocial_FK1" FromRole="AssistantSocial" ToRole="User" />
+  </EntityType>
+  <EntityType Name="AtelierFSE">
+    <Key>
+      <PropertyRef Name="IDAtelierFSE" />
+    </Key>
+    <Property Name="IDAtelierFSE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomAtelier" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesAtelier" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Participation" Relationship="Self.AtelierFSE_Participation_FK1" FromRole="AtelierFSE" ToRole="Participation" />
+  </EntityType>
+  <EntityType Name="AutoriteParentale">
+    <Key>
+      <PropertyRef Name="IDAutoriteparentale" />
+    </Key>
+    <Property Name="IDAutoriteparentale" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EnfantKangourou" Relationship="Self.AutoriteParentale_EnfantKangourou_FK1" FromRole="AutoriteParentale" ToRole="EnfantKangourou" />
+  </EntityType>
+  <EntityType Name="Avocat">
+    <Key>
+      <PropertyRef Name="AvocatID" />
+    </Key>
+    <Property Name="AvocatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AvocatNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AvocatPrenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AvocatAdresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AvocatAdresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AvocatCP" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Avocatlocalite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AvocatTelephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AvocatFax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AvocatMail" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BeneficiaireAvocat" Relationship="Self.Avocat_BeneficiaireAvocat_FK1" FromRole="Avocat" ToRole="BeneficiaireAvocat" />
+  </EntityType>
+  <EntityType Name="AxePsy">
+    <Key>
+      <PropertyRef Name="IDAxePsy" />
+    </Key>
+    <Property Name="IDAxePsy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.AxePsy_Beneficiaire_FK1" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire1" Relationship="Self.AxePsy_Beneficiaire_FK10" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire2" Relationship="Self.AxePsy_Beneficiaire_FK11" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire3" Relationship="Self.AxePsy_Beneficiaire_FK12" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire4" Relationship="Self.AxePsy_Beneficiaire_FK13" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire5" Relationship="Self.AxePsy_Beneficiaire_FK14" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire6" Relationship="Self.AxePsy_Beneficiaire_FK15" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire7" Relationship="Self.AxePsy_Beneficiaire_FK2" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire8" Relationship="Self.AxePsy_Beneficiaire_FK3" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire9" Relationship="Self.AxePsy_Beneficiaire_FK4" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire10" Relationship="Self.AxePsy_Beneficiaire_FK5" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire11" Relationship="Self.AxePsy_Beneficiaire_FK6" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire12" Relationship="Self.AxePsy_Beneficiaire_FK7" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire13" Relationship="Self.AxePsy_Beneficiaire_FK8" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Beneficiaire14" Relationship="Self.AxePsy_Beneficiaire_FK9" FromRole="AxePsy" ToRole="Beneficiaire" />
+    <NavigationProperty Name="EnqueteEuropasi" Relationship="Self.AxePsy_EnqueteEuropasi_FK1" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi1" Relationship="Self.AxePsy_EnqueteEuropasi_FK2" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi2" Relationship="Self.AxePsy_EnqueteEuropasi_FK3" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi3" Relationship="Self.AxePsy_EnqueteEuropasi_FK4" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi4" Relationship="Self.AxePsy_EnqueteEuropasi_FK5" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi5" Relationship="Self.AxePsy_EnqueteEuropasi_FK6" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi6" Relationship="Self.AxePsy_EnqueteEuropasi_FK7" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="EnqueteEuropasi7" Relationship="Self.AxePsy_EnqueteEuropasi_FK8" FromRole="AxePsy" ToRole="EnqueteEuropasi" />
+  </EntityType>
+  <EntityType Name="Beneficiaire">
+    <Key>
+      <PropertyRef Name="IDBeneficiare" />
+    </Key>
+    <Property Name="IDBeneficiare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LieuNaissance" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RegistreNational" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CarteIdentite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="IDNationalite" Type="Int32" />
+    <Property Name="PermisConduire" Type="Boolean" />
+    <Property Name="DatePermisConduire" Type="DateTime" Precision="3" />
+    <Property Name="CommentairesFicheContact" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+    <Property Name="IDMutuelle" Type="Int32" />
+    <Property Name="N_InscriptionMutuelle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="RegimeMutuelle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="IDRegime" Type="Int32" />
+    <Property Name="MedecinConseil" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesMututelle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IDCPAS" Type="Int32" />
+    <Property Name="PersonneContactCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="N_TelContactCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="RevenusCPAS" Type="Double" />
+    <Property Name="DateDebutRevenuCPAS" Type="DateTime" Precision="3" />
+    <Property Name="RevenusIITMutuelle" Type="Double" />
+    <Property Name="DateDebutRevenuIITMutuelle" Type="DateTime" Precision="3" />
+    <Property Name="RevenusAllocHandic" Type="Double" />
+    <Property Name="MontantPensionAlim" Type="Double" />
+    <Property Name="AutresRevenus" Type="Double" />
+    <Property Name="CommentairesRevenus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IDTypePriseEnCharge" Type="Int32" />
+    <Property Name="IDEducateur" Type="Int32" />
+    <Property Name="BanqueCompteVue" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="NoCompteVue" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="BanqueCompteEpargne" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="NoCompteEpargne" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CarteBanque" Type="Boolean" />
+    <Property Name="CodePin" Type="Boolean" />
+    <Property Name="PCBanking" Type="Boolean" />
+    <Property Name="SoldeCompteVue" Type="Double" />
+    <Property Name="DateSoldeCompteVue" Type="DateTime" Precision="3" />
+    <Property Name="SoldeCompteEpargne" Type="Double" />
+    <Property Name="DateSoldeCompteEpargne" Type="DateTime" Precision="3" />
+    <Property Name="CompteTrempoline" Type="Boolean" />
+    <Property Name="FichierCompte" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesFinances" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Dettes" Type="Boolean" />
+    <Property Name="CommentairesDettes" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="RèglementDettes" Type="Boolean" />
+    <Property Name="AdministrateurBiens" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse1AdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2AdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocaliteAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="FaxAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MailAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LiberteConditionnelle" Type="Boolean" />
+    <Property Name="MediationPenale" Type="Boolean" />
+    <Property Name="MJA" Type="Boolean" />
+    <Property Name="Sursis" Type="Boolean" />
+    <Property Name="MesureDefenseSociale" Type="Boolean" />
+    <Property Name="OrdonnanceJugeJeunesse" Type="Boolean" />
+    <Property Name="Autre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateDebutLiberteConditionnelle" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutMediationPenale" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutMJA" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutSursis" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutMesureDefenseSociale" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutOrdonnaceJugeJeunesse" Type="DateTime" Precision="0" />
+    <Property Name="DateDebutAutre" Type="DateTime" Precision="0" />
+    <Property Name="DateLiberteConditionnelle" Type="DateTime" Precision="0" />
+    <Property Name="DateMediationPenale" Type="DateTime" Precision="0" />
+    <Property Name="DateMAJ" Type="DateTime" Precision="0" />
+    <Property Name="DateSursis" Type="DateTime" Precision="0" />
+    <Property Name="DateMesureDefenseSociale" Type="DateTime" Precision="0" />
+    <Property Name="DateOrdonnanceJugeJeunsesse" Type="DateTime" Precision="0" />
+    <Property Name="DateAutre" Type="DateTime" Precision="0" />
+    <Property Name="ObligationTrempoline" Type="Boolean" />
+    <Property Name="CommentairesSituationPenale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesSuiviJudiciaire" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SituationCivilPolice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Enfants" Type="Boolean" />
+    <Property Name="NbreFilles" Type="Int32" />
+    <Property Name="NbreGarçons" Type="Int32" />
+    <Property Name="ContactEffectif" Type="Boolean" />
+    <Property Name="Jugement" Type="Boolean" />
+    <Property Name="Intervenants" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="RCFamiliale" Type="Boolean" />
+    <Property Name="PensionAlim" Type="Boolean" />
+    <Property Name="MontantPension" Type="Double" />
+    <Property Name="NomEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="PrenomEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1Employeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2Employeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocaliteEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesEmployeur" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BureauONEMNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1ONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2ONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPONEM" Type="Int32" />
+    <Property Name="LocaliteONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="FaxONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MailONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DateDebutONEM" Type="DateTime" Precision="3" />
+    <Property Name="DateFinONEM" Type="DateTime" Precision="3" />
+    <Property Name="CommentairesONEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SyndicatNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1Syndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2Syndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPSyndicat" Type="Int32" />
+    <Property Name="LocaliteSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="FaxSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MailSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DateDebutSyndicat" Type="DateTime" Precision="3" />
+    <Property Name="DateFinSyndicat" Type="DateTime" Precision="3" />
+    <Property Name="PespectivesRS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesSyndicat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IDSexe" Type="Int32" />
+    <Property Name="SituationEntree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Medicaments" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesSuiviMedical" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ParticipationParentGroupeSolidarite" Type="Boolean" />
+    <Property Name="ParticipationParentMultifamilial" Type="Boolean" />
+    <Property Name="DateExamenMedical" Type="DateTime" Precision="0" />
+    <Property Name="NeccesiteSuivi" Type="Int32" />
+    <Property Name="AXE1DSMA" Type="Int32" />
+    <Property Name="AXE1DSMB" Type="Int32" />
+    <Property Name="AXE1TOXA" Type="Int32" />
+    <Property Name="AXE1TOXB" Type="Int32" />
+    <Property Name="AXE1TOXC" Type="Int32" />
+    <Property Name="AXE2A" Type="Int32" />
+    <Property Name="AXE2B" Type="Int32" />
+    <Property Name="IndiceGravite" Type="Int32" />
+    <Property Name="CodeChangement" Type="Int32" />
+    <Property Name="TraitPrescritA" Type="Int32" />
+    <Property Name="TraitPrescritB" Type="Int32" />
+    <Property Name="AutresTraitements" Type="Int32" />
+    <Property Name="TherapieAssocieeNbre" Type="Int32" />
+    <Property Name="IncapaciteCEB" Type="Int32" />
+    <Property Name="NecessiteEtape" Type="Int32" />
+    <Property Name="ServiceKangourou" Type="Boolean" />
+    <Property Name="SuiviFamilial" Type="Boolean" />
+    <Property Name="SuiviIndividuel" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OservationsFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HistoireFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesGroupeSolidarite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IDDiplome" Type="Int32" />
+    <Property Name="FormationSuivie" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Action" Relationship="Self.Beneficiaire_Action_FK1" FromRole="Beneficiaire" ToRole="Action" />
+    <NavigationProperty Name="AdresseBeneficiaire" Relationship="Self.Beneficiaire_AdresseBeneficiaire_FK1" FromRole="Beneficiaire" ToRole="AdresseBeneficiaire" />
+    <NavigationProperty Name="AxePsy" Relationship="Self.AxePsy_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy1" Relationship="Self.AxePsy_Beneficiaire_FK10" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy2" Relationship="Self.AxePsy_Beneficiaire_FK11" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy3" Relationship="Self.AxePsy_Beneficiaire_FK12" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy4" Relationship="Self.AxePsy_Beneficiaire_FK13" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy5" Relationship="Self.AxePsy_Beneficiaire_FK14" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy6" Relationship="Self.AxePsy_Beneficiaire_FK15" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy7" Relationship="Self.AxePsy_Beneficiaire_FK2" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy8" Relationship="Self.AxePsy_Beneficiaire_FK3" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy9" Relationship="Self.AxePsy_Beneficiaire_FK4" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy10" Relationship="Self.AxePsy_Beneficiaire_FK5" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy11" Relationship="Self.AxePsy_Beneficiaire_FK6" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy12" Relationship="Self.AxePsy_Beneficiaire_FK7" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy13" Relationship="Self.AxePsy_Beneficiaire_FK8" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy14" Relationship="Self.AxePsy_Beneficiaire_FK9" FromRole="Beneficiaire" ToRole="AxePsy" />
+    <NavigationProperty Name="BeneficiaireAvocat" Relationship="Self.Beneficiaire_BeneficiaireAvocat_FK1" FromRole="Beneficiaire" ToRole="BeneficiaireAvocat" />
+    <NavigationProperty Name="BeneficiaireMaisonJustice" Relationship="Self.Beneficiaire_BeneficiaireMaisonJustice_FK1" FromRole="Beneficiaire" ToRole="BeneficiaireMaisonJustice" />
+    <NavigationProperty Name="BeneficiaireMedecin" Relationship="Self.Beneficiaire_BeneficiaireMedecin_FK1" FromRole="Beneficiaire" ToRole="BeneficiaireMedecin" />
+    <NavigationProperty Name="BeneficiaireProgramme" Relationship="Self.Beneficiaire_BeneficiaireProgramme_FK1" FromRole="Beneficiaire" ToRole="BeneficiaireProgramme" />
+    <NavigationProperty Name="EnfantKangourou" Relationship="Self.Beneficiaire_EnfantKangourou_FK1" FromRole="Beneficiaire" ToRole="EnfantKangourou" />
+    <NavigationProperty Name="EnqueteEuropasi" Relationship="Self.Beneficiaire_EnqueteEuropasi_FK1" FromRole="Beneficiaire" ToRole="EnqueteEuropasi" />
+    <NavigationProperty Name="Fratrie" Relationship="Self.Beneficiaire_Fratrie_FK1" FromRole="Beneficiaire" ToRole="Fratrie" />
+    <NavigationProperty Name="IntervenantFamilial" Relationship="Self.Beneficiaire_IntervenantFamilial_FK1" FromRole="Beneficiaire" ToRole="IntervenantFamilial" />
+    <NavigationProperty Name="Participation" Relationship="Self.Beneficiaire_Participation_FK1" FromRole="Beneficiaire" ToRole="Participation" />
+    <NavigationProperty Name="Presentiel" Relationship="Self.Beneficiaire_Presentiel_FK1" FromRole="Beneficiaire" ToRole="Presentiel" />
+    <NavigationProperty Name="Sejour" Relationship="Self.Beneficiaire_Sejour_FK1" FromRole="Beneficiaire" ToRole="Sejour" />
+    <NavigationProperty Name="CPAS" Relationship="Self.CPAS_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="CPAS" />
+    <NavigationProperty Name="Diplome" Relationship="Self.Diplome_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Diplome" />
+    <NavigationProperty Name="Educateur" Relationship="Self.Educateur_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Educateur" />
+    <NavigationProperty Name="Mutuelle" Relationship="Self.Mutuelle_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Mutuelle" />
+    <NavigationProperty Name="Nationalite" Relationship="Self.Nationalite_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Nationalite" />
+    <NavigationProperty Name="RegimeMutuelle1" Relationship="Self.RegimeMutuelle_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="RegimeMutuelle" />
+    <NavigationProperty Name="Sexe" Relationship="Self.Sexe_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Sexe" />
+    <NavigationProperty Name="TypePriseEnCharge" Relationship="Self.TypePriseEnCharge_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="TypePriseEnCharge" />
+    <NavigationProperty Name="PieceJointe" Relationship="TrempolineDBModel.Beneficiaire_PieceJointe_FK1" FromRole="Beneficiaire" ToRole="PieceJointe" />
+  </EntityType>
+  <EntityType Name="BeneficiaireAvocat">
+    <Key>
+      <PropertyRef Name="IDBeneficiaireAvocat" />
+    </Key>
+    <Property Name="IDBeneficiaireAvocat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="AvocatID" Type="Int32" />
+    <NavigationProperty Name="Avocat" Relationship="Self.Avocat_BeneficiaireAvocat_FK1" FromRole="BeneficiaireAvocat" ToRole="Avocat" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_BeneficiaireAvocat_FK1" FromRole="BeneficiaireAvocat" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="BeneficiaireMaisonJustice">
+    <Key>
+      <PropertyRef Name="IDBeneficiaireMaisonJustice" />
+    </Key>
+    <Property Name="IDBeneficiaireMaisonJustice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDMaisonJustice" Type="Int32" Nullable="false" />
+    <Property Name="IDBeneficiare" Type="Int32" Nullable="false" />
+    <Property Name="NomAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="PrenonAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1AssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2AssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocaliteAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="FaxAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MailAssistantJustice" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_BeneficiaireMaisonJustice_FK1" FromRole="BeneficiaireMaisonJustice" ToRole="Beneficiaire" />
+    <NavigationProperty Name="MaisonJustice" Relationship="Self.MaisonJustice_BeneficiaireMaisonJustice_FK1" FromRole="BeneficiaireMaisonJustice" ToRole="MaisonJustice" />
+  </EntityType>
+  <EntityType Name="BeneficiaireMedecin">
+    <Key>
+      <PropertyRef Name="IDBeneficiaireMedecin" />
+    </Key>
+    <Property Name="IDBeneficiaireMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="IDMedecin" Type="Int32" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_BeneficiaireMedecin_FK1" FromRole="BeneficiaireMedecin" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Medecin" Relationship="Self.Medecin_BeneficiaireMedecin_FK1" FromRole="BeneficiaireMedecin" ToRole="Medecin" />
+  </EntityType>
+  <EntityType Name="BeneficiaireProgramme">
+    <Key>
+      <PropertyRef Name="IDBeneficiaireProgramme" />
+    </Key>
+    <Property Name="IDBeneficiaireProgramme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDProgramme" Type="Int32" />
+    <Property Name="IDBeneficiaire" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="IDAssistantSocial" Type="Int32" />
+    <Property Name="IDEducateur" Type="Int32" />
+    <Property Name="Horus" Type="Boolean" />
+    <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateSortie" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AssistantSocial" Relationship="Self.AssistantSocial_BeneficiaireProgramme_FK1" FromRole="BeneficiaireProgramme" ToRole="AssistantSocial" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_BeneficiaireProgramme_FK1" FromRole="BeneficiaireProgramme" ToRole="Beneficiaire" />
+    <NavigationProperty Name="Educateur" Relationship="Self.Educateur_BeneficiaireProgramme_FK1" FromRole="BeneficiaireProgramme" ToRole="Educateur" />
+    <NavigationProperty Name="Programme" Relationship="Self.Programme_BeneficiaireProgramme_FK1" FromRole="BeneficiaireProgramme" ToRole="Programme" />
+  </EntityType>
+  <EntityType Name="CPAS">
+    <Key>
+      <PropertyRef Name="IDCPAS" />
+    </Key>
+    <Property Name="IDCPAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodePostal" Type="Int32" Nullable="false" />
+    <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.CPAS_Beneficiaire_FK1" FromRole="CPAS" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Diplome">
+    <Key>
+      <PropertyRef Name="IDDiplome" />
+    </Key>
+    <Property Name="IDDiplome" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Diplome_Beneficiaire_FK1" FromRole="Diplome" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Educateur">
+    <Key>
+      <PropertyRef Name="IDEducateur" />
+    </Key>
+    <Property Name="IDEducateur" Type="Int32" Nullable="false" />
+    <Property Name="IDUser" Type="Int32" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Educateur_Beneficiaire_FK1" FromRole="Educateur" ToRole="Beneficiaire" />
+    <NavigationProperty Name="BeneficiaireProgramme" Relationship="Self.Educateur_BeneficiaireProgramme_FK1" FromRole="Educateur" ToRole="BeneficiaireProgramme" />
+    <NavigationProperty Name="User" Relationship="Self.User_Educateur_FK1" FromRole="Educateur" ToRole="User" />
+  </EntityType>
+  <EntityType Name="EnfantKangourou">
+    <Key>
+      <PropertyRef Name="IDEnfantKangourou" />
+    </Key>
+    <Property Name="IDEnfantKangourou" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DateNaissanceEK" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="IDAutoriteparentale" Type="Int32" />
+    <Property Name="AdresseEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1Ecole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2Ecole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocaliteEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPEcole" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TelEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocaliteGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephoneGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="GSMGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesSUiviMedical" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SAJ" Type="Boolean" />
+    <Property Name="SPJ" Type="Boolean" />
+    <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse1PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LocalitePriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CPPriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TelephonePriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="GSMPriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DansLeService" Type="Boolean" />
+    <Property Name="AutoriteParentale" Type="Boolean" />
+    <NavigationProperty Name="AutoriteParentale1" Relationship="Self.AutoriteParentale_EnfantKangourou_FK1" FromRole="EnfantKangourou" ToRole="AutoriteParentale" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_EnfantKangourou_FK1" FromRole="EnfantKangourou" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="EnqueteEuropasi">
+    <Key>
+      <PropertyRef Name="IDEnqueteEuropasi" />
+    </Key>
+    <Property Name="IDEnqueteEuropasi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TypeQuestionnaire" Type="Int32" />
+    <Property Name="DatePassage" Type="DateTime" Precision="0" />
+    <Property Name="SanteMentalePhysique" Type="Int32" />
+    <Property Name="SituationEmploi" Type="Int32" />
+    <Property Name="Alcool" Type="Int32" />
+    <Property Name="Drogues" Type="Int32" />
+    <Property Name="SituationJudiciaire" Type="Int32" />
+    <Property Name="DomaineFamilial" Type="Int32" />
+    <Property Name="EtatPsychologique" Type="Int32" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <NavigationProperty Name="AxePsy" Relationship="Self.AxePsy_EnqueteEuropasi_FK1" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy1" Relationship="Self.AxePsy_EnqueteEuropasi_FK2" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy2" Relationship="Self.AxePsy_EnqueteEuropasi_FK3" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy3" Relationship="Self.AxePsy_EnqueteEuropasi_FK4" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy4" Relationship="Self.AxePsy_EnqueteEuropasi_FK5" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy5" Relationship="Self.AxePsy_EnqueteEuropasi_FK6" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy6" Relationship="Self.AxePsy_EnqueteEuropasi_FK7" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="AxePsy7" Relationship="Self.AxePsy_EnqueteEuropasi_FK8" FromRole="EnqueteEuropasi" ToRole="AxePsy" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_EnqueteEuropasi_FK1" FromRole="EnqueteEuropasi" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Fratrie">
+    <Key>
+      <PropertyRef Name="IDFratrie" />
+    </Key>
+    <Property Name="IDFratrie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="IDTypeFratrie" Type="Int32" />
+    <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Vivant" Type="Boolean" />
+    <Property Name="Profession" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="AlcoolF" Type="Boolean" />
+    <Property Name="Drogue" Type="Boolean" />
+    <Property Name="Jeux" Type="Boolean" />
+    <Property Name="ProbJustice" Type="Boolean" />
+    <Property Name="Psychiatrique" Type="Boolean" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="FratrieDateNaissance" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Fratrie_FK1" FromRole="Fratrie" ToRole="Beneficiaire" />
+    <NavigationProperty Name="TypeFratrie" Relationship="Self.TypeFratrie_Fratrie_FK1" FromRole="Fratrie" ToRole="TypeFratrie" />
+  </EntityType>
+  <EntityType Name="IntervenantFamilial">
+    <Key>
+      <PropertyRef Name="IDIntervenantFamimlial" />
+    </Key>
+    <Property Name="IDIntervenantFamimlial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rôle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CodePostal" Type="Int32" />
+    <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="GSM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_IntervenantFamilial_FK1" FromRole="IntervenantFamilial" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Localite">
+    <Key>
+      <PropertyRef Name="IDLocalite" />
+    </Key>
+    <Property Name="IDLocalite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocaliteNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CodePostal" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Adresse" Relationship="Self.Localite_Adresse_FK1" FromRole="Localite" ToRole="Adresse" />
+  </EntityType>
+  <EntityType Name="MaisonJustice">
+    <Key>
+      <PropertyRef Name="IDMaisonJustice" />
+    </Key>
+    <Property Name="IDMaisonJustice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BeneficiaireMaisonJustice" Relationship="Self.MaisonJustice_BeneficiaireMaisonJustice_FK1" FromRole="MaisonJustice" ToRole="BeneficiaireMaisonJustice" />
+  </EntityType>
+  <EntityType Name="Medecin">
+    <Key>
+      <PropertyRef Name="IDMedecin" />
+    </Key>
+    <Property Name="IDMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MedecinNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MedecinPrenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinAdresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinAdresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinCP" Type="Int32" />
+    <Property Name="MedecinLocalite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinTelephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinFax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="MedecinEmail" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Specialite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CommentairesMedecin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BeneficiaireMedecin" Relationship="Self.Medecin_BeneficiaireMedecin_FK1" FromRole="Medecin" ToRole="BeneficiaireMedecin" />
+  </EntityType>
+  <EntityType Name="Mutuelle">
+    <Key>
+      <PropertyRef Name="IDMutuelle" />
+    </Key>
+    <Property Name="IDMutuelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CodePostal" Type="Int32" />
+    <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="SiteInternet" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Commentaires" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Mutuelle_Beneficiaire_FK1" FromRole="Mutuelle" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Nationalite">
+    <Key>
+      <PropertyRef Name="IDNationalite" />
+    </Key>
+    <Property Name="IDNationalite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Nationalite_Beneficiaire_FK1" FromRole="Nationalite" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Participation">
+    <Key>
+      <PropertyRef Name="IDParticiaption" />
+    </Key>
+    <Property Name="IDParticiaption" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFAtelierFSE" Type="Int32" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="NbreHeures" Type="Double" />
+    <NavigationProperty Name="AtelierFSE" Relationship="Self.AtelierFSE_Participation_FK1" FromRole="Participation" ToRole="AtelierFSE" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Participation_FK1" FromRole="Participation" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Presentiel">
+    <Key>
+      <PropertyRef Name="IDPresentiel" />
+    </Key>
+    <Property Name="IDPresentiel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HeureDepart" Type="DateTime" Precision="3" />
+    <Property Name="HeureArrivee" Type="DateTime" Precision="3" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="IDTypePresence" Type="Int32" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Presentiel_FK1" FromRole="Presentiel" ToRole="Beneficiaire" />
+    <NavigationProperty Name="TypePresence" Relationship="Self.TypePresence_Presentiel_FK1" FromRole="Presentiel" ToRole="TypePresence" />
+  </EntityType>
+  <EntityType Name="Programme">
+    <Key>
+      <PropertyRef Name="IDProgramme" />
+    </Key>
+    <Property Name="IDProgramme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Secteur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Niveau" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Phase" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Sequence" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BeneficiaireProgramme" Relationship="Self.Programme_BeneficiaireProgramme_FK1" FromRole="Programme" ToRole="BeneficiaireProgramme" />
+  </EntityType>
+  <EntityType Name="RegimeMutuelle">
+    <Key>
+      <PropertyRef Name="IDRegimeMutuelle" />
+    </Key>
+    <Property Name="IDRegimeMutuelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.RegimeMutuelle_Beneficiaire_FK1" FromRole="RegimeMutuelle" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Sejour">
+    <Key>
+      <PropertyRef Name="IDSejour" />
+    </Key>
+    <Property Name="IDSejour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateEntree" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HeureEntree" Type="DateTime" Precision="3" />
+    <Property Name="DateSortie" Type="DateTime" Precision="0" />
+    <Property Name="HeureSortie" Type="DateTime" Precision="3" />
+    <Property Name="Commentaires" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IDBeneficiare" Type="Int32" />
+    <Property Name="DateDebutConvention" Type="DateTime" Precision="3" />
+    <Property Name="DateFinConvention" Type="DateTime" Precision="3" />
+    <Property Name="ReferenceConvention" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Prolongation" Type="Boolean" />
+    <Property Name="DateFinProlongation" Type="DateTime" Precision="3" />
+    <Property Name="EtatAccordMutualiste" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DateDebutAccord" Type="DateTime" Precision="3" />
+    <Property Name="DateFinAccord" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Sejour_FK1" FromRole="Sejour" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="Sexe">
+    <Key>
+      <PropertyRef Name="IDSexe" />
+    </Key>
+    <Property Name="IDSexe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.Sexe_Beneficiaire_FK1" FromRole="Sexe" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="TypeAction">
+    <Key>
+      <PropertyRef Name="IDTypeAction" />
+    </Key>
+    <Property Name="IDTypeAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Action" Relationship="Self.TypeAction_Action_FK1" FromRole="TypeAction" ToRole="Action" />
+    <NavigationProperty Name="PieceJointe" Relationship="TrempolineDBModel.TypeAction_PieceJointe_FK1" FromRole="TypeAction" ToRole="PieceJointe" />
+  </EntityType>
+  <EntityType Name="TypeAdresse">
+    <Key>
+      <PropertyRef Name="IDTypeAdresse" />
+    </Key>
+    <Property Name="IDTypeAdresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Adresse" Relationship="Self.TypeAdresse_Adresse_FK1" FromRole="TypeAdresse" ToRole="Adresse" />
+  </EntityType>
+  <EntityType Name="TypeFratrie">
+    <Key>
+      <PropertyRef Name="IDTypeFratrie" />
+    </Key>
+    <Property Name="IDTypeFratrie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Fratrie" Relationship="Self.TypeFratrie_Fratrie_FK1" FromRole="TypeFratrie" ToRole="Fratrie" />
+  </EntityType>
+  <EntityType Name="TypePresence">
+    <Key>
+      <PropertyRef Name="IDTypePresence" />
+    </Key>
+    <Property Name="IDTypePresence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Presentiel" Relationship="Self.TypePresence_Presentiel_FK1" FromRole="TypePresence" ToRole="Presentiel" />
+  </EntityType>
+  <EntityType Name="TypePriseEnCharge">
+    <Key>
+      <PropertyRef Name="IDTypePriseEnCharge" />
+    </Key>
+    <Property Name="IDTypePriseEnCharge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Self.TypePriseEnCharge_Beneficiaire_FK1" FromRole="TypePriseEnCharge" ToRole="Beneficiaire" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Action" Relationship="Self.User_Action_FK1" FromRole="User" ToRole="Action" />
+    <NavigationProperty Name="AssistantSocial" Relationship="Self.User_AssistantSocial_FK1" FromRole="User" ToRole="AssistantSocial" />
+    <NavigationProperty Name="Educateur" Relationship="Self.User_Educateur_FK1" FromRole="User" ToRole="Educateur" />
+  </EntityType>
+  <Association Name="Beneficiaire_Action_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Action" Type="Self.Action" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="Action">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypeAction_Action_FK1">
+    <End Role="TypeAction" Type="Self.TypeAction" Multiplicity="0..1" />
+    <End Role="Action" Type="Self.Action" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeAction">
+        <PropertyRef Name="IDTypeAction" />
+      </Principal>
+      <Dependent Role="Action">
+        <PropertyRef Name="IDTypeAction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Action_FK1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Action" Type="Self.Action" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="Action">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Adresse_AdresseBeneficiaire_FK1">
+    <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+    <End Role="AdresseBeneficiaire" Type="Self.AdresseBeneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adresse">
+        <PropertyRef Name="IDAdresse" />
+      </Principal>
+      <Dependent Role="AdresseBeneficiaire">
+        <PropertyRef Name="IDAdresse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Localite_Adresse_FK1">
+    <End Role="Localite" Type="Self.Localite" Multiplicity="0..1" />
+    <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localite">
+        <PropertyRef Name="IDLocalite" />
+      </Principal>
+      <Dependent Role="Adresse">
+        <PropertyRef Name="IDLocalite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypeAdresse_Adresse_FK1">
+    <End Role="TypeAdresse" Type="Self.TypeAdresse" Multiplicity="0..1" />
+    <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeAdresse">
+        <PropertyRef Name="IDTypeAdresse" />
+      </Principal>
+      <Dependent Role="Adresse">
+        <PropertyRef Name="IDTypeAdresse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_AdresseBeneficiaire_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="AdresseBeneficiaire" Type="Self.AdresseBeneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="AdresseBeneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssistantSocial_BeneficiaireProgramme_FK1">
+    <End Role="AssistantSocial" Type="Self.AssistantSocial" Multiplicity="0..1" />
+    <End Role="BeneficiaireProgramme" Type="Self.BeneficiaireProgramme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssistantSocial">
+        <PropertyRef Name="IDAssistantSocial" />
+      </Principal>
+      <Dependent Role="BeneficiaireProgramme">
+        <PropertyRef Name="IDAssistantSocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_AssistantSocial_FK1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="AssistantSocial" Type="Self.AssistantSocial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="AssistantSocial">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AtelierFSE_Participation_FK1">
+    <End Role="AtelierFSE" Type="Self.AtelierFSE" Multiplicity="0..1" />
+    <End Role="Participation" Type="Self.Participation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AtelierFSE">
+        <PropertyRef Name="IDAtelierFSE" />
+      </Principal>
+      <Dependent Role="Participation">
+        <PropertyRef Name="IDFAtelierFSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutoriteParentale_EnfantKangourou_FK1">
+    <End Role="AutoriteParentale" Type="Self.AutoriteParentale" Multiplicity="0..1" />
+    <End Role="EnfantKangourou" Type="Self.EnfantKangourou" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutoriteParentale">
+        <PropertyRef Name="IDAutoriteparentale" />
+      </Principal>
+      <Dependent Role="EnfantKangourou">
+        <PropertyRef Name="IDAutoriteparentale" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Avocat_BeneficiaireAvocat_FK1">
+    <End Role="Avocat" Type="Self.Avocat" Multiplicity="0..1" />
+    <End Role="BeneficiaireAvocat" Type="Self.BeneficiaireAvocat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avocat">
+        <PropertyRef Name="AvocatID" />
+      </Principal>
+      <Dependent Role="BeneficiaireAvocat">
+        <PropertyRef Name="AvocatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK1">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE1DSMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK10">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="TraitPrescritA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK11">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="TraitPrescritB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK12">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AutresTraitements" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK13">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="TherapieAssocieeNbre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK14">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IncapaciteCEB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK15">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="NeccesiteSuivi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK2">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE1DSMB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK3">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE1TOXA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK4">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE1TOXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK5">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE1TOXC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK6">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE2A" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK7">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="AXE2B" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK8">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IndiceGravite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_Beneficiaire_FK9">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="CodeChangement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK1">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="SanteMentalePhysique" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK2">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="SituationEmploi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK3">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="Alcool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK4">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="Drogues" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK5">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="SituationJudiciaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK6">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="DomaineFamilial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK7">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="EtatPsychologique" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AxePsy_EnqueteEuropasi_FK8">
+    <End Role="AxePsy" Type="Self.AxePsy" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AxePsy">
+        <PropertyRef Name="IDAxePsy" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="TypeQuestionnaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_BeneficiaireAvocat_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="BeneficiaireAvocat" Type="Self.BeneficiaireAvocat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="BeneficiaireAvocat">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_BeneficiaireMaisonJustice_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="1" />
+    <End Role="BeneficiaireMaisonJustice" Type="Self.BeneficiaireMaisonJustice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="BeneficiaireMaisonJustice">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_BeneficiaireMedecin_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="BeneficiaireMedecin" Type="Self.BeneficiaireMedecin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="BeneficiaireMedecin">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_BeneficiaireProgramme_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="BeneficiaireProgramme" Type="Self.BeneficiaireProgramme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="BeneficiaireProgramme">
+        <PropertyRef Name="IDBeneficiaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_EnfantKangourou_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="EnfantKangourou" Type="Self.EnfantKangourou" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="EnfantKangourou">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_EnqueteEuropasi_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="EnqueteEuropasi" Type="Self.EnqueteEuropasi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="EnqueteEuropasi">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_Fratrie_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Fratrie" Type="Self.Fratrie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="Fratrie">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_IntervenantFamilial_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="IntervenantFamilial" Type="Self.IntervenantFamilial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="IntervenantFamilial">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_Participation_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Participation" Type="Self.Participation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="Participation">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_Presentiel_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Presentiel" Type="Self.Presentiel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="Presentiel">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Beneficiaire_Sejour_FK1">
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+    <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CPAS_Beneficiaire_FK1">
+    <End Role="CPAS" Type="Self.CPAS" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CPAS">
+        <PropertyRef Name="IDCPAS" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDCPAS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Diplome_Beneficiaire_FK1">
+    <End Role="Diplome" Type="Self.Diplome" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diplome">
+        <PropertyRef Name="IDDiplome" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDDiplome" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Educateur_Beneficiaire_FK1">
+    <End Role="Educateur" Type="Self.Educateur" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Educateur">
+        <PropertyRef Name="IDEducateur" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDEducateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Mutuelle_Beneficiaire_FK1">
+    <End Role="Mutuelle" Type="Self.Mutuelle" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mutuelle">
+        <PropertyRef Name="IDMutuelle" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDMutuelle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Nationalite_Beneficiaire_FK1">
+    <End Role="Nationalite" Type="Self.Nationalite" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationalite">
+        <PropertyRef Name="IDNationalite" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDNationalite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RegimeMutuelle_Beneficiaire_FK1">
+    <End Role="RegimeMutuelle" Type="Self.RegimeMutuelle" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegimeMutuelle">
+        <PropertyRef Name="IDRegimeMutuelle" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDRegime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sexe_Beneficiaire_FK1">
+    <End Role="Sexe" Type="Self.Sexe" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexe">
+        <PropertyRef Name="IDSexe" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDSexe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypePriseEnCharge_Beneficiaire_FK1">
+    <End Role="TypePriseEnCharge" Type="Self.TypePriseEnCharge" Multiplicity="0..1" />
+    <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypePriseEnCharge">
+        <PropertyRef Name="IDTypePriseEnCharge" />
+      </Principal>
+      <Dependent Role="Beneficiaire">
+        <PropertyRef Name="IDTypePriseEnCharge" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaisonJustice_BeneficiaireMaisonJustice_FK1">
+    <End Role="MaisonJustice" Type="Self.MaisonJustice" Multiplicity="1" />
+    <End Role="BeneficiaireMaisonJustice" Type="Self.BeneficiaireMaisonJustice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaisonJustice">
+        <PropertyRef Name="IDMaisonJustice" />
+      </Principal>
+      <Dependent Role="BeneficiaireMaisonJustice">
+        <PropertyRef Name="IDMaisonJustice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Medecin_BeneficiaireMedecin_FK1">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="BeneficiaireMedecin" Type="Self.BeneficiaireMedecin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="IDMedecin" />
+      </Principal>
+      <Dependent Role="BeneficiaireMedecin">
+        <PropertyRef Name="IDMedecin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Educateur_BeneficiaireProgramme_FK1">
+    <End Role="Educateur" Type="Self.Educateur" Multiplicity="0..1" />
+    <End Role="BeneficiaireProgramme" Type="Self.BeneficiaireProgramme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Educateur">
+        <PropertyRef Name="IDEducateur" />
+      </Principal>
+      <Dependent Role="BeneficiaireProgramme">
+        <PropertyRef Name="IDEducateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Programme_BeneficiaireProgramme_FK1">
+    <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
+    <End Role="BeneficiaireProgramme" Type="Self.BeneficiaireProgramme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="IDProgramme" />
+      </Principal>
+      <Dependent Role="BeneficiaireProgramme">
+        <PropertyRef Name="IDProgramme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Educateur_FK1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Educateur" Type="Self.Educateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="Educateur">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypeFratrie_Fratrie_FK1">
+    <End Role="TypeFratrie" Type="Self.TypeFratrie" Multiplicity="0..1" />
+    <End Role="Fratrie" Type="Self.Fratrie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFratrie">
+        <PropertyRef Name="IDTypeFratrie" />
+      </Principal>
+      <Dependent Role="Fratrie">
+        <PropertyRef Name="IDTypeFratrie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypePresence_Presentiel_FK1">
+    <End Role="TypePresence" Type="Self.TypePresence" Multiplicity="0..1" />
+    <End Role="Presentiel" Type="Self.Presentiel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypePresence">
+        <PropertyRef Name="IDTypePresence" />
+      </Principal>
+      <Dependent Role="Presentiel">
+        <PropertyRef Name="IDTypePresence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrempolineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Action" EntityType="Self.Action" />
+    <EntitySet Name="Adresse" EntityType="Self.Adresse" />
+    <EntitySet Name="AdresseBeneficiaire" EntityType="Self.AdresseBeneficiaire" />
+    <EntitySet Name="AssistantSocial" EntityType="Self.AssistantSocial" />
+    <EntitySet Name="AtelierFSE" EntityType="Self.AtelierFSE" />
+    <EntitySet Name="AutoriteParentale" EntityType="Self.AutoriteParentale" />
+    <EntitySet Name="Avocat" EntityType="Self.Avocat" />
+    <EntitySet Name="AxePsy" EntityType="Self.AxePsy" />
+    <EntitySet Name="Beneficiaire" EntityType="Self.Beneficiaire" />
+    <EntitySet Name="BeneficiaireAvocat" EntityType="Self.BeneficiaireAvocat" />
+    <EntitySet Name="BeneficiaireMaisonJustice" EntityType="Self.BeneficiaireMaisonJustice" />
+    <EntitySet Name="BeneficiaireMedecin" EntityType="Self.BeneficiaireMedecin" />
+    <EntitySet Name="BeneficiaireProgramme" EntityType="Self.BeneficiaireProgramme" />
+    <EntitySet Name="CPAS" EntityType="Self.CPAS" />
+    <EntitySet Name="Diplome" EntityType="Self.Diplome" />
+    <EntitySet Name="Educateur" EntityType="Self.Educateur" />
+    <EntitySet Name="EnfantKangourou" EntityType="Self.EnfantKangourou" />
+    <EntitySet Name="EnqueteEuropasi" EntityType="Self.EnqueteEuropasi" />
+    <EntitySet Name="Fratrie" EntityType="Self.Fratrie" />
+    <EntitySet Name="IntervenantFamilial" EntityType="Self.IntervenantFamilial" />
+    <EntitySet Name="Localite" EntityType="Self.Localite" />
+    <EntitySet Name="MaisonJustice" EntityType="Self.MaisonJustice" />
+    <EntitySet Name="Medecin" EntityType="Self.Medecin" />
+    <EntitySet Name="Mutuelle" EntityType="Self.Mutuelle" />
+    <EntitySet Name="Nationalite" EntityType="Self.Nationalite" />
+    <EntitySet Name="Participation" EntityType="Self.Participation" />
+    <EntitySet Name="Presentiel" EntityType="Self.Presentiel" />
+    <EntitySet Name="Programme" EntityType="Self.Programme" />
+    <EntitySet Name="RegimeMutuelle" EntityType="Self.RegimeMutuelle" />
+    <EntitySet Name="Sejour" EntityType="Self.Sejour" />
+    <EntitySet Name="Sexe" EntityType="Self.Sexe" />
+    <EntitySet Name="TypeAction" EntityType="Self.TypeAction" />
+    <EntitySet Name="TypeAdresse" EntityType="Self.TypeAdresse" />
+    <EntitySet Name="TypeFratrie" EntityType="Self.TypeFratrie" />
+    <EntitySet Name="TypePresence" EntityType="Self.TypePresence" />
+    <EntitySet Name="TypePriseEnCharge" EntityType="Self.TypePriseEnCharge" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="Beneficiaire_Action_FK1" Association="Self.Beneficiaire_Action_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="Action" EntitySet="Action" />
+    </AssociationSet>
+    <AssociationSet Name="TypeAction_Action_FK1" Association="Self.TypeAction_Action_FK1">
+      <End Role="TypeAction" EntitySet="TypeAction" />
+      <End Role="Action" EntitySet="Action" />
+    </AssociationSet>
+    <AssociationSet Name="User_Action_FK1" Association="Self.User_Action_FK1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Action" EntitySet="Action" />
+    </AssociationSet>
+    <AssociationSet Name="Adresse_AdresseBeneficiaire_FK1" Association="Self.Adresse_AdresseBeneficiaire_FK1">
+      <End Role="Adresse" EntitySet="Adresse" />
+      <End Role="AdresseBeneficiaire" EntitySet="AdresseBeneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Localite_Adresse_FK1" Association="Self.Localite_Adresse_FK1">
+      <End Role="Localite" EntitySet="Localite" />
+      <End Role="Adresse" EntitySet="Adresse" />
+    </AssociationSet>
+    <AssociationSet Name="TypeAdresse_Adresse_FK1" Association="Self.TypeAdresse_Adresse_FK1">
+      <End Role="TypeAdresse" EntitySet="TypeAdresse" />
+      <End Role="Adresse" EntitySet="Adresse" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_AdresseBeneficiaire_FK1" Association="Self.Beneficiaire_AdresseBeneficiaire_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="AdresseBeneficiaire" EntitySet="AdresseBeneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AssistantSocial_BeneficiaireProgramme_FK1" Association="Self.AssistantSocial_BeneficiaireProgramme_FK1">
+      <End Role="AssistantSocial" EntitySet="AssistantSocial" />
+      <End Role="BeneficiaireProgramme" EntitySet="BeneficiaireProgramme" />
+    </AssociationSet>
+    <AssociationSet Name="User_AssistantSocial_FK1" Association="Self.User_AssistantSocial_FK1">
+      <End Role="User" EntitySet="User" />
+      <End Role="AssistantSocial" EntitySet="AssistantSocial" />
+    </AssociationSet>
+    <AssociationSet Name="AtelierFSE_Participation_FK1" Association="Self.AtelierFSE_Participation_FK1">
+      <End Role="AtelierFSE" EntitySet="AtelierFSE" />
+      <End Role="Participation" EntitySet="Participation" />
+    </AssociationSet>
+    <AssociationSet Name="AutoriteParentale_EnfantKangourou_FK1" Association="Self.AutoriteParentale_EnfantKangourou_FK1">
+      <End Role="AutoriteParentale" EntitySet="AutoriteParentale" />
+      <End Role="EnfantKangourou" EntitySet="EnfantKangourou" />
+    </AssociationSet>
+    <AssociationSet Name="Avocat_BeneficiaireAvocat_FK1" Association="Self.Avocat_BeneficiaireAvocat_FK1">
+      <End Role="Avocat" EntitySet="Avocat" />
+      <End Role="BeneficiaireAvocat" EntitySet="BeneficiaireAvocat" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK1" Association="Self.AxePsy_Beneficiaire_FK1">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK10" Association="Self.AxePsy_Beneficiaire_FK10">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK11" Association="Self.AxePsy_Beneficiaire_FK11">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK12" Association="Self.AxePsy_Beneficiaire_FK12">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK13" Association="Self.AxePsy_Beneficiaire_FK13">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK14" Association="Self.AxePsy_Beneficiaire_FK14">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK15" Association="Self.AxePsy_Beneficiaire_FK15">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK2" Association="Self.AxePsy_Beneficiaire_FK2">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK3" Association="Self.AxePsy_Beneficiaire_FK3">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK4" Association="Self.AxePsy_Beneficiaire_FK4">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK5" Association="Self.AxePsy_Beneficiaire_FK5">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK6" Association="Self.AxePsy_Beneficiaire_FK6">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK7" Association="Self.AxePsy_Beneficiaire_FK7">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK8" Association="Self.AxePsy_Beneficiaire_FK8">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_Beneficiaire_FK9" Association="Self.AxePsy_Beneficiaire_FK9">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK1" Association="Self.AxePsy_EnqueteEuropasi_FK1">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK2" Association="Self.AxePsy_EnqueteEuropasi_FK2">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK3" Association="Self.AxePsy_EnqueteEuropasi_FK3">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK4" Association="Self.AxePsy_EnqueteEuropasi_FK4">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK5" Association="Self.AxePsy_EnqueteEuropasi_FK5">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK6" Association="Self.AxePsy_EnqueteEuropasi_FK6">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK7" Association="Self.AxePsy_EnqueteEuropasi_FK7">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="AxePsy_EnqueteEuropasi_FK8" Association="Self.AxePsy_EnqueteEuropasi_FK8">
+      <End Role="AxePsy" EntitySet="AxePsy" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_BeneficiaireAvocat_FK1" Association="Self.Beneficiaire_BeneficiaireAvocat_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="BeneficiaireAvocat" EntitySet="BeneficiaireAvocat" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_BeneficiaireMaisonJustice_FK1" Association="Self.Beneficiaire_BeneficiaireMaisonJustice_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="BeneficiaireMaisonJustice" EntitySet="BeneficiaireMaisonJustice" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_BeneficiaireMedecin_FK1" Association="Self.Beneficiaire_BeneficiaireMedecin_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="BeneficiaireMedecin" EntitySet="BeneficiaireMedecin" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_BeneficiaireProgramme_FK1" Association="Self.Beneficiaire_BeneficiaireProgramme_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="BeneficiaireProgramme" EntitySet="BeneficiaireProgramme" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_EnfantKangourou_FK1" Association="Self.Beneficiaire_EnfantKangourou_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="EnfantKangourou" EntitySet="EnfantKangourou" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_EnqueteEuropasi_FK1" Association="Self.Beneficiaire_EnqueteEuropasi_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="EnqueteEuropasi" EntitySet="EnqueteEuropasi" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_Fratrie_FK1" Association="Self.Beneficiaire_Fratrie_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="Fratrie" EntitySet="Fratrie" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_IntervenantFamilial_FK1" Association="Self.Beneficiaire_IntervenantFamilial_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="IntervenantFamilial" EntitySet="IntervenantFamilial" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_Participation_FK1" Association="Self.Beneficiaire_Participation_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="Participation" EntitySet="Participation" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_Presentiel_FK1" Association="Self.Beneficiaire_Presentiel_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="Presentiel" EntitySet="Presentiel" />
+    </AssociationSet>
+    <AssociationSet Name="Beneficiaire_Sejour_FK1" Association="Self.Beneficiaire_Sejour_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="Sejour" EntitySet="Sejour" />
+    </AssociationSet>
+    <AssociationSet Name="CPAS_Beneficiaire_FK1" Association="Self.CPAS_Beneficiaire_FK1">
+      <End Role="CPAS" EntitySet="CPAS" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Diplome_Beneficiaire_FK1" Association="Self.Diplome_Beneficiaire_FK1">
+      <End Role="Diplome" EntitySet="Diplome" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Educateur_Beneficiaire_FK1" Association="Self.Educateur_Beneficiaire_FK1">
+      <End Role="Educateur" EntitySet="Educateur" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Mutuelle_Beneficiaire_FK1" Association="Self.Mutuelle_Beneficiaire_FK1">
+      <End Role="Mutuelle" EntitySet="Mutuelle" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Nationalite_Beneficiaire_FK1" Association="Self.Nationalite_Beneficiaire_FK1">
+      <End Role="Nationalite" EntitySet="Nationalite" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="RegimeMutuelle_Beneficiaire_FK1" Association="Self.RegimeMutuelle_Beneficiaire_FK1">
+      <End Role="RegimeMutuelle" EntitySet="RegimeMutuelle" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="Sexe_Beneficiaire_FK1" Association="Self.Sexe_Beneficiaire_FK1">
+      <End Role="Sexe" EntitySet="Sexe" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="TypePriseEnCharge_Beneficiaire_FK1" Association="Self.TypePriseEnCharge_Beneficiaire_FK1">
+      <End Role="TypePriseEnCharge" EntitySet="TypePriseEnCharge" />
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+    </AssociationSet>
+    <AssociationSet Name="MaisonJustice_BeneficiaireMaisonJustice_FK1" Association="Self.MaisonJustice_BeneficiaireMaisonJustice_FK1">
+      <End Role="MaisonJustice" EntitySet="MaisonJustice" />
+      <End Role="BeneficiaireMaisonJustice" EntitySet="BeneficiaireMaisonJustice" />
+    </AssociationSet>
+    <AssociationSet Name="Medecin_BeneficiaireMedecin_FK1" Association="Self.Medecin_BeneficiaireMedecin_FK1">
+      <End Role="Medecin" EntitySet="Medecin" />
+      <End Role="BeneficiaireMedecin" EntitySet="BeneficiaireMedecin" />
+    </AssociationSet>
+    <AssociationSet Name="Educateur_BeneficiaireProgramme_FK1" Association="Self.Educateur_BeneficiaireProgramme_FK1">
+      <End Role="Educateur" EntitySet="Educateur" />
+      <End Role="BeneficiaireProgramme" EntitySet="BeneficiaireProgramme" />
+    </AssociationSet>
+    <AssociationSet Name="Programme_BeneficiaireProgramme_FK1" Association="Self.Programme_BeneficiaireProgramme_FK1">
+      <End Role="Programme" EntitySet="Programme" />
+      <End Role="BeneficiaireProgramme" EntitySet="BeneficiaireProgramme" />
+    </AssociationSet>
+    <AssociationSet Name="User_Educateur_FK1" Association="Self.User_Educateur_FK1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Educateur" EntitySet="Educateur" />
+    </AssociationSet>
+    <AssociationSet Name="TypeFratrie_Fratrie_FK1" Association="Self.TypeFratrie_Fratrie_FK1">
+      <End Role="TypeFratrie" EntitySet="TypeFratrie" />
+      <End Role="Fratrie" EntitySet="Fratrie" />
+    </AssociationSet>
+    <AssociationSet Name="TypePresence_Presentiel_FK1" Association="Self.TypePresence_Presentiel_FK1">
+      <End Role="TypePresence" EntitySet="TypePresence" />
+      <End Role="Presentiel" EntitySet="Presentiel" />
+    </AssociationSet>
+    <EntitySet Name="PieceJointe" EntityType="TrempolineDBModel.PieceJointe" />
+    <AssociationSet Name="Beneficiaire_PieceJointe_FK1" Association="TrempolineDBModel.Beneficiaire_PieceJointe_FK1">
+      <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+      <End Role="PieceJointe" EntitySet="PieceJointe" />
+    </AssociationSet>
+    <AssociationSet Name="TypeAction_PieceJointe_FK1" Association="TrempolineDBModel.TypeAction_PieceJointe_FK1">
+      <End Role="TypeAction" EntitySet="TypeAction" />
+      <End Role="PieceJointe" EntitySet="PieceJointe" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="TrempolineDBModel.sysdiagrams" />
+  </EntityContainer>
+  <EntityType Name="PieceJointe">
+    <Key>
+      <PropertyRef Name="IDPieceJointe" />
+    </Key>
+    <Property Name="IDPieceJointe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LibellePiece" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="DatePiece" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IDBeneficiare" Type="Int32" Nullable="false" />
+    <Property Name="IDTypeAction" Type="Int32" />
+    <Property Name="Piece" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Beneficiaire" Relationship="TrempolineDBModel.Beneficiaire_PieceJointe_FK1" FromRole="PieceJointe" ToRole="Beneficiaire" />
+    <NavigationProperty Name="TypeAction" Relationship="TrempolineDBModel.TypeAction_PieceJointe_FK1" FromRole="PieceJointe" ToRole="TypeAction" />
+    <Property Name="ContentType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="Beneficiaire_PieceJointe_FK1">
+    <End Type="TrempolineDBModel.Beneficiaire" Role="Beneficiaire" Multiplicity="1" />
+    <End Type="TrempolineDBModel.PieceJointe" Role="PieceJointe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiaire">
+        <PropertyRef Name="IDBeneficiare" />
+      </Principal>
+      <Dependent Role="PieceJointe">
+        <PropertyRef Name="IDBeneficiare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypeAction_PieceJointe_FK1">
+    <End Type="TrempolineDBModel.TypeAction" Role="TypeAction" Multiplicity="0..1" />
+    <End Type="TrempolineDBModel.PieceJointe" Role="PieceJointe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeAction">
+        <PropertyRef Name="IDTypeAction" />
+      </Principal>
+      <Dependent Role="PieceJointe">
+        <PropertyRef Name="IDTypeAction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="457866554cef46d0a4e01cc06a764346" Name="Diagram1">
+        <EntityTypeShape EntityType="TrempolineDBModel.Action" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Adresse" Width="1.5" PointX="6" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.AdresseBeneficiaire" Width="1.5" PointX="8.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.AssistantSocial" Width="1.5" PointX="3" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.AtelierFSE" Width="1.5" PointX="9" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.AutoriteParentale" Width="1.5" PointX="9" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Avocat" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.AxePsy" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Beneficiaire" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.BeneficiaireAvocat" Width="1.5" PointX="8.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.BeneficiaireMaisonJustice" Width="1.5" PointX="8.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.BeneficiaireMedecin" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.BeneficiaireProgramme" Width="1.5" PointX="5.25" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.CPAS" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Diplome" Width="1.5" PointX="0.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Educateur" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.EnfantKangourou" Width="1.5" PointX="11.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.EnqueteEuropasi" Width="1.5" PointX="11.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Fratrie" Width="1.5" PointX="8.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.IntervenantFamilial" Width="1.5" PointX="5.25" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Localite" Width="1.5" PointX="3.75" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.MaisonJustice" Width="1.5" PointX="6" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Medecin" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Mutuelle" Width="1.5" PointX="0.75" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Nationalite" Width="1.5" PointX="0.75" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Participation" Width="1.5" PointX="11.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Presentiel" Width="1.5" PointX="8.25" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Programme" Width="1.5" PointX="3" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.RegimeMutuelle" Width="1.5" PointX="0.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Sejour" Width="1.5" PointX="5.25" PointY="81.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.Sexe" Width="1.5" PointX="0.75" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.TypeAction" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.TypeAdresse" Width="1.5" PointX="3.75" PointY="55" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.TypeFratrie" Width="1.5" PointX="6" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.TypePresence" Width="1.5" PointX="6" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.TypePriseEnCharge" Width="1.5" PointX="0.75" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrempolineDBModel.User" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_Action_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.TypeAction_Action_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.User_Action_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Adresse_AdresseBeneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Localite_Adresse_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.TypeAdresse_Adresse_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_AdresseBeneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AssistantSocial_BeneficiaireProgramme_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.User_AssistantSocial_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AtelierFSE_Participation_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AutoriteParentale_EnfantKangourou_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Avocat_BeneficiaireAvocat_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK10" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK11" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK12" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK13" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK14" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK15" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK5" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK6" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK7" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK8" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_Beneficiaire_FK9" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK5" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK6" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK7" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.AxePsy_EnqueteEuropasi_FK8" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_BeneficiaireAvocat_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_BeneficiaireMaisonJustice_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_BeneficiaireMedecin_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_BeneficiaireProgramme_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_EnfantKangourou_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_EnqueteEuropasi_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_Fratrie_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_IntervenantFamilial_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_Participation_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_Presentiel_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_Sejour_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.CPAS_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Diplome_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Educateur_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Mutuelle_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Nationalite_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.RegimeMutuelle_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Sexe_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.TypePriseEnCharge_Beneficiaire_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.MaisonJustice_BeneficiaireMaisonJustice_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Medecin_BeneficiaireMedecin_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Educateur_BeneficiaireProgramme_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.Programme_BeneficiaireProgramme_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.User_Educateur_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.TypeFratrie_Fratrie_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrempolineDBModel.TypePresence_Presentiel_FK1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TrempolineDBModel.PieceJointe" Width="1.5" PointX="5.25" PointY="24.25" />
+        <AssociationConnector Association="TrempolineDBModel.Beneficiaire_PieceJointe_FK1" />
+        <AssociationConnector Association="TrempolineDBModel.TypeAction_PieceJointe_FK1" />
+        <EntityTypeShape EntityType="TrempolineDBModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

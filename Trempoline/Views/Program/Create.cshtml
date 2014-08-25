@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="tab-container">
+    <div class="col-sm-10">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Secteur
+                    </th>
+                    <th>
+                        Niveau
+                    </th>
+                    <th>
+                        Phase
+                    </th>
+                    <th>
+                        Date de passage
+                    </th>
+                    <th>
+                        Educateur
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-10" style="text-align:right; clear:right;">
+        <button class="btn btn-default">+</button>
+        <button id="Delete" class="btn btn-default">-</button>
+    </div>
+
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                @Html.Label("Secteur", "Secteur* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("Secteur", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Niveau", "Niveau* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("Niveau", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Phase", "Phase* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("Phase", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("DatePassage", "Date de passage* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("DatePassage", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("AssistantSocial", "Assistant social* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("AssistantSocial", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Educateur", "Educateur* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("Educateur", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Horus", "Horus* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.CheckBox("Horus")
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Commentaires", "Commentaires* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextArea("Commentaires", null, 2, 20, new { @class = "form-control textAreaNoResize", style = "width:100%; height:100px;" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("DateSortie", "Date de sortie* : ", new { @class = "label-control col-sm-2" })
+                <div class="col-sm-4">
+                    @Html.TextBox("DateSortie", null, new { @class = "form-control" })
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

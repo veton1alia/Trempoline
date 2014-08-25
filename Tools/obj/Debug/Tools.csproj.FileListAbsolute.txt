@@ -1,0 +1,5 @@
+c:\users\veton\documents\visual studio 2013\Projects\Trempoline\Tools\bin\Debug\Tools.dll
+c:\users\veton\documents\visual studio 2013\Projects\Trempoline\Tools\bin\Debug\Tools.pdb
+c:\users\veton\documents\visual studio 2013\Projects\Trempoline\Tools\obj\Debug\Tools.csprojResolveAssemblyReference.cache
+c:\users\veton\documents\visual studio 2013\Projects\Trempoline\Tools\obj\Debug\Tools.dll
+c:\users\veton\documents\visual studio 2013\Projects\Trempoline\Tools\obj\Debug\Tools.pdb

@@ -1,0 +1,149 @@
+﻿@model  IEnumerable<Trempoline.Models.PieceJointe>
+
+@{
+    Layout = null;
+}
+
+<div class="tab-container">
+
+    <div class="borderGray">
+
+        <div class="row">
+            <form id="search_form">
+                <input type="hidden" name="id" value="@ViewBag.IDBeneficiaire" /> @*Id beneiciaire*@
+                <label class="control-label col-sm-1">Type : </label>
+                <div class="col-sm-3">
+                    @Html.DropDownList("IDTypeAction", (IEnumerable<SelectListItem>)ViewBag.Service,"", new { @class = "from-control" })
+                </div>
+
+                <label class="control-label col-sm-2">Date pièce entre: </label>
+
+                <div class="col-sm-2">
+                    <input type="text" name="Start" class="form-control date-picker" data-date-format="dd-mm-yyyy">
+                </div>
+                <label class="control-label col-sm-1"> et </label>
+                <div class="col-sm-2">
+                    <input type="text" name="End" class="form-control date-picker" data-date-format="dd-mm-yyyy">
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" id="search_btn" class="btn btn-default">Appliquer</button>
+                    <button type="reset" class="btn btn-default">Vider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        @using (Html.BeginForm("Create", "Attachement", FormMethod.Post, new { id = "attachements_form", enctype = "multipart/form-data" }))
+        {
+            <div class="displayNone">
+                @Html.TextBox("IDBeneficiaire", ViewBag.IDBeneficiaire as object, new { type = "hidden" })
+            </div>
+            <table class="table table-bordered table-hover" id="attach_table" style="width:600px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Libelle
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Pièce
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        int i = 0;
+
+                        foreach (var attach in Model)
+                        {
+                            <tr>
+                                <td class="displayNone">
+                                    @Html.TextBox("Attachements[" + i + "].IDPieceJointe", attach.IDPieceJointe, new { type = "hidden" })
+                                </td>
+                                <td>
+                                    @Html.TextBox("Attachements[" + i + "].LibellePiece", attach.LibellePiece, "{0:dd-mm-yyyy}", new { @class = "textInput", disabled = "" })
+                                </td>
+                                <td>
+                                    @Html.TextBox("Attachements[" + i + "].DatePiece", attach.DatePiece, "{0:dd-mm-yyyy}", new { @class = "textInput", disabled = "" })
+                                </td>
+                                <td>
+                                    @if (attach.IDTypeAction.HasValue != null)
+                                    {
+                                        @attach.TypeAction.Valeur
+                                    }
+                                    @Html.TextBox("Attachements[" + i + "].IDTypeAction", attach.IDTypeAction, new { type = "hidden" })
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-file"></span>
+                                </td>
+                            </tr>
+
+                                    i++;
+                        }
+
+                    }
+                </tbody>
+            </table>
+        }
+        <div style="height: 45px; width: 600px;">
+            <div style="float:right; clear:right;">
+                <button type="button" id="attach_add" class="btn btn-default">+</button>
+                <button type="button" id="attach_delete" class="btn btn-default">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="borderGray">
+        <form id="attach_form">
+            <div class="row">
+                @Html.Label("LibellePiece", "Libellé* : ", new { @class = "col-sm-2 label-control" })
+                <div class="col-sm-4">
+                    @Html.TextBox("LibellePiece", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                @Html.Label("DatePiece", "Date* : ", new { @class = "col-sm-2 label-control" })
+                <div class="col-sm-4">
+                    @Html.TextBox("DatePiece", null, new { @class = "form-control date-picker", data_date_format = "dd-mm-yyyy" })
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 label-control" for="Piece">Pièce* : </label>
+                <div class="col-sm-4">
+                    @Html.ActionLink("Télécharger", "Download", "Attachement", new {benefId = ViewBag.IDBeneficiaire, fileId = 0 }, new { @class = "btn btn-default displayNone", id = "download" })
+                    <button type="button" class="btn" id="upload">Uploader</button>
+                    <span id="fileName"></span>
+                    <input type="file" id="Piece" name="Piece" multiple style="display:none;" />
+                </div>
+            </div>
+
+            <div class="row">
+                @Html.Label("IDTypeAction", "Type Pièce* : ", new { @class = "col-sm-2 label-control" })
+                <div class="col-sm-4">
+                    @Html.DropDownList("IDTypeAction", (IEnumerable<SelectListItem>)ViewBag.Service, new { @class="from-control"})
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-sm-6" style="text-align:right;">
+                    <button type="button" id="edit" class="btn displayNone">Sauver Modification</button>
+                </div>
+            </div>*@
+        </form>
+    </div>
+    <br />
+    <button id="saveAttachement" class="btn btn-default">Sauver</button>
+</div>
+<script>
+    $(document).ready(function () {
+        FormElements.init();
+        Attachement.init();
+    });
+</script>

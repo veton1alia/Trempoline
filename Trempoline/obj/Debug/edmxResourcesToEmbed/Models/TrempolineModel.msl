@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrempolineDBModelStoreContainer" CdmEntityContainer="TrempolineEntities">
+    <EntitySetMapping Name="Action">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Action">
+        <MappingFragment StoreEntitySet="Action">
+          <ScalarProperty Name="IDAction" ColumnName="IDAction" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Valide" ColumnName="Valide" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adresse">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Adresse">
+        <MappingFragment StoreEntitySet="Adresse">
+          <ScalarProperty Name="IDAdresse" ColumnName="IDAdresse" />
+          <ScalarProperty Name="Ligne1" ColumnName="Ligne1" />
+          <ScalarProperty Name="Ligne2" ColumnName="Ligne2" />
+          <ScalarProperty Name="Pays" ColumnName="Pays" />
+          <ScalarProperty Name="IDTypeAdresse" ColumnName="IDTypeAdresse" />
+          <ScalarProperty Name="IDLocalite" ColumnName="IDLocalite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdresseBeneficiaire">
+      <EntityTypeMapping TypeName="TrempolineDBModel.AdresseBeneficiaire">
+        <MappingFragment StoreEntitySet="AdresseBeneficiaire">
+          <ScalarProperty Name="IDAdresseBeneficiaire" ColumnName="IDAdresseBeneficiaire" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDAdresse" ColumnName="IDAdresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssistantSocial">
+      <EntityTypeMapping TypeName="TrempolineDBModel.AssistantSocial">
+        <MappingFragment StoreEntitySet="AssistantSocial">
+          <ScalarProperty Name="IDAssistantSocial" ColumnName="IDAssistantSocial" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtelierFSE">
+      <EntityTypeMapping TypeName="TrempolineDBModel.AtelierFSE">
+        <MappingFragment StoreEntitySet="AtelierFSE">
+          <ScalarProperty Name="IDAtelierFSE" ColumnName="IDAtelierFSE" />
+          <ScalarProperty Name="NomAtelier" ColumnName="NomAtelier" />
+          <ScalarProperty Name="CommentairesAtelier" ColumnName="CommentairesAtelier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutoriteParentale">
+      <EntityTypeMapping TypeName="TrempolineDBModel.AutoriteParentale">
+        <MappingFragment StoreEntitySet="AutoriteParentale">
+          <ScalarProperty Name="IDAutoriteparentale" ColumnName="IDAutoriteparentale" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Avocat">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Avocat">
+        <MappingFragment StoreEntitySet="Avocat">
+          <ScalarProperty Name="AvocatID" ColumnName="AvocatID" />
+          <ScalarProperty Name="AvocatNom" ColumnName="AvocatNom" />
+          <ScalarProperty Name="AvocatPrenom" ColumnName="AvocatPrenom" />
+          <ScalarProperty Name="AvocatAdresse1" ColumnName="AvocatAdresse1" />
+          <ScalarProperty Name="AvocatAdresse2" ColumnName="AvocatAdresse2" />
+          <ScalarProperty Name="AvocatCP" ColumnName="AvocatCP" />
+          <ScalarProperty Name="Avocatlocalite" ColumnName="Avocatlocalite" />
+          <ScalarProperty Name="AvocatTelephone" ColumnName="AvocatTelephone" />
+          <ScalarProperty Name="AvocatFax" ColumnName="AvocatFax" />
+          <ScalarProperty Name="AvocatMail" ColumnName="AvocatMail" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AxePsy">
+      <EntityTypeMapping TypeName="TrempolineDBModel.AxePsy">
+        <MappingFragment StoreEntitySet="AxePsy">
+          <ScalarProperty Name="IDAxePsy" ColumnName="IDAxePsy" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beneficiaire">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Beneficiaire">
+        <MappingFragment StoreEntitySet="Beneficiaire">
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="LieuNaissance" ColumnName="LieuNaissance" />
+          <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+          <ScalarProperty Name="RegistreNational" ColumnName="RegistreNational" />
+          <ScalarProperty Name="CarteIdentite" ColumnName="CarteIdentite" />
+          <ScalarProperty Name="IDNationalite" ColumnName="IDNationalite" />
+          <ScalarProperty Name="PermisConduire" ColumnName="PermisConduire" />
+          <ScalarProperty Name="DatePermisConduire" ColumnName="DatePermisConduire" />
+          <ScalarProperty Name="CommentairesFicheContact" ColumnName="CommentairesFicheContact" />
+          <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
+          <ScalarProperty Name="N_InscriptionMutuelle" ColumnName="N°InscriptionMutuelle" />
+          <ScalarProperty Name="RegimeMutuelle" ColumnName="RegimeMutuelle" />
+          <ScalarProperty Name="IDRegime" ColumnName="IDRegime" />
+          <ScalarProperty Name="MedecinConseil" ColumnName="MedecinConseil" />
+          <ScalarProperty Name="CommentairesMututelle" ColumnName="CommentairesMututelle" />
+          <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
+          <ScalarProperty Name="PersonneContactCPAS" ColumnName="PersonneContactCPAS" />
+          <ScalarProperty Name="N_TelContactCPAS" ColumnName="N°TelContactCPAS" />
+          <ScalarProperty Name="CommentairesCPAS" ColumnName="CommentairesCPAS" />
+          <ScalarProperty Name="RevenusCPAS" ColumnName="RevenusCPAS" />
+          <ScalarProperty Name="DateDebutRevenuCPAS" ColumnName="DateDebutRevenuCPAS" />
+          <ScalarProperty Name="RevenusIITMutuelle" ColumnName="RevenusIITMutuelle" />
+          <ScalarProperty Name="DateDebutRevenuIITMutuelle" ColumnName="DateDebutRevenuIITMutuelle" />
+          <ScalarProperty Name="RevenusAllocHandic" ColumnName="RevenusAllocHandic" />
+          <ScalarProperty Name="MontantPensionAlim" ColumnName="MontantPensionAlim" />
+          <ScalarProperty Name="AutresRevenus" ColumnName="AutresRevenus" />
+          <ScalarProperty Name="CommentairesRevenus" ColumnName="CommentairesRevenus" />
+          <ScalarProperty Name="IDTypePriseEnCharge" ColumnName="IDTypePriseEnCharge" />
+          <ScalarProperty Name="IDEducateur" ColumnName="IDEducateur" />
+          <ScalarProperty Name="BanqueCompteVue" ColumnName="BanqueCompteVue" />
+          <ScalarProperty Name="NoCompteVue" ColumnName="NoCompteVue" />
+          <ScalarProperty Name="BanqueCompteEpargne" ColumnName="BanqueCompteEpargne" />
+          <ScalarProperty Name="NoCompteEpargne" ColumnName="NoCompteEpargne" />
+          <ScalarProperty Name="CarteBanque" ColumnName="CarteBanque" />
+          <ScalarProperty Name="CodePin" ColumnName="CodePin" />
+          <ScalarProperty Name="PCBanking" ColumnName="PCBanking" />
+          <ScalarProperty Name="SoldeCompteVue" ColumnName="SoldeCompteVue" />
+          <ScalarProperty Name="DateSoldeCompteVue" ColumnName="DateSoldeCompteVue" />
+          <ScalarProperty Name="SoldeCompteEpargne" ColumnName="SoldeCompteEpargne" />
+          <ScalarProperty Name="DateSoldeCompteEpargne" ColumnName="DateSoldeCompteEpargne" />
+          <ScalarProperty Name="CompteTrempoline" ColumnName="CompteTrempoline" />
+          <ScalarProperty Name="FichierCompte" ColumnName="FichierCompte" />
+          <ScalarProperty Name="CommentairesFinances" ColumnName="CommentairesFinances" />
+          <ScalarProperty Name="Dettes" ColumnName="Dettes" />
+          <ScalarProperty Name="CommentairesDettes" ColumnName="CommentairesDettes" />
+          <ScalarProperty Name="RèglementDettes" ColumnName="RèglementDettes" />
+          <ScalarProperty Name="AdministrateurBiens" ColumnName="AdministrateurBiens" />
+          <ScalarProperty Name="Adresse1AdminBien" ColumnName="Adresse1AdminBien" />
+          <ScalarProperty Name="Adresse2AdminBien" ColumnName="Adresse2AdminBien" />
+          <ScalarProperty Name="CPAdminBien" ColumnName="CPAdminBien" />
+          <ScalarProperty Name="LocaliteAdminBien" ColumnName="LocaliteAdminBien" />
+          <ScalarProperty Name="TelephoneAdminBien" ColumnName="TelephoneAdminBien" />
+          <ScalarProperty Name="FaxAdminBien" ColumnName="FaxAdminBien" />
+          <ScalarProperty Name="MailAdminBien" ColumnName="MailAdminBien" />
+          <ScalarProperty Name="LiberteConditionnelle" ColumnName="LiberteConditionnelle" />
+          <ScalarProperty Name="MediationPenale" ColumnName="MediationPenale" />
+          <ScalarProperty Name="MJA" ColumnName="MJA" />
+          <ScalarProperty Name="Sursis" ColumnName="Sursis" />
+          <ScalarProperty Name="MesureDefenseSociale" ColumnName="MesureDefenseSociale" />
+          <ScalarProperty Name="OrdonnanceJugeJeunesse" ColumnName="OrdonnanceJugeJeunesse" />
+          <ScalarProperty Name="Autre" ColumnName="Autre" />
+          <ScalarProperty Name="DateDebutLiberteConditionnelle" ColumnName="DateDebutLiberteConditionnelle" />
+          <ScalarProperty Name="DateDebutMediationPenale" ColumnName="DateDebutMediationPenale" />
+          <ScalarProperty Name="DateDebutMJA" ColumnName="DateDebutMJA" />
+          <ScalarProperty Name="DateDebutSursis" ColumnName="DateDebutSursis" />
+          <ScalarProperty Name="DateDebutMesureDefenseSociale" ColumnName="DateDebutMesureDefenseSociale" />
+          <ScalarProperty Name="DateDebutOrdonnaceJugeJeunesse" ColumnName="DateDebutOrdonnaceJugeJeunesse" />
+          <ScalarProperty Name="DateDebutAutre" ColumnName="DateDebutAutre" />
+          <ScalarProperty Name="DateLiberteConditionnelle" ColumnName="DateLiberteConditionnelle" />
+          <ScalarProperty Name="DateMediationPenale" ColumnName="DateMediationPenale" />
+          <ScalarProperty Name="DateMAJ" ColumnName="DateMAJ" />
+          <ScalarProperty Name="DateSursis" ColumnName="DateSursis" />
+          <ScalarProperty Name="DateMesureDefenseSociale" ColumnName="DateMesureDefenseSociale" />
+          <ScalarProperty Name="DateOrdonnanceJugeJeunsesse" ColumnName="DateOrdonnanceJugeJeunsesse" />
+          <ScalarProperty Name="DateAutre" ColumnName="DateAutre" />
+          <ScalarProperty Name="ObligationTrempoline" ColumnName="ObligationTrempoline" />
+          <ScalarProperty Name="CommentairesSituationPenale" ColumnName="CommentairesSituationPenale" />
+          <ScalarProperty Name="CommentairesSuiviJudiciaire" ColumnName="CommentairesSuiviJudiciaire" />
+          <ScalarProperty Name="SituationCivilPolice" ColumnName="SituationCivilPolice" />
+          <ScalarProperty Name="Enfants" ColumnName="Enfants" />
+          <ScalarProperty Name="NbreFilles" ColumnName="NbreFilles" />
+          <ScalarProperty Name="NbreGarçons" ColumnName="NbreGarçons" />
+          <ScalarProperty Name="ContactEffectif" ColumnName="ContactEffectif" />
+          <ScalarProperty Name="Jugement" ColumnName="Jugement" />
+          <ScalarProperty Name="Intervenants" ColumnName="Intervenants" />
+          <ScalarProperty Name="RCFamiliale" ColumnName="RCFamiliale" />
+          <ScalarProperty Name="PensionAlim" ColumnName="PensionAlim" />
+          <ScalarProperty Name="MontantPension" ColumnName="MontantPension" />
+          <ScalarProperty Name="NomEmployeur" ColumnName="NomEmployeur" />
+          <ScalarProperty Name="PrenomEmployeur" ColumnName="PrenomEmployeur" />
+          <ScalarProperty Name="Adresse1Employeur" ColumnName="Adresse1Employeur" />
+          <ScalarProperty Name="Adresse2Employeur" ColumnName="Adresse2Employeur" />
+          <ScalarProperty Name="CPEmployeur" ColumnName="CPEmployeur" />
+          <ScalarProperty Name="LocaliteEmployeur" ColumnName="LocaliteEmployeur" />
+          <ScalarProperty Name="TelephoneEmployeur" ColumnName="TelephoneEmployeur" />
+          <ScalarProperty Name="CommentairesEmployeur" ColumnName="CommentairesEmployeur" />
+          <ScalarProperty Name="BureauONEMNom" ColumnName="BureauONEMNom" />
+          <ScalarProperty Name="Adresse1ONEM" ColumnName="Adresse1ONEM" />
+          <ScalarProperty Name="Adresse2ONEM" ColumnName="Adresse2ONEM" />
+          <ScalarProperty Name="CPONEM" ColumnName="CPONEM" />
+          <ScalarProperty Name="LocaliteONEM" ColumnName="LocaliteONEM" />
+          <ScalarProperty Name="TelephoneONEM" ColumnName="TelephoneONEM" />
+          <ScalarProperty Name="FaxONEM" ColumnName="FaxONEM" />
+          <ScalarProperty Name="MailONEM" ColumnName="MailONEM" />
+          <ScalarProperty Name="DateDebutONEM" ColumnName="DateDebutONEM" />
+          <ScalarProperty Name="DateFinONEM" ColumnName="DateFinONEM" />
+          <ScalarProperty Name="CommentairesONEM" ColumnName="CommentairesONEM" />
+          <ScalarProperty Name="SyndicatNom" ColumnName="SyndicatNom" />
+          <ScalarProperty Name="Adresse1Syndicat" ColumnName="Adresse1Syndicat" />
+          <ScalarProperty Name="Adresse2Syndicat" ColumnName="Adresse2Syndicat" />
+          <ScalarProperty Name="CPSyndicat" ColumnName="CPSyndicat" />
+          <ScalarProperty Name="LocaliteSyndicat" ColumnName="LocaliteSyndicat" />
+          <ScalarProperty Name="TelephoneSyndicat" ColumnName="TelephoneSyndicat" />
+          <ScalarProperty Name="FaxSyndicat" ColumnName="FaxSyndicat" />
+          <ScalarProperty Name="MailSyndicat" ColumnName="MailSyndicat" />
+          <ScalarProperty Name="DateDebutSyndicat" ColumnName="DateDebutSyndicat" />
+          <ScalarProperty Name="DateFinSyndicat" ColumnName="DateFinSyndicat" />
+          <ScalarProperty Name="PespectivesRS" ColumnName="PespectivesRS" />
+          <ScalarProperty Name="CommentairesSyndicat" ColumnName="CommentairesSyndicat" />
+          <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
+          <ScalarProperty Name="SituationEntree" ColumnName="SituationEntree" />
+          <ScalarProperty Name="Medicaments" ColumnName="Medicaments" />
+          <ScalarProperty Name="CommentairesSuiviMedical" ColumnName="CommentairesSuiviMedical" />
+          <ScalarProperty Name="ParticipationParentGroupeSolidarite" ColumnName="ParticipationParentGroupeSolidarite" />
+          <ScalarProperty Name="ParticipationParentMultifamilial" ColumnName="ParticipationParentMultifamilial" />
+          <ScalarProperty Name="DateExamenMedical" ColumnName="DateExamenMedical" />
+          <ScalarProperty Name="NeccesiteSuivi" ColumnName="NeccesiteSuivi" />
+          <ScalarProperty Name="AXE1DSMA" ColumnName="AXE1DSMA" />
+          <ScalarProperty Name="AXE1DSMB" ColumnName="AXE1DSMB" />
+          <ScalarProperty Name="AXE1TOXA" ColumnName="AXE1TOXA" />
+          <ScalarProperty Name="AXE1TOXB" ColumnName="AXE1TOXB" />
+          <ScalarProperty Name="AXE1TOXC" ColumnName="AXE1TOXC" />
+          <ScalarProperty Name="AXE2A" ColumnName="AXE2A" />
+          <ScalarProperty Name="AXE2B" ColumnName="AXE2B" />
+          <ScalarProperty Name="IndiceGravite" ColumnName="IndiceGravite" />
+          <ScalarProperty Name="CodeChangement" ColumnName="CodeChangement" />
+          <ScalarProperty Name="TraitPrescritA" ColumnName="TraitPrescritA" />
+          <ScalarProperty Name="TraitPrescritB" ColumnName="TraitPrescritB" />
+          <ScalarProperty Name="AutresTraitements" ColumnName="AutresTraitements" />
+          <ScalarProperty Name="TherapieAssocieeNbre" ColumnName="TherapieAssocieeNbre" />
+          <ScalarProperty Name="IncapaciteCEB" ColumnName="IncapaciteCEB" />
+          <ScalarProperty Name="NecessiteEtape" ColumnName="NecessiteEtape" />
+          <ScalarProperty Name="ServiceKangourou" ColumnName="ServiceKangourou" />
+          <ScalarProperty Name="SuiviFamilial" ColumnName="SuiviFamilial" />
+          <ScalarProperty Name="SuiviIndividuel" ColumnName="SuiviIndividuel" />
+          <ScalarProperty Name="CommentairesFamille" ColumnName="CommentairesFamille" />
+          <ScalarProperty Name="OservationsFamille" ColumnName="OservationsFamille" />
+          <ScalarProperty Name="HistoireFamille" ColumnName="HistoireFamille" />
+          <ScalarProperty Name="CommentairesGroupeSolidarite" ColumnName="CommentairesGroupeSolidarite" />
+          <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
+          <ScalarProperty Name="FormationSuivie" ColumnName="FormationSuivie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaireAvocat">
+      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireAvocat">
+        <MappingFragment StoreEntitySet="BeneficiaireAvocat">
+          <ScalarProperty Name="IDBeneficiaireAvocat" ColumnName="IDBeneficiaireAvocat" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="AvocatID" ColumnName="AvocatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaireMaisonJustice">
+      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMaisonJustice">
+        <MappingFragment StoreEntitySet="BeneficiaireMaisonJustice">
+          <ScalarProperty Name="IDBeneficiaireMaisonJustice" ColumnName="IDBeneficiaireMaisonJustice" />
+          <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="NomAssistantJustice" ColumnName="NomAssistantJustice" />
+          <ScalarProperty Name="PrenonAssistantJustice" ColumnName="PrenonAssistantJustice" />
+          <ScalarProperty Name="Adresse1AssistantJustice" ColumnName="Adresse1AssistantJustice" />
+          <ScalarProperty Name="Adresse2AssistantJustice" ColumnName="Adresse2AssistantJustice" />
+          <ScalarProperty Name="CPAssistantJustice" ColumnName="CPAssistantJustice" />
+          <ScalarProperty Name="LocaliteAssistantJustice" ColumnName="LocaliteAssistantJustice" />
+          <ScalarProperty Name="TelephoneAssistantJustice" ColumnName="TelephoneAssistantJustice" />
+          <ScalarProperty Name="FaxAssistantJustice" ColumnName="FaxAssistantJustice" />
+          <ScalarProperty Name="MailAssistantJustice" ColumnName="MailAssistantJustice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaireMedecin">
+      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMedecin">
+        <MappingFragment StoreEntitySet="BeneficiaireMedecin">
+          <ScalarProperty Name="IDBeneficiaireMedecin" ColumnName="IDBeneficiaireMedecin" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDMedecin" ColumnName="IDMedecin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaireProgramme">
+      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireProgramme">
+        <MappingFragment StoreEntitySet="BeneficiaireProgramme">
+          <ScalarProperty Name="IDBeneficiaireProgramme" ColumnName="IDBeneficiaireProgramme" />
+          <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
+          <ScalarProperty Name="IDBeneficiaire" ColumnName="IDBeneficiaire" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IDAssistantSocial" ColumnName="IDAssistantSocial" />
+          <ScalarProperty Name="IDEducateur" ColumnName="IDEducateur" />
+          <ScalarProperty Name="Horus" ColumnName="Horus" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+          <ScalarProperty Name="DateSortie" ColumnName="DateSortie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CPAS">
+      <EntityTypeMapping TypeName="TrempolineDBModel.CPAS">
+        <MappingFragment StoreEntitySet="CPAS">
+          <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Adresse1" ColumnName="Adresse1" />
+          <ScalarProperty Name="Adresse2" ColumnName="Adresse2" />
+          <ScalarProperty Name="Localite" ColumnName="Localite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diplome">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Diplome">
+        <MappingFragment StoreEntitySet="Diplome">
+          <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educateur">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Educateur">
+        <MappingFragment StoreEntitySet="Educateur">
+          <ScalarProperty Name="IDEducateur" ColumnName="IDEducateur" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnfantKangourou">
+      <EntityTypeMapping TypeName="TrempolineDBModel.EnfantKangourou">
+        <MappingFragment StoreEntitySet="EnfantKangourou">
+          <ScalarProperty Name="IDEnfantKangourou" ColumnName="IDEnfantKangourou" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="DateNaissanceEK" ColumnName="DateNaissanceEK" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDAutoriteparentale" ColumnName="IDAutoriteparentale" />
+          <ScalarProperty Name="AdresseEcole" ColumnName="AdresseEcole" />
+          <ScalarProperty Name="Adresse1Ecole" ColumnName="Adresse1Ecole" />
+          <ScalarProperty Name="Adresse2Ecole" ColumnName="Adresse2Ecole" />
+          <ScalarProperty Name="LocaliteEcole" ColumnName="LocaliteEcole" />
+          <ScalarProperty Name="CPEcole" ColumnName="CPEcole" />
+          <ScalarProperty Name="TelEcole" ColumnName="TelEcole" />
+          <ScalarProperty Name="GarantExterieur" ColumnName="GarantExterieur" />
+          <ScalarProperty Name="Adresse1GarantExterieur" ColumnName="Adresse1GarantExterieur" />
+          <ScalarProperty Name="Adresse2GarantExterieur" ColumnName="Adresse2GarantExterieur" />
+          <ScalarProperty Name="LocaliteGarantExterieur" ColumnName="LocaliteGarantExterieur" />
+          <ScalarProperty Name="CPGarantExterieur" ColumnName="CPGarantExterieur" />
+          <ScalarProperty Name="TelephoneGarantExterieur" ColumnName="TelephoneGarantExterieur" />
+          <ScalarProperty Name="GSMGarantExterieur" ColumnName="GSMGarantExterieur" />
+          <ScalarProperty Name="CommentairesSUiviMedical" ColumnName="CommentairesSUiviMedical" />
+          <ScalarProperty Name="SAJ" ColumnName="SAJ" />
+          <ScalarProperty Name="SPJ" ColumnName="SPJ" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+          <ScalarProperty Name="PriseEnCharge" ColumnName="PriseEnCharge" />
+          <ScalarProperty Name="Adresse1PriseEnCharge" ColumnName="Adresse1PriseEnCharge" />
+          <ScalarProperty Name="Adresse2PriseEnCharge" ColumnName="Adresse2PriseEnCharge" />
+          <ScalarProperty Name="LocalitePriseEnCharge" ColumnName="LocalitePriseEnCharge" />
+          <ScalarProperty Name="CPPriseEnCharge" ColumnName="CPPriseEnCharge" />
+          <ScalarProperty Name="TelephonePriseEnCharge" ColumnName="TelephonePriseEnCharge" />
+          <ScalarProperty Name="GSMPriseEnCharge" ColumnName="GSMPriseEnCharge" />
+          <ScalarProperty Name="DansLeService" ColumnName="DansLeService" />
+          <ScalarProperty Name="AutoriteParentale" ColumnName="AutoriteParentale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnqueteEuropasi">
+      <EntityTypeMapping TypeName="TrempolineDBModel.EnqueteEuropasi">
+        <MappingFragment StoreEntitySet="EnqueteEuropasi">
+          <ScalarProperty Name="IDEnqueteEuropasi" ColumnName="IDEnqueteEuropasi" />
+          <ScalarProperty Name="TypeQuestionnaire" ColumnName="TypeQuestionnaire" />
+          <ScalarProperty Name="DatePassage" ColumnName="DatePassage" />
+          <ScalarProperty Name="SanteMentalePhysique" ColumnName="SanteMentalePhysique" />
+          <ScalarProperty Name="SituationEmploi" ColumnName="SituationEmploi" />
+          <ScalarProperty Name="Alcool" ColumnName="Alcool" />
+          <ScalarProperty Name="Drogues" ColumnName="Drogues" />
+          <ScalarProperty Name="SituationJudiciaire" ColumnName="SituationJudiciaire" />
+          <ScalarProperty Name="DomaineFamilial" ColumnName="DomaineFamilial" />
+          <ScalarProperty Name="EtatPsychologique" ColumnName="EtatPsychologique" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fratrie">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Fratrie">
+        <MappingFragment StoreEntitySet="Fratrie">
+          <ScalarProperty Name="IDFratrie" ColumnName="IDFratrie" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="IDTypeFratrie" ColumnName="IDTypeFratrie" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+          <ScalarProperty Name="Vivant" ColumnName="Vivant" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="AlcoolF" ColumnName="AlcoolF" />
+          <ScalarProperty Name="Drogue" ColumnName="Drogue" />
+          <ScalarProperty Name="Jeux" ColumnName="Jeux" />
+          <ScalarProperty Name="ProbJustice" ColumnName="ProbJustice" />
+          <ScalarProperty Name="Psychiatrique" ColumnName="Psychiatrique" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="FratrieDateNaissance" ColumnName="FratrieDateNaissance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntervenantFamilial">
+      <EntityTypeMapping TypeName="TrempolineDBModel.IntervenantFamilial">
+        <MappingFragment StoreEntitySet="IntervenantFamilial">
+          <ScalarProperty Name="IDIntervenantFamimlial" ColumnName="IDIntervenantFamimlial" />
+          <ScalarProperty Name="Rôle" ColumnName="Rôle" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Adresse1" ColumnName="Adresse1" />
+          <ScalarProperty Name="Adresse2" ColumnName="Adresse2" />
+          <ScalarProperty Name="Localite" ColumnName="Localite" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GSM" ColumnName="GSM" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localite">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Localite">
+        <MappingFragment StoreEntitySet="Localite">
+          <ScalarProperty Name="IDLocalite" ColumnName="IDLocalite" />
+          <ScalarProperty Name="LocaliteNom" ColumnName="LocaliteNom" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaisonJustice">
+      <EntityTypeMapping TypeName="TrempolineDBModel.MaisonJustice">
+        <MappingFragment StoreEntitySet="MaisonJustice">
+          <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medecin">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Medecin">
+        <MappingFragment StoreEntitySet="Medecin">
+          <ScalarProperty Name="IDMedecin" ColumnName="IDMedecin" />
+          <ScalarProperty Name="MedecinNom" ColumnName="MedecinNom" />
+          <ScalarProperty Name="MedecinPrenom" ColumnName="MedecinPrenom" />
+          <ScalarProperty Name="MedecinAdresse1" ColumnName="MedecinAdresse1" />
+          <ScalarProperty Name="MedecinAdresse2" ColumnName="MedecinAdresse2" />
+          <ScalarProperty Name="MedecinCP" ColumnName="MedecinCP" />
+          <ScalarProperty Name="MedecinLocalite" ColumnName="MedecinLocalite" />
+          <ScalarProperty Name="MedecinTelephone" ColumnName="MedecinTelephone" />
+          <ScalarProperty Name="MedecinFax" ColumnName="MedecinFax" />
+          <ScalarProperty Name="MedecinEmail" ColumnName="MedecinEmail" />
+          <ScalarProperty Name="Specialite" ColumnName="Specialite" />
+          <ScalarProperty Name="CommentairesMedecin" ColumnName="CommentairesMedecin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mutuelle">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Mutuelle">
+        <MappingFragment StoreEntitySet="Mutuelle">
+          <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Adresse1" ColumnName="Adresse1" />
+          <ScalarProperty Name="Adresse2" ColumnName="Adresse2" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Localite" ColumnName="Localite" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="SiteInternet" ColumnName="SiteInternet" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nationalite">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Nationalite">
+        <MappingFragment StoreEntitySet="Nationalite">
+          <ScalarProperty Name="IDNationalite" ColumnName="IDNationalite" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participation">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Participation">
+        <MappingFragment StoreEntitySet="Participation">
+          <ScalarProperty Name="IDParticiaption" ColumnName="IDParticiaption" />
+          <ScalarProperty Name="IDFAtelierFSE" ColumnName="IDFAtelierFSE" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="NbreHeures" ColumnName="NbreHeures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presentiel">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Presentiel">
+        <MappingFragment StoreEntitySet="Presentiel">
+          <ScalarProperty Name="IDPresentiel" ColumnName="IDPresentiel" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="HeureDepart" ColumnName="HeureDepart" />
+          <ScalarProperty Name="HeureArrivee" ColumnName="HeureArrivee" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDTypePresence" ColumnName="IDTypePresence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programme">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Programme">
+        <MappingFragment StoreEntitySet="Programme">
+          <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
+          <ScalarProperty Name="Secteur" ColumnName="Secteur" />
+          <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+          <ScalarProperty Name="Phase" ColumnName="Phase" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegimeMutuelle">
+      <EntityTypeMapping TypeName="TrempolineDBModel.RegimeMutuelle">
+        <MappingFragment StoreEntitySet="RegimeMutuelle">
+          <ScalarProperty Name="IDRegimeMutuelle" ColumnName="IDRegimeMutuelle" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sejour">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Sejour">
+        <MappingFragment StoreEntitySet="Sejour">
+          <ScalarProperty Name="IDSejour" ColumnName="IDSejour" />
+          <ScalarProperty Name="DateEntree" ColumnName="DateEntree" />
+          <ScalarProperty Name="HeureEntree" ColumnName="HeureEntree" />
+          <ScalarProperty Name="DateSortie" ColumnName="DateSortie" />
+          <ScalarProperty Name="HeureSortie" ColumnName="HeureSortie" />
+          <ScalarProperty Name="Commentaires" ColumnName="Commentaires" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="DateDebutConvention" ColumnName="DateDebutConvention" />
+          <ScalarProperty Name="DateFinConvention" ColumnName="DateFinConvention" />
+          <ScalarProperty Name="ReferenceConvention" ColumnName="ReferenceConvention" />
+          <ScalarProperty Name="Prolongation" ColumnName="Prolongation" />
+          <ScalarProperty Name="DateFinProlongation" ColumnName="DateFinProlongation" />
+          <ScalarProperty Name="EtatAccordMutualiste" ColumnName="EtatAccordMutualiste" />
+          <ScalarProperty Name="DateDebutAccord" ColumnName="DateDebutAccord" />
+          <ScalarProperty Name="DateFinAccord" ColumnName="DateFinAccord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexe">
+      <EntityTypeMapping TypeName="TrempolineDBModel.Sexe">
+        <MappingFragment StoreEntitySet="Sexe">
+          <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAction">
+      <EntityTypeMapping TypeName="TrempolineDBModel.TypeAction">
+        <MappingFragment StoreEntitySet="TypeAction">
+          <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAdresse">
+      <EntityTypeMapping TypeName="TrempolineDBModel.TypeAdresse">
+        <MappingFragment StoreEntitySet="TypeAdresse">
+          <ScalarProperty Name="IDTypeAdresse" ColumnName="IDTypeAdresse" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeFratrie">
+      <EntityTypeMapping TypeName="TrempolineDBModel.TypeFratrie">
+        <MappingFragment StoreEntitySet="TypeFratrie">
+          <ScalarProperty Name="IDTypeFratrie" ColumnName="IDTypeFratrie" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypePresence">
+      <EntityTypeMapping TypeName="TrempolineDBModel.TypePresence">
+        <MappingFragment StoreEntitySet="TypePresence">
+          <ScalarProperty Name="IDTypePresence" ColumnName="IDTypePresence" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypePriseEnCharge">
+      <EntityTypeMapping TypeName="TrempolineDBModel.TypePriseEnCharge">
+        <MappingFragment StoreEntitySet="TypePriseEnCharge">
+          <ScalarProperty Name="IDTypePriseEnCharge" ColumnName="IDTypePriseEnCharge" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="TrempolineDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="UserAD" ColumnName="UserAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PieceJointe">
+      <EntityTypeMapping TypeName="TrempolineDBModel.PieceJointe">
+        <MappingFragment StoreEntitySet="PieceJointe">
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="Piece" ColumnName="Piece" />
+          <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="DatePiece" ColumnName="DatePiece" />
+          <ScalarProperty Name="LibellePiece" ColumnName="LibellePiece" />
+          <ScalarProperty Name="IDPieceJointe" ColumnName="IDPieceJointe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TrempolineDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
