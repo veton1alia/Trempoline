@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -58,6 +59,19 @@ namespace Trempoline.Helpers
             {
 
                 return false;
+            }
+        }
+
+        public static byte[] ToByteArray(this HttpPostedFileBase file)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                if (file != null && file.InputStream.Length > 0)
+                {
+                    file.InputStream.CopyTo(stream);
+                    return stream.ToArray();
+                }
+                return new byte[0];
             }
         }
     }

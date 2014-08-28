@@ -60,10 +60,8 @@ namespace Trempoline.Controllers
                     context.SaveChanges();
                 }
 
-               
+                return Redirect(String.Format("/Beneficiary/Detail/{0}#tab={1}", beneficiary.IDBeneficiare, "Earning"));   
             }
-
-            return Redirect(String.Format("/Beneficiary/Detail/{0}#tab={1}", beneficiary.IDBeneficiare, "Earning"));
             //return RedirectToAction("Detail", "Beneficiary", new { id = beneficiary.IDBeneficiare, tab="Earning" });
         }
     }

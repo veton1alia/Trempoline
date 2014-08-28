@@ -278,5 +278,21 @@ table.dataTable tr.even{ background-color: white; border:1px lightgrey; }*/
 
 
 .textLeft{
+    text-align : left;
+}
+
+.textRight{
     text-align : right;
+}
+
+.multiple{
+    min-height:300px;
+}
+
+.title-box{
+    text-align:center;
+    background : lightgray;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:0px;
 }

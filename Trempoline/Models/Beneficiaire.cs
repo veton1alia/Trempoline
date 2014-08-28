@@ -98,13 +98,6 @@ namespace Trempoline.Models
         public Nullable<System.DateTime> DateDebutMesureDefenseSociale { get; set; }
         public Nullable<System.DateTime> DateDebutOrdonnaceJugeJeunesse { get; set; }
         public Nullable<System.DateTime> DateDebutAutre { get; set; }
-        public Nullable<System.DateTime> DateLiberteConditionnelle { get; set; }
-        public Nullable<System.DateTime> DateMediationPenale { get; set; }
-        public Nullable<System.DateTime> DateMAJ { get; set; }
-        public Nullable<System.DateTime> DateSursis { get; set; }
-        public Nullable<System.DateTime> DateMesureDefenseSociale { get; set; }
-        public Nullable<System.DateTime> DateOrdonnanceJugeJeunsesse { get; set; }
-        public Nullable<System.DateTime> DateAutre { get; set; }
         public Nullable<bool> ObligationTrempoline { get; set; }
         public string CommentairesSituationPenale { get; set; }
         public string CommentairesSuiviJudiciaire { get; set; }
@@ -190,6 +183,14 @@ namespace Trempoline.Models
         public string MailEmployeur { get; set; }
         public string FaxEmployeur { get; set; }
         public string PerspectiveRS { get; set; }
+        public string TelephoneContactCPAS { get; set; }
+        public Nullable<System.DateTime> DateFinMJA { get; set; }
+        public Nullable<System.DateTime> DateFinMediationPenale { get; set; }
+        public Nullable<System.DateTime> DateFinLiberteConditionnelle { get; set; }
+        public Nullable<System.DateTime> DateFinSursis { get; set; }
+        public Nullable<System.DateTime> DateFinMesureDefenseSociale { get; set; }
+        public Nullable<System.DateTime> DateFinOrdonnaceJugeJeunesse { get; set; }
+        public Nullable<System.DateTime> DateFinAutre { get; set; }
     
         public virtual ICollection<Action> Action { get; set; }
         public virtual ICollection<AdresseBeneficiaire> AdresseBeneficiaire { get; set; }

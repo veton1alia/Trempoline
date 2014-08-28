@@ -144,136 +144,136 @@
     <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Helpers\TransactionScopeHelper.cs" />
     <Compile Include="Models\Action.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Adresse.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdresseBeneficiaire.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AssistantSocial.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AtelierFSE.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AutoriteParentale.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Avocat.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AxePsy.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Beneficiaire.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BeneficiaireAvocat.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BeneficiaireMaisonJustice.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BeneficiaireMedecin.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BeneficiaireProgramme.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CPAS.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Diplome.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Educateur.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EnfantKangourou.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EnqueteEuropasi.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Fratrie.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IntervenantFamilial.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Localite.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MaisonJustice.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Medecin.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mutuelle.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Nationalite.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Participation.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PieceJointe.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Presentiel.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Programme.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RegimeMutuelle.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sejour.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sexe.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TrempolineModel.Context.cs">
+    <Compile Include="Models\TremolineModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TrempolineModel.Context.tt</DependentUpon>
+      <DependentUpon>TremolineModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TrempolineModel.cs">
+    <Compile Include="Models\TremolineModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TrempolineModel.Designer.cs">
+    <Compile Include="Models\TremolineModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TrempolineModel.edmx</DependentUpon>
+      <DependentUpon>TremolineModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeAction.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeAdresse.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeFratrie.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypePresence.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypePriseEnCharge.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>TrempolineModel.tt</DependentUpon>
+      <DependentUpon>TremolineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3769,22 +3769,22 @@
     <Content Include="ClipOneTheme\plugins\summernote\summernote.less" />
     <Content Include="ClipOneTheme\plugins\tableExport\README.md" />
     <Content Include="ClipOneTheme\plugins\tableExport\tableExport.jquery.json" />
-    <EntityDeploy Include="Models\TrempolineModel.edmx">
+    <EntityDeploy Include="Models\TremolineModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TrempolineModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>TremolineModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\TrempolineModel.Context.tt">
+    <Content Include="Models\TremolineModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TrempolineModel.edmx</DependentUpon>
-      <LastGenOutput>TrempolineModel.Context.cs</LastGenOutput>
+      <DependentUpon>TremolineModel.edmx</DependentUpon>
+      <LastGenOutput>TremolineModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\TrempolineModel.edmx.diagram">
-      <DependentUpon>TrempolineModel.edmx</DependentUpon>
+    <Content Include="Models\TremolineModel.edmx.diagram">
+      <DependentUpon>TremolineModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\TrempolineModel.tt">
+    <Content Include="Models\TremolineModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TrempolineModel.edmx</DependentUpon>
-      <LastGenOutput>TrempolineModel.cs</LastGenOutput>
+      <DependentUpon>TremolineModel.edmx</DependentUpon>
+      <LastGenOutput>TremolineModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\init.js" />

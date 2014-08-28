@@ -860,3 +860,47 @@ var Work = (function ($) {
     }
 
 })(jQuery);
+
+var Finance = (function ($) {
+
+    var $file = null;
+
+    function setupFormValidation() {
+
+        $("#finance_form").validate({
+            rules: {
+                SoldeCompteVue: { number: true },
+                SoldeCompteVue: { number: true }
+            }
+        });
+
+        $("#finance_form").submit(function (e) {
+
+            if (!$(this).valid()) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    function triggerFileUpload()
+    {
+        $("#uploadBtn").click(function () { $file.click(); });
+    }
+
+    function getFileName()
+    {
+        $file.change(function () {
+            $("#fileName").text($file[0].files[0].name);
+        });
+    }
+
+    return {
+        init: function () {
+            $file = $("#uploadFile");
+            setupFormValidation();
+            triggerFileUpload();
+            getFileName()
+        }
+    }
+
+})(jQuery);
