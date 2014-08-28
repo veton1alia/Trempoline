@@ -132,9 +132,12 @@
     <Compile Include="Controllers\AttachementController.cs" />
     <Compile Include="Controllers\BeneficiaryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DebtController.cs" />
     <Compile Include="Controllers\EarningController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
+    <Compile Include="Controllers\JusticeController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
+    <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3821,6 +3824,9 @@
     <Content Include="Views\Program\Create.cshtml" />
     <Content Include="Views\Earning\Create.cshtml" />
     <Content Include="Views\Finance\Create.cshtml" />
+    <Content Include="Views\Debt\Create.cshtml" />
+    <Content Include="Views\Work\Create.cshtml" />
+    <Content Include="Views\Justice\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

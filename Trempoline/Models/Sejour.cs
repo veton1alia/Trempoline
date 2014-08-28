@@ -11,12 +11,9 @@ namespace Trempoline.Models
 {
     using System;
     using System.Collections.Generic;
-    using Trempoline.Helpers;
-
+    
     public partial class Sejour
     {
-        private string _ReferenceConvention;
-        private string _EtatAccordMutualiste;
         public int IDSejour { get; set; }
         public System.DateTime DateEntree { get; set; }
         public Nullable<System.DateTime> HeureEntree { get; set; }
@@ -26,18 +23,10 @@ namespace Trempoline.Models
         public Nullable<int> IDBeneficiare { get; set; }
         public Nullable<System.DateTime> DateDebutConvention { get; set; }
         public Nullable<System.DateTime> DateFinConvention { get; set; }
-        public string ReferenceConvention 
-        {
-            get { return _ReferenceConvention.Trimmed(); }
-            set { _ReferenceConvention = value; } 
-        }
+        public string ReferenceConvention { get; set; }
         public Nullable<bool> Prolongation { get; set; }
         public Nullable<System.DateTime> DateFinProlongation { get; set; }
-        public string EtatAccordMutualiste
-        {
-            get { return _EtatAccordMutualiste.Trimmed(); }
-            set { _EtatAccordMutualiste = value; }
-        }
+        public string EtatAccordMutualiste { get; set; }
         public Nullable<System.DateTime> DateDebutAccord { get; set; }
         public Nullable<System.DateTime> DateFinAccord { get; set; }
     

@@ -797,3 +797,66 @@ var Earning = (function ($) {
     }
 
 })(jQuery);
+
+var Debt = (function ($) {
+    
+    function setupFormValidation()
+    {
+        $("#Debt_form").validate({
+            rules: {
+                CPAdminBien: { number: true },
+                MailAdminBien: { email: true }
+            }/*,
+            messages: {
+                CPAdminBien: { number: "Ce champ doit être un numéro" },
+                MailAdminBien: { email: "Format de l'email n'est pas correct" }
+            }*/
+        });
+
+        $("#Debt_form").submit(function (e) {
+
+            if(!$(this).valid())
+            {
+                e.preventDefault();
+            }
+        });
+    }
+
+    return {
+        init : function()
+        {
+            setupFormValidation();
+        }
+    }
+
+})(jQuery);
+
+var Work = (function ($) {
+
+    function setupFormValidation() {
+        $("#work_form").validate({
+            rules: {
+                CPEmployeur: { number: true },
+                CPONEM: { number: true },
+                CPSyndicat: { number: true },
+                MailEmployeur: { email: true },
+                MailONEM: { email: true },
+                MailSyndicat: { email: true }
+            }
+        });
+
+        $("#work_form").submit(function (e) {
+
+            if (!$(this).valid()) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    return {
+        init: function () {
+            setupFormValidation();
+        }
+    }
+
+})(jQuery);

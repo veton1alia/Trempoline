@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TrempolineDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TrempolineModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Action">
           <Key>
             <PropertyRef Name="IDAction" />
           </Key>
           <Property Name="IDAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="char" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" />
           <Property Name="Date" Type="date" />
           <Property Name="IDTypeAction" Type="int" />
           <Property Name="IDBeneficiare" Type="int" />
@@ -23,9 +23,9 @@
             <PropertyRef Name="IDAdresse" />
           </Key>
           <Property Name="IDAdresse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Ligne1" Type="char" MaxLength="100" />
-          <Property Name="Ligne2" Type="char" MaxLength="100" />
-          <Property Name="Pays" Type="char" MaxLength="100" />
+          <Property Name="Ligne1" Type="varchar" MaxLength="100" />
+          <Property Name="Ligne2" Type="varchar" MaxLength="100" />
+          <Property Name="Pays" Type="varchar" MaxLength="100" />
           <Property Name="IDTypeAdresse" Type="int" />
           <Property Name="IDLocalite" Type="int" />
         </EntityType>
@@ -50,29 +50,29 @@
           </Key>
           <Property Name="IDAtelierFSE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NomAtelier" Type="char" MaxLength="100" />
-          <Property Name="CommentairesAtelier" Type="varchar" MaxLength="10" />
+          <Property Name="CommentairesAtelier" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="AutoriteParentale">
           <Key>
             <PropertyRef Name="IDAutoriteparentale" />
           </Key>
           <Property Name="IDAutoriteparentale" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Avocat">
           <Key>
             <PropertyRef Name="AvocatID" />
           </Key>
           <Property Name="AvocatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AvocatNom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="AvocatPrenom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="AvocatAdresse1" Type="char" MaxLength="100" />
-          <Property Name="AvocatAdresse2" Type="char" MaxLength="100" />
-          <Property Name="AvocatCP" Type="char" MaxLength="100" />
-          <Property Name="Avocatlocalite" Type="char" MaxLength="100" />
-          <Property Name="AvocatTelephone" Type="char" MaxLength="100" />
-          <Property Name="AvocatFax" Type="char" MaxLength="100" />
-          <Property Name="AvocatMail" Type="char" MaxLength="100" />
+          <Property Name="AvocatNom" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatPrenom" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatAdresse1" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatAdresse2" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatCP" Type="varchar" MaxLength="100" />
+          <Property Name="Avocatlocalite" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatTelephone" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatFax" Type="varchar" MaxLength="100" />
+          <Property Name="AvocatMail" Type="varchar" MaxLength="100" />
           <Property Name="Commentaires" Type="text" />
         </EntityType>
         <EntityType Name="AxePsy">
@@ -80,35 +80,32 @@
             <PropertyRef Name="IDAxePsy" />
           </Key>
           <Property Name="IDAxePsy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Code" Type="char" MaxLength="100" />
-          <Property Name="Valeur" Type="char" MaxLength="100" />
+          <Property Name="Code" Type="varchar" MaxLength="100" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Beneficiaire">
           <Key>
             <PropertyRef Name="IDBeneficiare" />
           </Key>
           <Property Name="IDBeneficiare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Prenom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Photo" Type="char" MaxLength="100" />
-          <Property Name="LieuNaissance" Type="char" MaxLength="100" />
-          <Property Name="DateNaissance" Type="date" Nullable="false" />
-          <Property Name="RegistreNational" Type="char" MaxLength="100" />
-          <Property Name="CarteIdentite" Type="char" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Photo" Type="varchar" MaxLength="100" />
+          <Property Name="LieuNaissance" Type="varchar" MaxLength="100" />
+          <Property Name="DateNaissance" Type="datetime" Nullable="false" />
+          <Property Name="RegistreNational" Type="varchar" MaxLength="100" />
+          <Property Name="CarteIdentite" Type="varchar" MaxLength="100" />
           <Property Name="IDNationalite" Type="int" />
           <Property Name="PermisConduire" Type="bit" />
           <Property Name="DatePermisConduire" Type="datetime" />
-          <Property Name="CommentairesFicheContact" Type="char" MaxLength="1000" />
+          <Property Name="CommentairesFicheContact" Type="varchar" MaxLength="1000" />
           <Property Name="IDMutuelle" Type="int" />
-          <Property Name="N°InscriptionMutuelle" Type="char" MaxLength="100" />
-          <Property Name="RegimeMutuelle" Type="char" MaxLength="100" />
+          <Property Name="RegimeMutuelle" Type="varchar" MaxLength="100" />
           <Property Name="IDRegime" Type="int" />
-          <Property Name="MedecinConseil" Type="char" MaxLength="100" />
-          <Property Name="CommentairesMututelle" Type="varchar" MaxLength="10" />
+          <Property Name="MedecinConseil" Type="varchar" MaxLength="100" />
           <Property Name="IDCPAS" Type="int" />
-          <Property Name="PersonneContactCPAS" Type="char" MaxLength="100" />
-          <Property Name="N°TelContactCPAS" Type="char" MaxLength="100" />
-          <Property Name="CommentairesCPAS" Type="char" MaxLength="100" />
+          <Property Name="PersonneContactCPAS" Type="varchar" MaxLength="100" />
+          <Property Name="CommentairesCPAS" Type="varchar" MaxLength="1000" />
           <Property Name="RevenusCPAS" Type="float" />
           <Property Name="DateDebutRevenuCPAS" Type="datetime" />
           <Property Name="RevenusIITMutuelle" Type="float" />
@@ -119,10 +116,10 @@
           <Property Name="CommentairesRevenus" Type="varchar" MaxLength="1000" />
           <Property Name="IDTypePriseEnCharge" Type="int" />
           <Property Name="IDEducateur" Type="int" />
-          <Property Name="BanqueCompteVue" Type="char" MaxLength="100" />
-          <Property Name="NoCompteVue" Type="char" MaxLength="100" />
-          <Property Name="BanqueCompteEpargne" Type="char" MaxLength="100" />
-          <Property Name="NoCompteEpargne" Type="char" MaxLength="100" />
+          <Property Name="BanqueCompteVue" Type="varchar" MaxLength="100" />
+          <Property Name="NoCompteVue" Type="varchar" MaxLength="100" />
+          <Property Name="BanqueCompteEpargne" Type="varchar" MaxLength="100" />
+          <Property Name="NoCompteEpargne" Type="varchar" MaxLength="100" />
           <Property Name="CarteBanque" Type="bit" />
           <Property Name="CodePin" Type="bit" />
           <Property Name="PCBanking" Type="bit" />
@@ -131,19 +128,17 @@
           <Property Name="SoldeCompteEpargne" Type="float" />
           <Property Name="DateSoldeCompteEpargne" Type="datetime" />
           <Property Name="CompteTrempoline" Type="bit" />
-          <Property Name="FichierCompte" Type="char" MaxLength="10" />
-          <Property Name="CommentairesFinances" Type="varchar" MaxLength="10" />
+          <Property Name="CommentairesFinances" Type="varchar" MaxLength="1000" />
           <Property Name="Dettes" Type="bit" />
-          <Property Name="CommentairesDettes" Type="char" MaxLength="10" />
-          <Property Name="RèglementDettes" Type="bit" />
-          <Property Name="AdministrateurBiens" Type="varchar" MaxLength="10" />
-          <Property Name="Adresse1AdminBien" Type="char" MaxLength="100" />
-          <Property Name="Adresse2AdminBien" Type="char" MaxLength="100" />
-          <Property Name="CPAdminBien" Type="char" MaxLength="100" />
-          <Property Name="LocaliteAdminBien" Type="char" MaxLength="100" />
-          <Property Name="TelephoneAdminBien" Type="char" MaxLength="100" />
-          <Property Name="FaxAdminBien" Type="char" MaxLength="100" />
-          <Property Name="MailAdminBien" Type="char" MaxLength="100" />
+          <Property Name="CommentairesDettes" Type="varchar" MaxLength="1000" />
+          <Property Name="AdministrateurBiens" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1AdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2AdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="CPAdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="LocaliteAdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="TelephoneAdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="FaxAdminBien" Type="varchar" MaxLength="100" />
+          <Property Name="MailAdminBien" Type="varchar" MaxLength="100" />
           <Property Name="LiberteConditionnelle" Type="bit" />
           <Property Name="MediationPenale" Type="bit" />
           <Property Name="MJA" Type="bit" />
@@ -166,53 +161,52 @@
           <Property Name="DateOrdonnanceJugeJeunsesse" Type="date" />
           <Property Name="DateAutre" Type="date" />
           <Property Name="ObligationTrempoline" Type="bit" />
-          <Property Name="CommentairesSituationPenale" Type="varchar" MaxLength="10" />
-          <Property Name="CommentairesSuiviJudiciaire" Type="varchar" MaxLength="10" />
-          <Property Name="SituationCivilPolice" Type="varchar" MaxLength="10" />
+          <Property Name="CommentairesSituationPenale" Type="varchar" MaxLength="1000" />
+          <Property Name="CommentairesSuiviJudiciaire" Type="varchar" MaxLength="1000" />
+          <Property Name="SituationCivilPolice" Type="varchar" MaxLength="100" />
           <Property Name="Enfants" Type="bit" />
           <Property Name="NbreFilles" Type="int" />
           <Property Name="NbreGarçons" Type="int" />
           <Property Name="ContactEffectif" Type="bit" />
           <Property Name="Jugement" Type="bit" />
-          <Property Name="Intervenants" Type="varchar" MaxLength="10" />
+          <Property Name="Intervenants" Type="varchar" MaxLength="100" />
           <Property Name="RCFamiliale" Type="bit" />
           <Property Name="PensionAlim" Type="bit" />
           <Property Name="MontantPension" Type="float" />
-          <Property Name="NomEmployeur" Type="char" MaxLength="100" />
-          <Property Name="PrenomEmployeur" Type="char" MaxLength="100" />
-          <Property Name="Adresse1Employeur" Type="char" MaxLength="100" />
-          <Property Name="Adresse2Employeur" Type="char" MaxLength="100" />
-          <Property Name="CPEmployeur" Type="char" MaxLength="100" />
-          <Property Name="LocaliteEmployeur" Type="char" MaxLength="100" />
-          <Property Name="TelephoneEmployeur" Type="char" MaxLength="100" />
-          <Property Name="CommentairesEmployeur" Type="text" />
-          <Property Name="BureauONEMNom" Type="char" MaxLength="100" />
-          <Property Name="Adresse1ONEM" Type="char" MaxLength="100" />
-          <Property Name="Adresse2ONEM" Type="char" MaxLength="100" />
+          <Property Name="NomEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="PrenomEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1Employeur" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2Employeur" Type="varchar" MaxLength="100" />
+          <Property Name="CPEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="LocaliteEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="TelephoneEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="CommentairesEmployeur" Type="varchar" MaxLength="1000" />
+          <Property Name="BureauONEMNom" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1ONEM" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2ONEM" Type="varchar" MaxLength="100" />
           <Property Name="CPONEM" Type="int" />
-          <Property Name="LocaliteONEM" Type="char" MaxLength="100" />
-          <Property Name="TelephoneONEM" Type="char" MaxLength="100" />
-          <Property Name="FaxONEM" Type="char" MaxLength="100" />
-          <Property Name="MailONEM" Type="char" MaxLength="100" />
+          <Property Name="LocaliteONEM" Type="varchar" MaxLength="100" />
+          <Property Name="TelephoneONEM" Type="varchar" MaxLength="100" />
+          <Property Name="FaxONEM" Type="varchar" MaxLength="100" />
+          <Property Name="MailONEM" Type="varchar" MaxLength="100" />
           <Property Name="DateDebutONEM" Type="datetime" />
           <Property Name="DateFinONEM" Type="datetime" />
           <Property Name="CommentairesONEM" Type="text" />
-          <Property Name="SyndicatNom" Type="char" MaxLength="100" />
-          <Property Name="Adresse1Syndicat" Type="char" MaxLength="100" />
-          <Property Name="Adresse2Syndicat" Type="char" MaxLength="100" />
+          <Property Name="SyndicatNom" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1Syndicat" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2Syndicat" Type="varchar" MaxLength="100" />
           <Property Name="CPSyndicat" Type="int" />
-          <Property Name="LocaliteSyndicat" Type="char" MaxLength="100" />
-          <Property Name="TelephoneSyndicat" Type="char" MaxLength="100" />
-          <Property Name="FaxSyndicat" Type="char" MaxLength="100" />
-          <Property Name="MailSyndicat" Type="char" MaxLength="100" />
+          <Property Name="LocaliteSyndicat" Type="varchar" MaxLength="100" />
+          <Property Name="TelephoneSyndicat" Type="varchar" MaxLength="100" />
+          <Property Name="FaxSyndicat" Type="varchar" MaxLength="100" />
+          <Property Name="MailSyndicat" Type="varchar" MaxLength="100" />
           <Property Name="DateDebutSyndicat" Type="datetime" />
           <Property Name="DateFinSyndicat" Type="datetime" />
-          <Property Name="PespectivesRS" Type="varchar" MaxLength="10" />
           <Property Name="CommentairesSyndicat" Type="text" />
           <Property Name="IDSexe" Type="int" />
           <Property Name="SituationEntree" Type="text" />
-          <Property Name="Medicaments" Type="varchar" MaxLength="10" />
-          <Property Name="CommentairesSuiviMedical" Type="varchar" MaxLength="10" />
+          <Property Name="Medicaments" Type="varchar" MaxLength="100" />
+          <Property Name="CommentairesSuiviMedical" Type="varchar" MaxLength="1000" />
           <Property Name="ParticipationParentGroupeSolidarite" Type="bit" />
           <Property Name="ParticipationParentMultifamilial" Type="bit" />
           <Property Name="DateExamenMedical" Type="date" />
@@ -234,13 +228,23 @@
           <Property Name="NecessiteEtape" Type="int" />
           <Property Name="ServiceKangourou" Type="bit" />
           <Property Name="SuiviFamilial" Type="bit" />
-          <Property Name="SuiviIndividuel" Type="char" MaxLength="100" />
+          <Property Name="SuiviIndividuel" Type="varchar" MaxLength="100" />
           <Property Name="CommentairesFamille" Type="text" />
           <Property Name="OservationsFamille" Type="text" />
           <Property Name="HistoireFamille" Type="text" />
           <Property Name="CommentairesGroupeSolidarite" Type="text" />
           <Property Name="IDDiplome" Type="int" />
-          <Property Name="FormationSuivie" Type="char" MaxLength="100" />
+          <Property Name="FormationSuivie" Type="varchar" MaxLength="1000" />
+          <Property Name="NumeroInscriptionMutuelle" Type="varchar" MaxLength="100" />
+          <Property Name="CommentairesMutuelle" Type="varchar" MaxLength="100" />
+          <Property Name="NumeroTelContactCPAS" Type="varchar" MaxLength="100" />
+          <Property Name="FichierCompte" Type="varbinary(max)" />
+          <Property Name="FichierCompteContentType" Type="varchar" MaxLength="100" />
+          <Property Name="PerspectivesRS" Type="varchar" MaxLength="100" />
+          <Property Name="ReglementDettes" Type="bit" />
+          <Property Name="MailEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="FaxEmployeur" Type="varchar" MaxLength="100" />
+          <Property Name="PerspectiveRS" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="BeneficiaireAvocat">
           <Key>
@@ -295,16 +299,16 @@
           </Key>
           <Property Name="IDCPAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodePostal" Type="int" Nullable="false" />
-          <Property Name="Adresse1" Type="char" MaxLength="100" />
-          <Property Name="Adresse2" Type="char" MaxLength="100" />
-          <Property Name="Localite" Type="char" MaxLength="100" />
+          <Property Name="Adresse1" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2" Type="varchar" MaxLength="100" />
+          <Property Name="Localite" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Diplome">
           <Key>
             <PropertyRef Name="IDDiplome" />
           </Key>
           <Property Name="IDDiplome" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Educateur">
           <Key>
@@ -318,35 +322,35 @@
             <PropertyRef Name="IDEnfantKangourou" />
           </Key>
           <Property Name="IDEnfantKangourou" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Prenom" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="DateNaissanceEK" Type="datetime" Nullable="false" />
           <Property Name="IDBeneficiare" Type="int" />
           <Property Name="IDAutoriteparentale" Type="int" />
-          <Property Name="AdresseEcole" Type="char" MaxLength="100" />
-          <Property Name="Adresse1Ecole" Type="char" MaxLength="100" />
-          <Property Name="Adresse2Ecole" Type="char" MaxLength="100" />
-          <Property Name="LocaliteEcole" Type="char" MaxLength="100" />
-          <Property Name="CPEcole" Type="char" MaxLength="10" />
-          <Property Name="TelEcole" Type="char" MaxLength="100" />
-          <Property Name="GarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="Adresse1GarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="Adresse2GarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="LocaliteGarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="CPGarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="TelephoneGarantExterieur" Type="char" MaxLength="100" />
-          <Property Name="GSMGarantExterieur" Type="char" MaxLength="100" />
+          <Property Name="AdresseEcole" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1Ecole" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2Ecole" Type="varchar" MaxLength="100" />
+          <Property Name="LocaliteEcole" Type="varchar" MaxLength="100" />
+          <Property Name="CPEcole" Type="varchar" MaxLength="100" />
+          <Property Name="TelEcole" Type="varchar" MaxLength="100" />
+          <Property Name="GarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1GarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2GarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="LocaliteGarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="CPGarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="TelephoneGarantExterieur" Type="varchar" MaxLength="100" />
+          <Property Name="GSMGarantExterieur" Type="varchar" MaxLength="100" />
           <Property Name="CommentairesSUiviMedical" Type="text" />
           <Property Name="SAJ" Type="bit" />
           <Property Name="SPJ" Type="bit" />
           <Property Name="Commentaires" Type="text" />
           <Property Name="PriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="Adresse1PriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="Adresse2PriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="LocalitePriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="CPPriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="TelephonePriseEnCharge" Type="char" MaxLength="100" />
-          <Property Name="GSMPriseEnCharge" Type="char" MaxLength="100" />
+          <Property Name="Adresse1PriseEnCharge" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2PriseEnCharge" Type="varchar" MaxLength="100" />
+          <Property Name="LocalitePriseEnCharge" Type="varchar" MaxLength="100" />
+          <Property Name="CPPriseEnCharge" Type="varchar" MaxLength="100" />
+          <Property Name="TelephonePriseEnCharge" Type="varchar" MaxLength="100" />
+          <Property Name="GSMPriseEnCharge" Type="varchar" MaxLength="100" />
           <Property Name="DansLeService" Type="bit" />
           <Property Name="AutoriteParentale" Type="bit" />
         </EntityType>
@@ -371,12 +375,12 @@
             <PropertyRef Name="IDFratrie" />
           </Key>
           <Property Name="IDFratrie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="char" MaxLength="100" />
-          <Property Name="Prenom" Type="char" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" />
           <Property Name="IDTypeFratrie" Type="int" />
           <Property Name="Commentaires" Type="text" />
           <Property Name="Vivant" Type="bit" />
-          <Property Name="Profession" Type="char" MaxLength="100" />
+          <Property Name="Profession" Type="varchar" MaxLength="100" />
           <Property Name="AlcoolF" Type="bit" />
           <Property Name="Drogue" Type="bit" />
           <Property Name="Jeux" Type="bit" />
@@ -390,24 +394,24 @@
             <PropertyRef Name="IDIntervenantFamimlial" />
           </Key>
           <Property Name="IDIntervenantFamimlial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rôle" Type="char" MaxLength="100" />
-          <Property Name="Nom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Prenom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Adresse1" Type="char" MaxLength="100" />
-          <Property Name="Adresse2" Type="char" MaxLength="100" />
-          <Property Name="Localite" Type="char" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse1" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2" Type="varchar" MaxLength="100" />
+          <Property Name="Localite" Type="varchar" MaxLength="100" />
           <Property Name="CodePostal" Type="int" />
-          <Property Name="Telephone" Type="char" MaxLength="100" />
-          <Property Name="Email" Type="char" MaxLength="100" />
-          <Property Name="GSM" Type="char" MaxLength="100" />
+          <Property Name="Telephone" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="GSM" Type="varchar" MaxLength="100" />
           <Property Name="IDBeneficiare" Type="int" />
+          <Property Name="Role" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Localite">
           <Key>
             <PropertyRef Name="IDLocalite" />
           </Key>
           <Property Name="IDLocalite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocaliteNom" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="LocaliteNom" Type="varchar" MaxLength="100" />
           <Property Name="CodePostal" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MaisonJustice">
@@ -415,24 +419,24 @@
             <PropertyRef Name="IDMaisonJustice" />
           </Key>
           <Property Name="IDMaisonJustice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Medecin">
           <Key>
             <PropertyRef Name="IDMedecin" />
           </Key>
           <Property Name="IDMedecin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MedecinNom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="MedecinPrenom" Type="char" MaxLength="100" />
-          <Property Name="MedecinAdresse1" Type="char" MaxLength="100" />
-          <Property Name="MedecinAdresse2" Type="char" MaxLength="100" />
+          <Property Name="MedecinNom" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinPrenom" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinAdresse1" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinAdresse2" Type="varchar" MaxLength="100" />
           <Property Name="MedecinCP" Type="int" />
-          <Property Name="MedecinLocalite" Type="char" MaxLength="100" />
-          <Property Name="MedecinTelephone" Type="char" MaxLength="100" />
-          <Property Name="MedecinFax" Type="char" MaxLength="100" />
-          <Property Name="MedecinEmail" Type="char" MaxLength="100" />
-          <Property Name="Specialite" Type="char" MaxLength="100" />
-          <Property Name="CommentairesMedecin" Type="varchar" MaxLength="10" />
+          <Property Name="MedecinLocalite" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinTelephone" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinFax" Type="varchar" MaxLength="100" />
+          <Property Name="MedecinEmail" Type="varchar" MaxLength="100" />
+          <Property Name="Specialite" Type="varchar" MaxLength="100" />
+          <Property Name="CommentairesMedecin" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Mutuelle">
           <Key>
@@ -440,23 +444,23 @@
           </Key>
           <Property Name="IDMutuelle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Numero" Type="int" Nullable="false" />
-          <Property Name="Nom" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Adresse1" Type="char" MaxLength="100" />
-          <Property Name="Adresse2" Type="char" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adresse1" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse2" Type="varchar" MaxLength="100" />
           <Property Name="CodePostal" Type="int" />
-          <Property Name="Localite" Type="char" MaxLength="100" />
-          <Property Name="Email" Type="char" MaxLength="100" />
-          <Property Name="Telephone" Type="char" MaxLength="100" />
-          <Property Name="SiteInternet" Type="char" MaxLength="100" />
-          <Property Name="Fax" Type="char" MaxLength="100" />
-          <Property Name="Commentaires" Type="varchar" MaxLength="10" />
+          <Property Name="Localite" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telephone" Type="varchar" MaxLength="100" />
+          <Property Name="SiteInternet" Type="varchar" MaxLength="100" />
+          <Property Name="Fax" Type="varchar" MaxLength="100" />
+          <Property Name="Commentaires" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Nationalite">
           <Key>
             <PropertyRef Name="IDNationalite" />
           </Key>
           <Property Name="IDNationalite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Participation">
           <Key>
@@ -473,7 +477,7 @@
             <PropertyRef Name="IDPieceJointe" />
           </Key>
           <Property Name="IDPieceJointe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LibellePiece" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="LibellePiece" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="DatePiece" Type="datetime" Nullable="false" />
           <Property Name="IDBeneficiare" Type="int" Nullable="false" />
           <Property Name="IDTypeAction" Type="int" />
@@ -496,9 +500,9 @@
             <PropertyRef Name="IDProgramme" />
           </Key>
           <Property Name="IDProgramme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Secteur" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Niveau" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Phase" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Secteur" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Niveau" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phase" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Sequence" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RegimeMutuelle">
@@ -506,7 +510,7 @@
             <PropertyRef Name="IDRegimeMutuelle" />
           </Key>
           <Property Name="IDRegimeMutuelle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Sejour">
           <Key>
@@ -521,10 +525,10 @@
           <Property Name="IDBeneficiare" Type="int" />
           <Property Name="DateDebutConvention" Type="datetime" />
           <Property Name="DateFinConvention" Type="datetime" />
-          <Property Name="ReferenceConvention" Type="char" MaxLength="100" />
+          <Property Name="ReferenceConvention" Type="varchar" MaxLength="100" />
           <Property Name="Prolongation" Type="bit" />
           <Property Name="DateFinProlongation" Type="datetime" />
-          <Property Name="EtatAccordMutualiste" Type="char" MaxLength="100" />
+          <Property Name="EtatAccordMutualiste" Type="varchar" MaxLength="100" />
           <Property Name="DateDebutAccord" Type="datetime" />
           <Property Name="DateFinAccord" Type="datetime" />
         </EntityType>
@@ -533,7 +537,7 @@
             <PropertyRef Name="IDSexe" />
           </Key>
           <Property Name="IDSexe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -550,35 +554,35 @@
             <PropertyRef Name="IDTypeAction" />
           </Key>
           <Property Name="IDTypeAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeAdresse">
           <Key>
             <PropertyRef Name="IDTypeAdresse" />
           </Key>
           <Property Name="IDTypeAdresse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeFratrie">
           <Key>
             <PropertyRef Name="IDTypeFratrie" />
           </Key>
           <Property Name="IDTypeFratrie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="TypePresence">
           <Key>
             <PropertyRef Name="IDTypePresence" />
           </Key>
           <Property Name="IDTypePresence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="TypePriseEnCharge">
           <Key>
             <PropertyRef Name="IDTypePriseEnCharge" />
           </Key>
           <Property Name="IDTypePriseEnCharge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valeur" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Valeur" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -1351,7 +1355,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TrempolineDBModelStoreContainer">
+        <EntityContainer Name="TrempolineModelsStoreContainer">
           <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Adresse" EntityType="Self.Adresse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AdresseBeneficiaire" EntityType="Self.AdresseBeneficiaire" Schema="dbo" store:Type="Tables" />
@@ -1647,13 +1651,13 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TrempolineDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TrempolineModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Action">
           <Key>
             <PropertyRef Name="IDAction" />
           </Key>
           <Property Name="IDAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="IDTypeAction" Type="Int32" />
           <Property Name="IDBeneficiare" Type="Int32" />
@@ -1669,9 +1673,9 @@
             <PropertyRef Name="IDAdresse" />
           </Key>
           <Property Name="IDAdresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ligne1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Ligne2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Pays" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Ligne1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ligne2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pays" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDTypeAdresse" Type="Int32" />
           <Property Name="IDLocalite" Type="Int32" />
           <NavigationProperty Name="AdresseBeneficiaire" Relationship="Self.Adresse_AdresseBeneficiaire_FK1" FromRole="Adresse" ToRole="AdresseBeneficiaire" />
@@ -1703,7 +1707,7 @@
           </Key>
           <Property Name="IDAtelierFSE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomAtelier" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesAtelier" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesAtelier" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Participation" Relationship="Self.AtelierFSE_Participation_FK1" FromRole="AtelierFSE" ToRole="Participation" />
         </EntityType>
         <EntityType Name="AutoriteParentale">
@@ -1711,7 +1715,7 @@
             <PropertyRef Name="IDAutoriteparentale" />
           </Key>
           <Property Name="IDAutoriteparentale" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EnfantKangourou" Relationship="Self.AutoriteParentale_EnfantKangourou_FK1" FromRole="AutoriteParentale" ToRole="EnfantKangourou" />
         </EntityType>
         <EntityType Name="Avocat">
@@ -1719,15 +1723,15 @@
             <PropertyRef Name="AvocatID" />
           </Key>
           <Property Name="AvocatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AvocatNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="AvocatPrenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="AvocatAdresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="AvocatAdresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="AvocatCP" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Avocatlocalite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="AvocatTelephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="AvocatFax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="AvocatMail" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="AvocatNom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatPrenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatAdresse1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatAdresse2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatCP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Avocatlocalite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatTelephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatFax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AvocatMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BeneficiaireAvocat" Relationship="Self.Avocat_BeneficiaireAvocat_FK1" FromRole="Avocat" ToRole="BeneficiaireAvocat" />
         </EntityType>
@@ -1736,8 +1740,8 @@
             <PropertyRef Name="IDAxePsy" />
           </Key>
           <Property Name="IDAxePsy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.AxePsy_Beneficiaire_FK1" FromRole="AxePsy" ToRole="Beneficiaire" />
           <NavigationProperty Name="Beneficiaire1" Relationship="Self.AxePsy_Beneficiaire_FK10" FromRole="AxePsy" ToRole="Beneficiaire" />
           <NavigationProperty Name="Beneficiaire2" Relationship="Self.AxePsy_Beneficiaire_FK11" FromRole="AxePsy" ToRole="Beneficiaire" />
@@ -1767,27 +1771,24 @@
             <PropertyRef Name="IDBeneficiare" />
           </Key>
           <Property Name="IDBeneficiare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Photo" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LieuNaissance" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="RegistreNational" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CarteIdentite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LieuNaissance" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RegistreNational" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CarteIdentite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDNationalite" Type="Int32" />
           <Property Name="PermisConduire" Type="Boolean" />
           <Property Name="DatePermisConduire" Type="DateTime" Precision="3" />
-          <Property Name="CommentairesFicheContact" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+          <Property Name="CommentairesFicheContact" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="IDMutuelle" Type="Int32" />
-          <Property Name="N_InscriptionMutuelle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="RegimeMutuelle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="RegimeMutuelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDRegime" Type="Int32" />
-          <Property Name="MedecinConseil" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesMututelle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinConseil" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDCPAS" Type="Int32" />
-          <Property Name="PersonneContactCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="N_TelContactCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesCPAS" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="PersonneContactCPAS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesCPAS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="RevenusCPAS" Type="Double" />
           <Property Name="DateDebutRevenuCPAS" Type="DateTime" Precision="3" />
           <Property Name="RevenusIITMutuelle" Type="Double" />
@@ -1798,10 +1799,10 @@
           <Property Name="CommentairesRevenus" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="IDTypePriseEnCharge" Type="Int32" />
           <Property Name="IDEducateur" Type="Int32" />
-          <Property Name="BanqueCompteVue" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="NoCompteVue" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="BanqueCompteEpargne" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="NoCompteEpargne" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="BanqueCompteVue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NoCompteVue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BanqueCompteEpargne" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NoCompteEpargne" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CarteBanque" Type="Boolean" />
           <Property Name="CodePin" Type="Boolean" />
           <Property Name="PCBanking" Type="Boolean" />
@@ -1810,19 +1811,17 @@
           <Property Name="SoldeCompteEpargne" Type="Double" />
           <Property Name="DateSoldeCompteEpargne" Type="DateTime" Precision="3" />
           <Property Name="CompteTrempoline" Type="Boolean" />
-          <Property Name="FichierCompte" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesFinances" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesFinances" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="Dettes" Type="Boolean" />
-          <Property Name="CommentairesDettes" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="RèglementDettes" Type="Boolean" />
-          <Property Name="AdministrateurBiens" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Adresse1AdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2AdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CPAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LocaliteAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephoneAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="FaxAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MailAdminBien" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="CommentairesDettes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AdministrateurBiens" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1AdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2AdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CPAdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocaliteAdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneAdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FaxAdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MailAdminBien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="LiberteConditionnelle" Type="Boolean" />
           <Property Name="MediationPenale" Type="Boolean" />
           <Property Name="MJA" Type="Boolean" />
@@ -1845,53 +1844,52 @@
           <Property Name="DateOrdonnanceJugeJeunsesse" Type="DateTime" Precision="0" />
           <Property Name="DateAutre" Type="DateTime" Precision="0" />
           <Property Name="ObligationTrempoline" Type="Boolean" />
-          <Property Name="CommentairesSituationPenale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CommentairesSuiviJudiciaire" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SituationCivilPolice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesSituationPenale" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesSuiviJudiciaire" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SituationCivilPolice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Enfants" Type="Boolean" />
           <Property Name="NbreFilles" Type="Int32" />
           <Property Name="NbreGarçons" Type="Int32" />
           <Property Name="ContactEffectif" Type="Boolean" />
           <Property Name="Jugement" Type="Boolean" />
-          <Property Name="Intervenants" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Intervenants" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RCFamiliale" Type="Boolean" />
           <Property Name="PensionAlim" Type="Boolean" />
           <Property Name="MontantPension" Type="Double" />
-          <Property Name="NomEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="PrenomEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1Employeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2Employeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CPEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LocaliteEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephoneEmployeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesEmployeur" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="BureauONEMNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1ONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2ONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="NomEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PrenomEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1Employeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2Employeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CPEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocaliteEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesEmployeur" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BureauONEMNom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1ONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2ONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CPONEM" Type="Int32" />
-          <Property Name="LocaliteONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephoneONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="FaxONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MailONEM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="LocaliteONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FaxONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MailONEM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DateDebutONEM" Type="DateTime" Precision="3" />
           <Property Name="DateFinONEM" Type="DateTime" Precision="3" />
           <Property Name="CommentairesONEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="SyndicatNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1Syndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2Syndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="SyndicatNom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1Syndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2Syndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CPSyndicat" Type="Int32" />
-          <Property Name="LocaliteSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephoneSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="FaxSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MailSyndicat" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="LocaliteSyndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneSyndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FaxSyndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MailSyndicat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DateDebutSyndicat" Type="DateTime" Precision="3" />
           <Property Name="DateFinSyndicat" Type="DateTime" Precision="3" />
-          <Property Name="PespectivesRS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CommentairesSyndicat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IDSexe" Type="Int32" />
           <Property Name="SituationEntree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Medicaments" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CommentairesSuiviMedical" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Medicaments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesSuiviMedical" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="ParticipationParentGroupeSolidarite" Type="Boolean" />
           <Property Name="ParticipationParentMultifamilial" Type="Boolean" />
           <Property Name="DateExamenMedical" Type="DateTime" Precision="0" />
@@ -1913,13 +1911,20 @@
           <Property Name="NecessiteEtape" Type="Int32" />
           <Property Name="ServiceKangourou" Type="Boolean" />
           <Property Name="SuiviFamilial" Type="Boolean" />
-          <Property Name="SuiviIndividuel" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="SuiviIndividuel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CommentairesFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="OservationsFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="HistoireFamille" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CommentairesGroupeSolidarite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IDDiplome" Type="Int32" />
-          <Property Name="FormationSuivie" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="FormationSuivie" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroInscriptionMutuelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesMutuelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroTelContactCPAS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FichierCompte" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FichierCompteContentType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PerspectivesRS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ReglementDettes" Type="Boolean" />
           <NavigationProperty Name="Action" Relationship="Self.Beneficiaire_Action_FK1" FromRole="Beneficiaire" ToRole="Action" />
           <NavigationProperty Name="AdresseBeneficiaire" Relationship="Self.Beneficiaire_AdresseBeneficiaire_FK1" FromRole="Beneficiaire" ToRole="AdresseBeneficiaire" />
           <NavigationProperty Name="AxePsy" Relationship="Self.AxePsy_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="AxePsy" />
@@ -1946,6 +1951,7 @@
           <NavigationProperty Name="Fratrie" Relationship="Self.Beneficiaire_Fratrie_FK1" FromRole="Beneficiaire" ToRole="Fratrie" />
           <NavigationProperty Name="IntervenantFamilial" Relationship="Self.Beneficiaire_IntervenantFamilial_FK1" FromRole="Beneficiaire" ToRole="IntervenantFamilial" />
           <NavigationProperty Name="Participation" Relationship="Self.Beneficiaire_Participation_FK1" FromRole="Beneficiaire" ToRole="Participation" />
+          <NavigationProperty Name="PieceJointe" Relationship="Self.Beneficiaire_PieceJointe_FK1" FromRole="Beneficiaire" ToRole="PieceJointe" />
           <NavigationProperty Name="Presentiel" Relationship="Self.Beneficiaire_Presentiel_FK1" FromRole="Beneficiaire" ToRole="Presentiel" />
           <NavigationProperty Name="Sejour" Relationship="Self.Beneficiaire_Sejour_FK1" FromRole="Beneficiaire" ToRole="Sejour" />
           <NavigationProperty Name="CPAS" Relationship="Self.CPAS_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="CPAS" />
@@ -1956,7 +1962,9 @@
           <NavigationProperty Name="RegimeMutuelle1" Relationship="Self.RegimeMutuelle_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="RegimeMutuelle" />
           <NavigationProperty Name="Sexe" Relationship="Self.Sexe_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="Sexe" />
           <NavigationProperty Name="TypePriseEnCharge" Relationship="Self.TypePriseEnCharge_Beneficiaire_FK1" FromRole="Beneficiaire" ToRole="TypePriseEnCharge" />
-          <NavigationProperty Name="PieceJointe" Relationship="TrempolineDBModel.Beneficiaire_PieceJointe_FK1" FromRole="Beneficiaire" ToRole="PieceJointe" />
+          <Property Name="MailEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FaxEmployeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PerspectiveRS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BeneficiaireAvocat">
           <Key>
@@ -2021,9 +2029,9 @@
           </Key>
           <Property Name="IDCPAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodePostal" Type="Int32" Nullable="false" />
-          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.CPAS_Beneficiaire_FK1" FromRole="CPAS" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Diplome">
@@ -2031,7 +2039,7 @@
             <PropertyRef Name="IDDiplome" />
           </Key>
           <Property Name="IDDiplome" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Diplome_Beneficiaire_FK1" FromRole="Diplome" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Educateur">
@@ -2049,35 +2057,35 @@
             <PropertyRef Name="IDEnfantKangourou" />
           </Key>
           <Property Name="IDEnfantKangourou" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateNaissanceEK" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IDBeneficiare" Type="Int32" />
           <Property Name="IDAutoriteparentale" Type="Int32" />
-          <Property Name="AdresseEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1Ecole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2Ecole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LocaliteEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CPEcole" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="TelEcole" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2GarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LocaliteGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CPGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephoneGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="GSMGarantExterieur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="AdresseEcole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1Ecole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2Ecole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocaliteEcole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CPEcole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelEcole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1GarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2GarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocaliteGarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CPGarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneGarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GSMGarantExterieur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CommentairesSUiviMedical" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SAJ" Type="Boolean" />
           <Property Name="SPJ" Type="Boolean" />
           <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse1PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2PriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LocalitePriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CPPriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="TelephonePriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="GSMPriseEnCharge" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Adresse1PriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2PriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LocalitePriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CPPriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelephonePriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GSMPriseEnCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DansLeService" Type="Boolean" />
           <Property Name="AutoriteParentale" Type="Boolean" />
           <NavigationProperty Name="AutoriteParentale1" Relationship="Self.AutoriteParentale_EnfantKangourou_FK1" FromRole="EnfantKangourou" ToRole="AutoriteParentale" />
@@ -2113,12 +2121,12 @@
             <PropertyRef Name="IDFratrie" />
           </Key>
           <Property Name="IDFratrie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDTypeFratrie" Type="Int32" />
           <Property Name="Commentaires" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Vivant" Type="Boolean" />
-          <Property Name="Profession" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Profession" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AlcoolF" Type="Boolean" />
           <Property Name="Drogue" Type="Boolean" />
           <Property Name="Jeux" Type="Boolean" />
@@ -2134,17 +2142,17 @@
             <PropertyRef Name="IDIntervenantFamimlial" />
           </Key>
           <Property Name="IDIntervenantFamimlial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rôle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CodePostal" Type="Int32" />
-          <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="GSM" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GSM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDBeneficiare" Type="Int32" />
+          <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_IntervenantFamilial_FK1" FromRole="IntervenantFamilial" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Localite">
@@ -2152,7 +2160,7 @@
             <PropertyRef Name="IDLocalite" />
           </Key>
           <Property Name="IDLocalite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocaliteNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LocaliteNom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CodePostal" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Adresse" Relationship="Self.Localite_Adresse_FK1" FromRole="Localite" ToRole="Adresse" />
         </EntityType>
@@ -2161,7 +2169,7 @@
             <PropertyRef Name="IDMaisonJustice" />
           </Key>
           <Property Name="IDMaisonJustice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BeneficiaireMaisonJustice" Relationship="Self.MaisonJustice_BeneficiaireMaisonJustice_FK1" FromRole="MaisonJustice" ToRole="BeneficiaireMaisonJustice" />
         </EntityType>
         <EntityType Name="Medecin">
@@ -2169,17 +2177,17 @@
             <PropertyRef Name="IDMedecin" />
           </Key>
           <Property Name="IDMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MedecinNom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MedecinPrenom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MedecinAdresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MedecinAdresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="MedecinNom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinPrenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinAdresse1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinAdresse2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="MedecinCP" Type="Int32" />
-          <Property Name="MedecinLocalite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MedecinTelephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MedecinFax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="MedecinEmail" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Specialite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="CommentairesMedecin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinLocalite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinTelephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinFax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedecinEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Specialite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentairesMedecin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BeneficiaireMedecin" Relationship="Self.Medecin_BeneficiaireMedecin_FK1" FromRole="Medecin" ToRole="BeneficiaireMedecin" />
         </EntityType>
         <EntityType Name="Mutuelle">
@@ -2188,16 +2196,16 @@
           </Key>
           <Property Name="IDMutuelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Numero" Type="Int32" Nullable="false" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresse1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CodePostal" Type="Int32" />
-          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="SiteInternet" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Fax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Commentaires" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Localite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SiteInternet" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Commentaires" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Mutuelle_Beneficiaire_FK1" FromRole="Mutuelle" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Nationalite">
@@ -2205,7 +2213,7 @@
             <PropertyRef Name="IDNationalite" />
           </Key>
           <Property Name="IDNationalite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Nationalite_Beneficiaire_FK1" FromRole="Nationalite" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Participation">
@@ -2219,6 +2227,20 @@
           <Property Name="NbreHeures" Type="Double" />
           <NavigationProperty Name="AtelierFSE" Relationship="Self.AtelierFSE_Participation_FK1" FromRole="Participation" ToRole="AtelierFSE" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Participation_FK1" FromRole="Participation" ToRole="Beneficiaire" />
+        </EntityType>
+        <EntityType Name="PieceJointe">
+          <Key>
+            <PropertyRef Name="IDPieceJointe" />
+          </Key>
+          <Property Name="IDPieceJointe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LibellePiece" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatePiece" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IDBeneficiare" Type="Int32" Nullable="false" />
+          <Property Name="IDTypeAction" Type="Int32" />
+          <Property Name="Piece" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ContentType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_PieceJointe_FK1" FromRole="PieceJointe" ToRole="Beneficiaire" />
+          <NavigationProperty Name="TypeAction" Relationship="Self.TypeAction_PieceJointe_FK1" FromRole="PieceJointe" ToRole="TypeAction" />
         </EntityType>
         <EntityType Name="Presentiel">
           <Key>
@@ -2238,9 +2260,9 @@
             <PropertyRef Name="IDProgramme" />
           </Key>
           <Property Name="IDProgramme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Secteur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Niveau" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Phase" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Secteur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Niveau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Sequence" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BeneficiaireProgramme" Relationship="Self.Programme_BeneficiaireProgramme_FK1" FromRole="Programme" ToRole="BeneficiaireProgramme" />
         </EntityType>
@@ -2249,7 +2271,7 @@
             <PropertyRef Name="IDRegimeMutuelle" />
           </Key>
           <Property Name="IDRegimeMutuelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.RegimeMutuelle_Beneficiaire_FK1" FromRole="RegimeMutuelle" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="Sejour">
@@ -2265,10 +2287,10 @@
           <Property Name="IDBeneficiare" Type="Int32" />
           <Property Name="DateDebutConvention" Type="DateTime" Precision="3" />
           <Property Name="DateFinConvention" Type="DateTime" Precision="3" />
-          <Property Name="ReferenceConvention" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="ReferenceConvention" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Prolongation" Type="Boolean" />
           <Property Name="DateFinProlongation" Type="DateTime" Precision="3" />
-          <Property Name="EtatAccordMutualiste" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="EtatAccordMutualiste" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DateDebutAccord" Type="DateTime" Precision="3" />
           <Property Name="DateFinAccord" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Beneficiaire_Sejour_FK1" FromRole="Sejour" ToRole="Beneficiaire" />
@@ -2278,24 +2300,34 @@
             <PropertyRef Name="IDSexe" />
           </Key>
           <Property Name="IDSexe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.Sexe_Beneficiaire_FK1" FromRole="Sexe" ToRole="Beneficiaire" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TypeAction">
           <Key>
             <PropertyRef Name="IDTypeAction" />
           </Key>
           <Property Name="IDTypeAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Action" Relationship="Self.TypeAction_Action_FK1" FromRole="TypeAction" ToRole="Action" />
-          <NavigationProperty Name="PieceJointe" Relationship="TrempolineDBModel.TypeAction_PieceJointe_FK1" FromRole="TypeAction" ToRole="PieceJointe" />
+          <NavigationProperty Name="PieceJointe" Relationship="Self.TypeAction_PieceJointe_FK1" FromRole="TypeAction" ToRole="PieceJointe" />
         </EntityType>
         <EntityType Name="TypeAdresse">
           <Key>
             <PropertyRef Name="IDTypeAdresse" />
           </Key>
           <Property Name="IDTypeAdresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Adresse" Relationship="Self.TypeAdresse_Adresse_FK1" FromRole="TypeAdresse" ToRole="Adresse" />
         </EntityType>
         <EntityType Name="TypeFratrie">
@@ -2303,7 +2335,7 @@
             <PropertyRef Name="IDTypeFratrie" />
           </Key>
           <Property Name="IDTypeFratrie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Fratrie" Relationship="Self.TypeFratrie_Fratrie_FK1" FromRole="TypeFratrie" ToRole="Fratrie" />
         </EntityType>
         <EntityType Name="TypePresence">
@@ -2311,7 +2343,7 @@
             <PropertyRef Name="IDTypePresence" />
           </Key>
           <Property Name="IDTypePresence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Presentiel" Relationship="Self.TypePresence_Presentiel_FK1" FromRole="TypePresence" ToRole="Presentiel" />
         </EntityType>
         <EntityType Name="TypePriseEnCharge">
@@ -2319,7 +2351,7 @@
             <PropertyRef Name="IDTypePriseEnCharge" />
           </Key>
           <Property Name="IDTypePriseEnCharge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Valeur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Beneficiaire" Relationship="Self.TypePriseEnCharge_Beneficiaire_FK1" FromRole="TypePriseEnCharge" ToRole="Beneficiaire" />
         </EntityType>
         <EntityType Name="User">
@@ -2369,7 +2401,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Adresse_AdresseBeneficiaire_FK1">
-          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AdresseBeneficiaire" Type="Self.AdresseBeneficiaire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adresse">
@@ -2381,7 +2415,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Localite_Adresse_FK1">
-          <End Role="Localite" Type="Self.Localite" Multiplicity="0..1" />
+          <End Role="Localite" Type="Self.Localite" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Localite">
@@ -2860,6 +2896,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Beneficiaire_PieceJointe_FK1">
+          <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PieceJointe" Type="Self.PieceJointe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beneficiaire">
+              <PropertyRef Name="IDBeneficiare" />
+            </Principal>
+            <Dependent Role="PieceJointe">
+              <PropertyRef Name="IDBeneficiare" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Beneficiaire_Presentiel_FK1">
           <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
           <End Role="Presentiel" Type="Self.Presentiel" Multiplicity="*" />
@@ -2873,7 +2923,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Beneficiaire_Sejour_FK1">
-          <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1" />
+          <End Role="Beneficiaire" Type="Self.Beneficiaire" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Beneficiaire">
@@ -3052,6 +3104,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="TypeAction_PieceJointe_FK1">
+          <End Role="TypeAction" Type="Self.TypeAction" Multiplicity="0..1" />
+          <End Role="PieceJointe" Type="Self.PieceJointe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAction">
+              <PropertyRef Name="IDTypeAction" />
+            </Principal>
+            <Dependent Role="PieceJointe">
+              <PropertyRef Name="IDTypeAction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TypePresence_Presentiel_FK1">
           <End Role="TypePresence" Type="Self.TypePresence" Multiplicity="0..1" />
           <End Role="Presentiel" Type="Self.Presentiel" Multiplicity="*" />
@@ -3091,11 +3155,13 @@
           <EntitySet Name="Mutuelle" EntityType="Self.Mutuelle" />
           <EntitySet Name="Nationalite" EntityType="Self.Nationalite" />
           <EntitySet Name="Participation" EntityType="Self.Participation" />
+          <EntitySet Name="PieceJointe" EntityType="Self.PieceJointe" />
           <EntitySet Name="Presentiel" EntityType="Self.Presentiel" />
           <EntitySet Name="Programme" EntityType="Self.Programme" />
           <EntitySet Name="RegimeMutuelle" EntityType="Self.RegimeMutuelle" />
           <EntitySet Name="Sejour" EntityType="Self.Sejour" />
           <EntitySet Name="Sexe" EntityType="Self.Sexe" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TypeAction" EntityType="Self.TypeAction" />
           <EntitySet Name="TypeAdresse" EntityType="Self.TypeAdresse" />
           <EntitySet Name="TypeFratrie" EntityType="Self.TypeFratrie" />
@@ -3278,6 +3344,10 @@
             <End Role="Beneficiaire" EntitySet="Beneficiaire" />
             <End Role="Participation" EntitySet="Participation" />
           </AssociationSet>
+          <AssociationSet Name="Beneficiaire_PieceJointe_FK1" Association="Self.Beneficiaire_PieceJointe_FK1">
+            <End Role="Beneficiaire" EntitySet="Beneficiaire" />
+            <End Role="PieceJointe" EntitySet="PieceJointe" />
+          </AssociationSet>
           <AssociationSet Name="Beneficiaire_Presentiel_FK1" Association="Self.Beneficiaire_Presentiel_FK1">
             <End Role="Beneficiaire" EntitySet="Beneficiaire" />
             <End Role="Presentiel" EntitySet="Presentiel" />
@@ -3342,77 +3412,23 @@
             <End Role="TypeFratrie" EntitySet="TypeFratrie" />
             <End Role="Fratrie" EntitySet="Fratrie" />
           </AssociationSet>
+          <AssociationSet Name="TypeAction_PieceJointe_FK1" Association="Self.TypeAction_PieceJointe_FK1">
+            <End Role="TypeAction" EntitySet="TypeAction" />
+            <End Role="PieceJointe" EntitySet="PieceJointe" />
+          </AssociationSet>
           <AssociationSet Name="TypePresence_Presentiel_FK1" Association="Self.TypePresence_Presentiel_FK1">
             <End Role="TypePresence" EntitySet="TypePresence" />
             <End Role="Presentiel" EntitySet="Presentiel" />
           </AssociationSet>
-          <EntitySet Name="PieceJointe" EntityType="TrempolineDBModel.PieceJointe" />
-          <AssociationSet Name="Beneficiaire_PieceJointe_FK1" Association="TrempolineDBModel.Beneficiaire_PieceJointe_FK1">
-            <End Role="Beneficiaire" EntitySet="Beneficiaire" />
-            <End Role="PieceJointe" EntitySet="PieceJointe" />
-          </AssociationSet>
-          <AssociationSet Name="TypeAction_PieceJointe_FK1" Association="TrempolineDBModel.TypeAction_PieceJointe_FK1">
-            <End Role="TypeAction" EntitySet="TypeAction" />
-            <End Role="PieceJointe" EntitySet="PieceJointe" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="TrempolineDBModel.sysdiagrams" />
         </EntityContainer>
-        <EntityType Name="PieceJointe">
-          <Key>
-            <PropertyRef Name="IDPieceJointe" />
-          </Key>
-          <Property Name="IDPieceJointe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LibellePiece" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="DatePiece" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IDBeneficiare" Type="Int32" Nullable="false" />
-          <Property Name="IDTypeAction" Type="Int32" />
-          <Property Name="Piece" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Beneficiaire" Relationship="TrempolineDBModel.Beneficiaire_PieceJointe_FK1" FromRole="PieceJointe" ToRole="Beneficiaire" />
-          <NavigationProperty Name="TypeAction" Relationship="TrempolineDBModel.TypeAction_PieceJointe_FK1" FromRole="PieceJointe" ToRole="TypeAction" />
-          <Property Name="ContentType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <Association Name="Beneficiaire_PieceJointe_FK1">
-          <End Type="TrempolineDBModel.Beneficiaire" Role="Beneficiaire" Multiplicity="1" />
-          <End Type="TrempolineDBModel.PieceJointe" Role="PieceJointe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Beneficiaire">
-              <PropertyRef Name="IDBeneficiare" />
-            </Principal>
-            <Dependent Role="PieceJointe">
-              <PropertyRef Name="IDBeneficiare" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TypeAction_PieceJointe_FK1">
-          <End Type="TrempolineDBModel.TypeAction" Role="TypeAction" Multiplicity="0..1" />
-          <End Type="TrempolineDBModel.PieceJointe" Role="PieceJointe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeAction">
-              <PropertyRef Name="IDTypeAction" />
-            </Principal>
-            <Dependent Role="PieceJointe">
-              <PropertyRef Name="IDTypeAction" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TrempolineDBModelStoreContainer" CdmEntityContainer="TrempolineEntities">
+        <EntityContainerMapping StorageEntityContainer="TrempolineModelsStoreContainer" CdmEntityContainer="TrempolineEntities">
           <EntitySetMapping Name="Action">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Action">
+            <EntityTypeMapping TypeName="TrempolineModels.Action">
               <MappingFragment StoreEntitySet="Action">
                 <ScalarProperty Name="IDAction" ColumnName="IDAction" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -3426,7 +3442,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Adresse">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Adresse">
+            <EntityTypeMapping TypeName="TrempolineModels.Adresse">
               <MappingFragment StoreEntitySet="Adresse">
                 <ScalarProperty Name="IDAdresse" ColumnName="IDAdresse" />
                 <ScalarProperty Name="Ligne1" ColumnName="Ligne1" />
@@ -3438,7 +3454,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AdresseBeneficiaire">
-            <EntityTypeMapping TypeName="TrempolineDBModel.AdresseBeneficiaire">
+            <EntityTypeMapping TypeName="TrempolineModels.AdresseBeneficiaire">
               <MappingFragment StoreEntitySet="AdresseBeneficiaire">
                 <ScalarProperty Name="IDAdresseBeneficiaire" ColumnName="IDAdresseBeneficiaire" />
                 <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -3447,7 +3463,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AssistantSocial">
-            <EntityTypeMapping TypeName="TrempolineDBModel.AssistantSocial">
+            <EntityTypeMapping TypeName="TrempolineModels.AssistantSocial">
               <MappingFragment StoreEntitySet="AssistantSocial">
                 <ScalarProperty Name="IDAssistantSocial" ColumnName="IDAssistantSocial" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
@@ -3455,7 +3471,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AtelierFSE">
-            <EntityTypeMapping TypeName="TrempolineDBModel.AtelierFSE">
+            <EntityTypeMapping TypeName="TrempolineModels.AtelierFSE">
               <MappingFragment StoreEntitySet="AtelierFSE">
                 <ScalarProperty Name="IDAtelierFSE" ColumnName="IDAtelierFSE" />
                 <ScalarProperty Name="NomAtelier" ColumnName="NomAtelier" />
@@ -3464,7 +3480,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AutoriteParentale">
-            <EntityTypeMapping TypeName="TrempolineDBModel.AutoriteParentale">
+            <EntityTypeMapping TypeName="TrempolineModels.AutoriteParentale">
               <MappingFragment StoreEntitySet="AutoriteParentale">
                 <ScalarProperty Name="IDAutoriteparentale" ColumnName="IDAutoriteparentale" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3472,7 +3488,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Avocat">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Avocat">
+            <EntityTypeMapping TypeName="TrempolineModels.Avocat">
               <MappingFragment StoreEntitySet="Avocat">
                 <ScalarProperty Name="AvocatID" ColumnName="AvocatID" />
                 <ScalarProperty Name="AvocatNom" ColumnName="AvocatNom" />
@@ -3489,7 +3505,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AxePsy">
-            <EntityTypeMapping TypeName="TrempolineDBModel.AxePsy">
+            <EntityTypeMapping TypeName="TrempolineModels.AxePsy">
               <MappingFragment StoreEntitySet="AxePsy">
                 <ScalarProperty Name="IDAxePsy" ColumnName="IDAxePsy" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
@@ -3498,8 +3514,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Beneficiaire">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Beneficiaire">
+            <EntityTypeMapping TypeName="TrempolineModels.Beneficiaire">
               <MappingFragment StoreEntitySet="Beneficiaire">
+                <ScalarProperty Name="PerspectiveRS" ColumnName="PerspectiveRS" />
+                <ScalarProperty Name="FaxEmployeur" ColumnName="FaxEmployeur" />
+                <ScalarProperty Name="MailEmployeur" ColumnName="MailEmployeur" />
                 <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Prenom" ColumnName="Prenom" />
@@ -3513,14 +3532,11 @@
                 <ScalarProperty Name="DatePermisConduire" ColumnName="DatePermisConduire" />
                 <ScalarProperty Name="CommentairesFicheContact" ColumnName="CommentairesFicheContact" />
                 <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
-                <ScalarProperty Name="N_InscriptionMutuelle" ColumnName="N°InscriptionMutuelle" />
                 <ScalarProperty Name="RegimeMutuelle" ColumnName="RegimeMutuelle" />
                 <ScalarProperty Name="IDRegime" ColumnName="IDRegime" />
                 <ScalarProperty Name="MedecinConseil" ColumnName="MedecinConseil" />
-                <ScalarProperty Name="CommentairesMututelle" ColumnName="CommentairesMututelle" />
                 <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
                 <ScalarProperty Name="PersonneContactCPAS" ColumnName="PersonneContactCPAS" />
-                <ScalarProperty Name="N_TelContactCPAS" ColumnName="N°TelContactCPAS" />
                 <ScalarProperty Name="CommentairesCPAS" ColumnName="CommentairesCPAS" />
                 <ScalarProperty Name="RevenusCPAS" ColumnName="RevenusCPAS" />
                 <ScalarProperty Name="DateDebutRevenuCPAS" ColumnName="DateDebutRevenuCPAS" />
@@ -3544,11 +3560,9 @@
                 <ScalarProperty Name="SoldeCompteEpargne" ColumnName="SoldeCompteEpargne" />
                 <ScalarProperty Name="DateSoldeCompteEpargne" ColumnName="DateSoldeCompteEpargne" />
                 <ScalarProperty Name="CompteTrempoline" ColumnName="CompteTrempoline" />
-                <ScalarProperty Name="FichierCompte" ColumnName="FichierCompte" />
                 <ScalarProperty Name="CommentairesFinances" ColumnName="CommentairesFinances" />
                 <ScalarProperty Name="Dettes" ColumnName="Dettes" />
                 <ScalarProperty Name="CommentairesDettes" ColumnName="CommentairesDettes" />
-                <ScalarProperty Name="RèglementDettes" ColumnName="RèglementDettes" />
                 <ScalarProperty Name="AdministrateurBiens" ColumnName="AdministrateurBiens" />
                 <ScalarProperty Name="Adresse1AdminBien" ColumnName="Adresse1AdminBien" />
                 <ScalarProperty Name="Adresse2AdminBien" ColumnName="Adresse2AdminBien" />
@@ -3620,7 +3634,6 @@
                 <ScalarProperty Name="MailSyndicat" ColumnName="MailSyndicat" />
                 <ScalarProperty Name="DateDebutSyndicat" ColumnName="DateDebutSyndicat" />
                 <ScalarProperty Name="DateFinSyndicat" ColumnName="DateFinSyndicat" />
-                <ScalarProperty Name="PespectivesRS" ColumnName="PespectivesRS" />
                 <ScalarProperty Name="CommentairesSyndicat" ColumnName="CommentairesSyndicat" />
                 <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
                 <ScalarProperty Name="SituationEntree" ColumnName="SituationEntree" />
@@ -3654,11 +3667,18 @@
                 <ScalarProperty Name="CommentairesGroupeSolidarite" ColumnName="CommentairesGroupeSolidarite" />
                 <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
                 <ScalarProperty Name="FormationSuivie" ColumnName="FormationSuivie" />
+                <ScalarProperty Name="NumeroInscriptionMutuelle" ColumnName="NumeroInscriptionMutuelle" />
+                <ScalarProperty Name="CommentairesMutuelle" ColumnName="CommentairesMutuelle" />
+                <ScalarProperty Name="NumeroTelContactCPAS" ColumnName="NumeroTelContactCPAS" />
+                <ScalarProperty Name="FichierCompte" ColumnName="FichierCompte" />
+                <ScalarProperty Name="FichierCompteContentType" ColumnName="FichierCompteContentType" />
+                <ScalarProperty Name="PerspectivesRS" ColumnName="PerspectivesRS" />
+                <ScalarProperty Name="ReglementDettes" ColumnName="ReglementDettes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BeneficiaireAvocat">
-            <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireAvocat">
+            <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireAvocat">
               <MappingFragment StoreEntitySet="BeneficiaireAvocat">
                 <ScalarProperty Name="IDBeneficiaireAvocat" ColumnName="IDBeneficiaireAvocat" />
                 <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -3667,7 +3687,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BeneficiaireMaisonJustice">
-            <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMaisonJustice">
+            <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireMaisonJustice">
               <MappingFragment StoreEntitySet="BeneficiaireMaisonJustice">
                 <ScalarProperty Name="IDBeneficiaireMaisonJustice" ColumnName="IDBeneficiaireMaisonJustice" />
                 <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
@@ -3685,7 +3705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BeneficiaireMedecin">
-            <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMedecin">
+            <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireMedecin">
               <MappingFragment StoreEntitySet="BeneficiaireMedecin">
                 <ScalarProperty Name="IDBeneficiaireMedecin" ColumnName="IDBeneficiaireMedecin" />
                 <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -3694,7 +3714,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BeneficiaireProgramme">
-            <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireProgramme">
+            <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireProgramme">
               <MappingFragment StoreEntitySet="BeneficiaireProgramme">
                 <ScalarProperty Name="IDBeneficiaireProgramme" ColumnName="IDBeneficiaireProgramme" />
                 <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
@@ -3709,7 +3729,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CPAS">
-            <EntityTypeMapping TypeName="TrempolineDBModel.CPAS">
+            <EntityTypeMapping TypeName="TrempolineModels.CPAS">
               <MappingFragment StoreEntitySet="CPAS">
                 <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
                 <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
@@ -3720,7 +3740,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Diplome">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Diplome">
+            <EntityTypeMapping TypeName="TrempolineModels.Diplome">
               <MappingFragment StoreEntitySet="Diplome">
                 <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3728,7 +3748,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Educateur">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Educateur">
+            <EntityTypeMapping TypeName="TrempolineModels.Educateur">
               <MappingFragment StoreEntitySet="Educateur">
                 <ScalarProperty Name="IDEducateur" ColumnName="IDEducateur" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
@@ -3736,7 +3756,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EnfantKangourou">
-            <EntityTypeMapping TypeName="TrempolineDBModel.EnfantKangourou">
+            <EntityTypeMapping TypeName="TrempolineModels.EnfantKangourou">
               <MappingFragment StoreEntitySet="EnfantKangourou">
                 <ScalarProperty Name="IDEnfantKangourou" ColumnName="IDEnfantKangourou" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -3774,7 +3794,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EnqueteEuropasi">
-            <EntityTypeMapping TypeName="TrempolineDBModel.EnqueteEuropasi">
+            <EntityTypeMapping TypeName="TrempolineModels.EnqueteEuropasi">
               <MappingFragment StoreEntitySet="EnqueteEuropasi">
                 <ScalarProperty Name="IDEnqueteEuropasi" ColumnName="IDEnqueteEuropasi" />
                 <ScalarProperty Name="TypeQuestionnaire" ColumnName="TypeQuestionnaire" />
@@ -3791,7 +3811,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fratrie">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Fratrie">
+            <EntityTypeMapping TypeName="TrempolineModels.Fratrie">
               <MappingFragment StoreEntitySet="Fratrie">
                 <ScalarProperty Name="IDFratrie" ColumnName="IDFratrie" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -3811,10 +3831,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="IntervenantFamilial">
-            <EntityTypeMapping TypeName="TrempolineDBModel.IntervenantFamilial">
+            <EntityTypeMapping TypeName="TrempolineModels.IntervenantFamilial">
               <MappingFragment StoreEntitySet="IntervenantFamilial">
                 <ScalarProperty Name="IDIntervenantFamimlial" ColumnName="IDIntervenantFamimlial" />
-                <ScalarProperty Name="Rôle" ColumnName="Rôle" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Prenom" ColumnName="Prenom" />
                 <ScalarProperty Name="Adresse1" ColumnName="Adresse1" />
@@ -3825,11 +3844,12 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="GSM" ColumnName="GSM" />
                 <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Localite">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Localite">
+            <EntityTypeMapping TypeName="TrempolineModels.Localite">
               <MappingFragment StoreEntitySet="Localite">
                 <ScalarProperty Name="IDLocalite" ColumnName="IDLocalite" />
                 <ScalarProperty Name="LocaliteNom" ColumnName="LocaliteNom" />
@@ -3838,7 +3858,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MaisonJustice">
-            <EntityTypeMapping TypeName="TrempolineDBModel.MaisonJustice">
+            <EntityTypeMapping TypeName="TrempolineModels.MaisonJustice">
               <MappingFragment StoreEntitySet="MaisonJustice">
                 <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3846,7 +3866,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Medecin">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Medecin">
+            <EntityTypeMapping TypeName="TrempolineModels.Medecin">
               <MappingFragment StoreEntitySet="Medecin">
                 <ScalarProperty Name="IDMedecin" ColumnName="IDMedecin" />
                 <ScalarProperty Name="MedecinNom" ColumnName="MedecinNom" />
@@ -3864,7 +3884,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Mutuelle">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Mutuelle">
+            <EntityTypeMapping TypeName="TrempolineModels.Mutuelle">
               <MappingFragment StoreEntitySet="Mutuelle">
                 <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
                 <ScalarProperty Name="Numero" ColumnName="Numero" />
@@ -3882,7 +3902,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nationalite">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Nationalite">
+            <EntityTypeMapping TypeName="TrempolineModels.Nationalite">
               <MappingFragment StoreEntitySet="Nationalite">
                 <ScalarProperty Name="IDNationalite" ColumnName="IDNationalite" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3890,7 +3910,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Participation">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Participation">
+            <EntityTypeMapping TypeName="TrempolineModels.Participation">
               <MappingFragment StoreEntitySet="Participation">
                 <ScalarProperty Name="IDParticiaption" ColumnName="IDParticiaption" />
                 <ScalarProperty Name="IDFAtelierFSE" ColumnName="IDFAtelierFSE" />
@@ -3900,8 +3920,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PieceJointe">
+            <EntityTypeMapping TypeName="TrempolineModels.PieceJointe">
+              <MappingFragment StoreEntitySet="PieceJointe">
+                <ScalarProperty Name="IDPieceJointe" ColumnName="IDPieceJointe" />
+                <ScalarProperty Name="LibellePiece" ColumnName="LibellePiece" />
+                <ScalarProperty Name="DatePiece" ColumnName="DatePiece" />
+                <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+                <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
+                <ScalarProperty Name="Piece" ColumnName="Piece" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Presentiel">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Presentiel">
+            <EntityTypeMapping TypeName="TrempolineModels.Presentiel">
               <MappingFragment StoreEntitySet="Presentiel">
                 <ScalarProperty Name="IDPresentiel" ColumnName="IDPresentiel" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -3913,7 +3946,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Programme">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Programme">
+            <EntityTypeMapping TypeName="TrempolineModels.Programme">
               <MappingFragment StoreEntitySet="Programme">
                 <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
                 <ScalarProperty Name="Secteur" ColumnName="Secteur" />
@@ -3924,7 +3957,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RegimeMutuelle">
-            <EntityTypeMapping TypeName="TrempolineDBModel.RegimeMutuelle">
+            <EntityTypeMapping TypeName="TrempolineModels.RegimeMutuelle">
               <MappingFragment StoreEntitySet="RegimeMutuelle">
                 <ScalarProperty Name="IDRegimeMutuelle" ColumnName="IDRegimeMutuelle" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3932,7 +3965,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sejour">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Sejour">
+            <EntityTypeMapping TypeName="TrempolineModels.Sejour">
               <MappingFragment StoreEntitySet="Sejour">
                 <ScalarProperty Name="IDSejour" ColumnName="IDSejour" />
                 <ScalarProperty Name="DateEntree" ColumnName="DateEntree" />
@@ -3953,15 +3986,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sexe">
-            <EntityTypeMapping TypeName="TrempolineDBModel.Sexe">
+            <EntityTypeMapping TypeName="TrempolineModels.Sexe">
               <MappingFragment StoreEntitySet="Sexe">
                 <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TrempolineModels.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TypeAction">
-            <EntityTypeMapping TypeName="TrempolineDBModel.TypeAction">
+            <EntityTypeMapping TypeName="TrempolineModels.TypeAction">
               <MappingFragment StoreEntitySet="TypeAction">
                 <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3969,7 +4013,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeAdresse">
-            <EntityTypeMapping TypeName="TrempolineDBModel.TypeAdresse">
+            <EntityTypeMapping TypeName="TrempolineModels.TypeAdresse">
               <MappingFragment StoreEntitySet="TypeAdresse">
                 <ScalarProperty Name="IDTypeAdresse" ColumnName="IDTypeAdresse" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3977,7 +4021,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeFratrie">
-            <EntityTypeMapping TypeName="TrempolineDBModel.TypeFratrie">
+            <EntityTypeMapping TypeName="TrempolineModels.TypeFratrie">
               <MappingFragment StoreEntitySet="TypeFratrie">
                 <ScalarProperty Name="IDTypeFratrie" ColumnName="IDTypeFratrie" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3985,7 +4029,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypePresence">
-            <EntityTypeMapping TypeName="TrempolineDBModel.TypePresence">
+            <EntityTypeMapping TypeName="TrempolineModels.TypePresence">
               <MappingFragment StoreEntitySet="TypePresence">
                 <ScalarProperty Name="IDTypePresence" ColumnName="IDTypePresence" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -3993,7 +4037,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypePriseEnCharge">
-            <EntityTypeMapping TypeName="TrempolineDBModel.TypePriseEnCharge">
+            <EntityTypeMapping TypeName="TrempolineModels.TypePriseEnCharge">
               <MappingFragment StoreEntitySet="TypePriseEnCharge">
                 <ScalarProperty Name="IDTypePriseEnCharge" ColumnName="IDTypePriseEnCharge" />
                 <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -4001,34 +4045,10 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="TrempolineDBModel.User">
+            <EntityTypeMapping TypeName="TrempolineModels.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="UserAD" ColumnName="UserAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PieceJointe">
-            <EntityTypeMapping TypeName="TrempolineDBModel.PieceJointe">
-              <MappingFragment StoreEntitySet="PieceJointe">
-                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
-                <ScalarProperty Name="Piece" ColumnName="Piece" />
-                <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
-                <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
-                <ScalarProperty Name="DatePiece" ColumnName="DatePiece" />
-                <ScalarProperty Name="LibellePiece" ColumnName="LibellePiece" />
-                <ScalarProperty Name="IDPieceJointe" ColumnName="IDPieceJointe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TrempolineDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

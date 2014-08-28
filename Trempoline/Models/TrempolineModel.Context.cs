@@ -51,18 +51,18 @@ namespace Trempoline.Models
         public DbSet<Mutuelle> Mutuelle { get; set; }
         public DbSet<Nationalite> Nationalite { get; set; }
         public DbSet<Participation> Participation { get; set; }
+        public DbSet<PieceJointe> PieceJointe { get; set; }
         public DbSet<Presentiel> Presentiel { get; set; }
         public DbSet<Programme> Programme { get; set; }
         public DbSet<RegimeMutuelle> RegimeMutuelle { get; set; }
         public DbSet<Sejour> Sejour { get; set; }
         public DbSet<Sexe> Sexe { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TypeAction> TypeAction { get; set; }
         public DbSet<TypeAdresse> TypeAdresse { get; set; }
         public DbSet<TypeFratrie> TypeFratrie { get; set; }
         public DbSet<TypePresence> TypePresence { get; set; }
         public DbSet<TypePriseEnCharge> TypePriseEnCharge { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<PieceJointe> PieceJointe { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

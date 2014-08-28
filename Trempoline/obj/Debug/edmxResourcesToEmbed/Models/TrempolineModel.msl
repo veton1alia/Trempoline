@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TrempolineDBModelStoreContainer" CdmEntityContainer="TrempolineEntities">
+  <EntityContainerMapping StorageEntityContainer="TrempolineModelsStoreContainer" CdmEntityContainer="TrempolineEntities">
     <EntitySetMapping Name="Action">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Action">
+      <EntityTypeMapping TypeName="TrempolineModels.Action">
         <MappingFragment StoreEntitySet="Action">
           <ScalarProperty Name="IDAction" ColumnName="IDAction" />
           <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -16,7 +16,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Adresse">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Adresse">
+      <EntityTypeMapping TypeName="TrempolineModels.Adresse">
         <MappingFragment StoreEntitySet="Adresse">
           <ScalarProperty Name="IDAdresse" ColumnName="IDAdresse" />
           <ScalarProperty Name="Ligne1" ColumnName="Ligne1" />
@@ -28,7 +28,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AdresseBeneficiaire">
-      <EntityTypeMapping TypeName="TrempolineDBModel.AdresseBeneficiaire">
+      <EntityTypeMapping TypeName="TrempolineModels.AdresseBeneficiaire">
         <MappingFragment StoreEntitySet="AdresseBeneficiaire">
           <ScalarProperty Name="IDAdresseBeneficiaire" ColumnName="IDAdresseBeneficiaire" />
           <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -37,7 +37,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AssistantSocial">
-      <EntityTypeMapping TypeName="TrempolineDBModel.AssistantSocial">
+      <EntityTypeMapping TypeName="TrempolineModels.AssistantSocial">
         <MappingFragment StoreEntitySet="AssistantSocial">
           <ScalarProperty Name="IDAssistantSocial" ColumnName="IDAssistantSocial" />
           <ScalarProperty Name="IDUser" ColumnName="IDUser" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AtelierFSE">
-      <EntityTypeMapping TypeName="TrempolineDBModel.AtelierFSE">
+      <EntityTypeMapping TypeName="TrempolineModels.AtelierFSE">
         <MappingFragment StoreEntitySet="AtelierFSE">
           <ScalarProperty Name="IDAtelierFSE" ColumnName="IDAtelierFSE" />
           <ScalarProperty Name="NomAtelier" ColumnName="NomAtelier" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AutoriteParentale">
-      <EntityTypeMapping TypeName="TrempolineDBModel.AutoriteParentale">
+      <EntityTypeMapping TypeName="TrempolineModels.AutoriteParentale">
         <MappingFragment StoreEntitySet="AutoriteParentale">
           <ScalarProperty Name="IDAutoriteparentale" ColumnName="IDAutoriteparentale" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -62,7 +62,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Avocat">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Avocat">
+      <EntityTypeMapping TypeName="TrempolineModels.Avocat">
         <MappingFragment StoreEntitySet="Avocat">
           <ScalarProperty Name="AvocatID" ColumnName="AvocatID" />
           <ScalarProperty Name="AvocatNom" ColumnName="AvocatNom" />
@@ -79,7 +79,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AxePsy">
-      <EntityTypeMapping TypeName="TrempolineDBModel.AxePsy">
+      <EntityTypeMapping TypeName="TrempolineModels.AxePsy">
         <MappingFragment StoreEntitySet="AxePsy">
           <ScalarProperty Name="IDAxePsy" ColumnName="IDAxePsy" />
           <ScalarProperty Name="Code" ColumnName="Code" />
@@ -88,8 +88,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Beneficiaire">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Beneficiaire">
+      <EntityTypeMapping TypeName="TrempolineModels.Beneficiaire">
         <MappingFragment StoreEntitySet="Beneficiaire">
+          <ScalarProperty Name="PerspectiveRS" ColumnName="PerspectiveRS" />
+          <ScalarProperty Name="FaxEmployeur" ColumnName="FaxEmployeur" />
+          <ScalarProperty Name="MailEmployeur" ColumnName="MailEmployeur" />
           <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
           <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Prenom" ColumnName="Prenom" />
@@ -103,14 +106,11 @@
           <ScalarProperty Name="DatePermisConduire" ColumnName="DatePermisConduire" />
           <ScalarProperty Name="CommentairesFicheContact" ColumnName="CommentairesFicheContact" />
           <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
-          <ScalarProperty Name="N_InscriptionMutuelle" ColumnName="N°InscriptionMutuelle" />
           <ScalarProperty Name="RegimeMutuelle" ColumnName="RegimeMutuelle" />
           <ScalarProperty Name="IDRegime" ColumnName="IDRegime" />
           <ScalarProperty Name="MedecinConseil" ColumnName="MedecinConseil" />
-          <ScalarProperty Name="CommentairesMututelle" ColumnName="CommentairesMututelle" />
           <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
           <ScalarProperty Name="PersonneContactCPAS" ColumnName="PersonneContactCPAS" />
-          <ScalarProperty Name="N_TelContactCPAS" ColumnName="N°TelContactCPAS" />
           <ScalarProperty Name="CommentairesCPAS" ColumnName="CommentairesCPAS" />
           <ScalarProperty Name="RevenusCPAS" ColumnName="RevenusCPAS" />
           <ScalarProperty Name="DateDebutRevenuCPAS" ColumnName="DateDebutRevenuCPAS" />
@@ -134,11 +134,9 @@
           <ScalarProperty Name="SoldeCompteEpargne" ColumnName="SoldeCompteEpargne" />
           <ScalarProperty Name="DateSoldeCompteEpargne" ColumnName="DateSoldeCompteEpargne" />
           <ScalarProperty Name="CompteTrempoline" ColumnName="CompteTrempoline" />
-          <ScalarProperty Name="FichierCompte" ColumnName="FichierCompte" />
           <ScalarProperty Name="CommentairesFinances" ColumnName="CommentairesFinances" />
           <ScalarProperty Name="Dettes" ColumnName="Dettes" />
           <ScalarProperty Name="CommentairesDettes" ColumnName="CommentairesDettes" />
-          <ScalarProperty Name="RèglementDettes" ColumnName="RèglementDettes" />
           <ScalarProperty Name="AdministrateurBiens" ColumnName="AdministrateurBiens" />
           <ScalarProperty Name="Adresse1AdminBien" ColumnName="Adresse1AdminBien" />
           <ScalarProperty Name="Adresse2AdminBien" ColumnName="Adresse2AdminBien" />
@@ -210,7 +208,6 @@
           <ScalarProperty Name="MailSyndicat" ColumnName="MailSyndicat" />
           <ScalarProperty Name="DateDebutSyndicat" ColumnName="DateDebutSyndicat" />
           <ScalarProperty Name="DateFinSyndicat" ColumnName="DateFinSyndicat" />
-          <ScalarProperty Name="PespectivesRS" ColumnName="PespectivesRS" />
           <ScalarProperty Name="CommentairesSyndicat" ColumnName="CommentairesSyndicat" />
           <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
           <ScalarProperty Name="SituationEntree" ColumnName="SituationEntree" />
@@ -244,11 +241,18 @@
           <ScalarProperty Name="CommentairesGroupeSolidarite" ColumnName="CommentairesGroupeSolidarite" />
           <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
           <ScalarProperty Name="FormationSuivie" ColumnName="FormationSuivie" />
+          <ScalarProperty Name="NumeroInscriptionMutuelle" ColumnName="NumeroInscriptionMutuelle" />
+          <ScalarProperty Name="CommentairesMutuelle" ColumnName="CommentairesMutuelle" />
+          <ScalarProperty Name="NumeroTelContactCPAS" ColumnName="NumeroTelContactCPAS" />
+          <ScalarProperty Name="FichierCompte" ColumnName="FichierCompte" />
+          <ScalarProperty Name="FichierCompteContentType" ColumnName="FichierCompteContentType" />
+          <ScalarProperty Name="PerspectivesRS" ColumnName="PerspectivesRS" />
+          <ScalarProperty Name="ReglementDettes" ColumnName="ReglementDettes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaireAvocat">
-      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireAvocat">
+      <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireAvocat">
         <MappingFragment StoreEntitySet="BeneficiaireAvocat">
           <ScalarProperty Name="IDBeneficiaireAvocat" ColumnName="IDBeneficiaireAvocat" />
           <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -257,7 +261,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaireMaisonJustice">
-      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMaisonJustice">
+      <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireMaisonJustice">
         <MappingFragment StoreEntitySet="BeneficiaireMaisonJustice">
           <ScalarProperty Name="IDBeneficiaireMaisonJustice" ColumnName="IDBeneficiaireMaisonJustice" />
           <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
@@ -275,7 +279,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaireMedecin">
-      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireMedecin">
+      <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireMedecin">
         <MappingFragment StoreEntitySet="BeneficiaireMedecin">
           <ScalarProperty Name="IDBeneficiaireMedecin" ColumnName="IDBeneficiaireMedecin" />
           <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
@@ -284,7 +288,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaireProgramme">
-      <EntityTypeMapping TypeName="TrempolineDBModel.BeneficiaireProgramme">
+      <EntityTypeMapping TypeName="TrempolineModels.BeneficiaireProgramme">
         <MappingFragment StoreEntitySet="BeneficiaireProgramme">
           <ScalarProperty Name="IDBeneficiaireProgramme" ColumnName="IDBeneficiaireProgramme" />
           <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
@@ -299,7 +303,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CPAS">
-      <EntityTypeMapping TypeName="TrempolineDBModel.CPAS">
+      <EntityTypeMapping TypeName="TrempolineModels.CPAS">
         <MappingFragment StoreEntitySet="CPAS">
           <ScalarProperty Name="IDCPAS" ColumnName="IDCPAS" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
@@ -310,7 +314,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Diplome">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Diplome">
+      <EntityTypeMapping TypeName="TrempolineModels.Diplome">
         <MappingFragment StoreEntitySet="Diplome">
           <ScalarProperty Name="IDDiplome" ColumnName="IDDiplome" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -318,7 +322,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Educateur">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Educateur">
+      <EntityTypeMapping TypeName="TrempolineModels.Educateur">
         <MappingFragment StoreEntitySet="Educateur">
           <ScalarProperty Name="IDEducateur" ColumnName="IDEducateur" />
           <ScalarProperty Name="IDUser" ColumnName="IDUser" />
@@ -326,7 +330,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EnfantKangourou">
-      <EntityTypeMapping TypeName="TrempolineDBModel.EnfantKangourou">
+      <EntityTypeMapping TypeName="TrempolineModels.EnfantKangourou">
         <MappingFragment StoreEntitySet="EnfantKangourou">
           <ScalarProperty Name="IDEnfantKangourou" ColumnName="IDEnfantKangourou" />
           <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -364,7 +368,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EnqueteEuropasi">
-      <EntityTypeMapping TypeName="TrempolineDBModel.EnqueteEuropasi">
+      <EntityTypeMapping TypeName="TrempolineModels.EnqueteEuropasi">
         <MappingFragment StoreEntitySet="EnqueteEuropasi">
           <ScalarProperty Name="IDEnqueteEuropasi" ColumnName="IDEnqueteEuropasi" />
           <ScalarProperty Name="TypeQuestionnaire" ColumnName="TypeQuestionnaire" />
@@ -381,7 +385,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Fratrie">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Fratrie">
+      <EntityTypeMapping TypeName="TrempolineModels.Fratrie">
         <MappingFragment StoreEntitySet="Fratrie">
           <ScalarProperty Name="IDFratrie" ColumnName="IDFratrie" />
           <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -401,10 +405,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IntervenantFamilial">
-      <EntityTypeMapping TypeName="TrempolineDBModel.IntervenantFamilial">
+      <EntityTypeMapping TypeName="TrempolineModels.IntervenantFamilial">
         <MappingFragment StoreEntitySet="IntervenantFamilial">
           <ScalarProperty Name="IDIntervenantFamimlial" ColumnName="IDIntervenantFamimlial" />
-          <ScalarProperty Name="Rôle" ColumnName="Rôle" />
           <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Prenom" ColumnName="Prenom" />
           <ScalarProperty Name="Adresse1" ColumnName="Adresse1" />
@@ -415,11 +418,12 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="GSM" ColumnName="GSM" />
           <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Localite">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Localite">
+      <EntityTypeMapping TypeName="TrempolineModels.Localite">
         <MappingFragment StoreEntitySet="Localite">
           <ScalarProperty Name="IDLocalite" ColumnName="IDLocalite" />
           <ScalarProperty Name="LocaliteNom" ColumnName="LocaliteNom" />
@@ -428,7 +432,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MaisonJustice">
-      <EntityTypeMapping TypeName="TrempolineDBModel.MaisonJustice">
+      <EntityTypeMapping TypeName="TrempolineModels.MaisonJustice">
         <MappingFragment StoreEntitySet="MaisonJustice">
           <ScalarProperty Name="IDMaisonJustice" ColumnName="IDMaisonJustice" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -436,7 +440,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Medecin">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Medecin">
+      <EntityTypeMapping TypeName="TrempolineModels.Medecin">
         <MappingFragment StoreEntitySet="Medecin">
           <ScalarProperty Name="IDMedecin" ColumnName="IDMedecin" />
           <ScalarProperty Name="MedecinNom" ColumnName="MedecinNom" />
@@ -454,7 +458,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Mutuelle">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Mutuelle">
+      <EntityTypeMapping TypeName="TrempolineModels.Mutuelle">
         <MappingFragment StoreEntitySet="Mutuelle">
           <ScalarProperty Name="IDMutuelle" ColumnName="IDMutuelle" />
           <ScalarProperty Name="Numero" ColumnName="Numero" />
@@ -472,7 +476,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Nationalite">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Nationalite">
+      <EntityTypeMapping TypeName="TrempolineModels.Nationalite">
         <MappingFragment StoreEntitySet="Nationalite">
           <ScalarProperty Name="IDNationalite" ColumnName="IDNationalite" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -480,7 +484,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Participation">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Participation">
+      <EntityTypeMapping TypeName="TrempolineModels.Participation">
         <MappingFragment StoreEntitySet="Participation">
           <ScalarProperty Name="IDParticiaption" ColumnName="IDParticiaption" />
           <ScalarProperty Name="IDFAtelierFSE" ColumnName="IDFAtelierFSE" />
@@ -490,8 +494,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PieceJointe">
+      <EntityTypeMapping TypeName="TrempolineModels.PieceJointe">
+        <MappingFragment StoreEntitySet="PieceJointe">
+          <ScalarProperty Name="IDPieceJointe" ColumnName="IDPieceJointe" />
+          <ScalarProperty Name="LibellePiece" ColumnName="LibellePiece" />
+          <ScalarProperty Name="DatePiece" ColumnName="DatePiece" />
+          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
+          <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
+          <ScalarProperty Name="Piece" ColumnName="Piece" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Presentiel">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Presentiel">
+      <EntityTypeMapping TypeName="TrempolineModels.Presentiel">
         <MappingFragment StoreEntitySet="Presentiel">
           <ScalarProperty Name="IDPresentiel" ColumnName="IDPresentiel" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -503,7 +520,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Programme">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Programme">
+      <EntityTypeMapping TypeName="TrempolineModels.Programme">
         <MappingFragment StoreEntitySet="Programme">
           <ScalarProperty Name="IDProgramme" ColumnName="IDProgramme" />
           <ScalarProperty Name="Secteur" ColumnName="Secteur" />
@@ -514,7 +531,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RegimeMutuelle">
-      <EntityTypeMapping TypeName="TrempolineDBModel.RegimeMutuelle">
+      <EntityTypeMapping TypeName="TrempolineModels.RegimeMutuelle">
         <MappingFragment StoreEntitySet="RegimeMutuelle">
           <ScalarProperty Name="IDRegimeMutuelle" ColumnName="IDRegimeMutuelle" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -522,7 +539,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sejour">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Sejour">
+      <EntityTypeMapping TypeName="TrempolineModels.Sejour">
         <MappingFragment StoreEntitySet="Sejour">
           <ScalarProperty Name="IDSejour" ColumnName="IDSejour" />
           <ScalarProperty Name="DateEntree" ColumnName="DateEntree" />
@@ -543,15 +560,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sexe">
-      <EntityTypeMapping TypeName="TrempolineDBModel.Sexe">
+      <EntityTypeMapping TypeName="TrempolineModels.Sexe">
         <MappingFragment StoreEntitySet="Sexe">
           <ScalarProperty Name="IDSexe" ColumnName="IDSexe" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TrempolineModels.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TypeAction">
-      <EntityTypeMapping TypeName="TrempolineDBModel.TypeAction">
+      <EntityTypeMapping TypeName="TrempolineModels.TypeAction">
         <MappingFragment StoreEntitySet="TypeAction">
           <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -559,7 +587,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypeAdresse">
-      <EntityTypeMapping TypeName="TrempolineDBModel.TypeAdresse">
+      <EntityTypeMapping TypeName="TrempolineModels.TypeAdresse">
         <MappingFragment StoreEntitySet="TypeAdresse">
           <ScalarProperty Name="IDTypeAdresse" ColumnName="IDTypeAdresse" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -567,7 +595,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypeFratrie">
-      <EntityTypeMapping TypeName="TrempolineDBModel.TypeFratrie">
+      <EntityTypeMapping TypeName="TrempolineModels.TypeFratrie">
         <MappingFragment StoreEntitySet="TypeFratrie">
           <ScalarProperty Name="IDTypeFratrie" ColumnName="IDTypeFratrie" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -575,7 +603,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypePresence">
-      <EntityTypeMapping TypeName="TrempolineDBModel.TypePresence">
+      <EntityTypeMapping TypeName="TrempolineModels.TypePresence">
         <MappingFragment StoreEntitySet="TypePresence">
           <ScalarProperty Name="IDTypePresence" ColumnName="IDTypePresence" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -583,7 +611,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypePriseEnCharge">
-      <EntityTypeMapping TypeName="TrempolineDBModel.TypePriseEnCharge">
+      <EntityTypeMapping TypeName="TrempolineModels.TypePriseEnCharge">
         <MappingFragment StoreEntitySet="TypePriseEnCharge">
           <ScalarProperty Name="IDTypePriseEnCharge" ColumnName="IDTypePriseEnCharge" />
           <ScalarProperty Name="Valeur" ColumnName="Valeur" />
@@ -591,34 +619,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="TrempolineDBModel.User">
+      <EntityTypeMapping TypeName="TrempolineModels.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="IDUser" ColumnName="IDUser" />
           <ScalarProperty Name="UserAD" ColumnName="UserAD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PieceJointe">
-      <EntityTypeMapping TypeName="TrempolineDBModel.PieceJointe">
-        <MappingFragment StoreEntitySet="PieceJointe">
-          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
-          <ScalarProperty Name="Piece" ColumnName="Piece" />
-          <ScalarProperty Name="IDTypeAction" ColumnName="IDTypeAction" />
-          <ScalarProperty Name="IDBeneficiare" ColumnName="IDBeneficiare" />
-          <ScalarProperty Name="DatePiece" ColumnName="DatePiece" />
-          <ScalarProperty Name="LibellePiece" ColumnName="LibellePiece" />
-          <ScalarProperty Name="IDPieceJointe" ColumnName="IDPieceJointe" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="TrempolineDBModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

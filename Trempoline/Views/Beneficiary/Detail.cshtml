@@ -8,7 +8,7 @@
 
 @if (Model != null)
 {
-    <h2>@String.Format("{0} {1} {2}", @Model.Prenom, @Model.Nom, @Model.DateNaissance.ToString("dd-mm-yyyy"))</h2>
+    <h3>@String.Format("{0} {1} {2}", @Model.Prenom, @Model.Nom, @Model.DateNaissance.ToString("dd-MM-yyyy"))</h3>
 }
 
 <div class="tabbable">
@@ -38,6 +38,21 @@
             <li>
                 <a data-toggle="tab" data-menu="Finance" href="#tab">
                     Finances
+                </a>
+            </li>
+            <li>
+                <a data-toggle="tab" data-menu="Debt" href="#tab">
+                    Dettes
+                </a>
+            </li>
+            <li>
+                <a data-toggle="tab" data-menu="Justice" href="#tab">
+                    Justice
+                </a>
+            </li>
+            <li>
+                <a data-toggle="tab" data-menu="Work" href="#tab">
+                    Emploi
                 </a>
             </li>
         }

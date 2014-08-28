@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Trempoline.Models;
+using Trempoline.Helpers;
 
 namespace Trempoline.Controllers
 {
@@ -19,8 +20,9 @@ namespace Trempoline.Controllers
             {
 
                 Beneficiaire b = context.Beneficiaire.SingleOrDefault(be => be.IDBeneficiare == id);
-                ViewBag.Total = Value(b.RevenusCPAS) + 
-                                Value(b.RevenusAllocHandic) + 
+                ViewBag.Total = Value(b.RevenusCPAS) +
+                                Value(b.RevenusAllocHandic) +
+                                Value(b.MontantPensionAlim) + 
                                 Value(b.RevenusIITMutuelle) + 
                                 Value(b.AutresRevenus);
 
@@ -43,17 +45,22 @@ namespace Trempoline.Controllers
                 Beneficiaire benef = context.Beneficiaire.SingleOrDefault(b => b.IDBeneficiare == beneficiary.IDBeneficiare);
 
 
-                benef.RevenusIITMutuelle = beneficiary.RevenusIITMutuelle;
-                benef.RevenusCPAS = beneficiary.RevenusCPAS;
-                benef.RevenusAllocHandic = beneficiary.RevenusAllocHandic;
-                benef.MontantPensionAlim = beneficiary.MontantPensionAlim;
-                benef.AutresRevenus = beneficiary.AutresRevenus;
-                benef.DateDebutRevenuCPAS = beneficiary.DateDebutRevenuCPAS;
-                benef.DateDebutRevenuIITMutuelle = beneficiary.DateDebutRevenuIITMutuelle;
-                benef.CommentairesRevenus = beneficiary.CommentairesRevenus;
+                //benef.RevenusIITMutuelle = beneficiary.RevenusIITMutuelle;
+                //benef.RevenusCPAS = beneficiary.RevenusCPAS;
+                //benef.RevenusAllocHandic = beneficiary.RevenusAllocHandic;
+                //benef.MontantPensionAlim = beneficiary.MontantPensionAlim;
+                //benef.AutresRevenus = beneficiary.AutresRevenus;
+                //benef.DateDebutRevenuCPAS = beneficiary.DateDebutRevenuCPAS;
+                //benef.DateDebutRevenuIITMutuelle = beneficiary.DateDebutRevenuIITMutuelle;
+                //benef.CommentairesRevenus = beneficiary.CommentairesRevenus;
+                //context.SaveChanges(); 
 
+                if (benef.Update(beneficiary, Request.Form.AllKeys, new string[] { "IDBeneficiare" }))
+                {
+                    context.SaveChanges();
+                }
 
-                context.SaveChanges();
+               
             }
 
             return Redirect(String.Format("/Beneficiary/Detail/{0}#tab={1}", beneficiary.IDBeneficiare, "Earning"));

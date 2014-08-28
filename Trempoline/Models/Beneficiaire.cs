@@ -11,7 +11,7 @@ namespace Trempoline.Models
 {
     using System;
     using System.Collections.Generic;
-    using Trempoline.Helpers;
+    
     public partial class Beneficiaire
     {
         public Beneficiaire()
@@ -27,67 +27,29 @@ namespace Trempoline.Models
             this.Fratrie = new HashSet<Fratrie>();
             this.IntervenantFamilial = new HashSet<IntervenantFamilial>();
             this.Participation = new HashSet<Participation>();
+            this.PieceJointe = new HashSet<PieceJointe>();
             this.Presentiel = new HashSet<Presentiel>();
             this.Sejour = new HashSet<Sejour>();
-            this.PieceJointe = new HashSet<PieceJointe>();
         }
     
         public int IDBeneficiare { get; set; }
-        private string _Nom;
-        public string Nom
-        {
-            get { return _Nom.Trimmed(); }
-            set { _Nom = value; }
-        }
-        private string _Prenom;
-        public string Prenom
-        {
-            get { return _Prenom.Trimmed(); }
-            set { _Prenom = value; }
-        }
-        private string _Photo;
-        public string Photo
-        {
-            get { return _Photo.Trimmed(); }
-            set { _Photo = value; }
-        }
-        private string _LieuNaissance;
-        public string LieuNaissance
-        {
-            get { return _LieuNaissance.Trimmed(); }
-            set { _LieuNaissance = value; }
-        }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Photo { get; set; }
+        public string LieuNaissance { get; set; }
         public System.DateTime DateNaissance { get; set; }
-        private string _RegistreNational;
-        public string RegistreNational
-        {
-            get { return _RegistreNational.Trimmed(); }
-            set { _RegistreNational = value; }
-        }
-        private string _CarteIdentite;
-        public string CarteIdentite
-        {
-            get { return _CarteIdentite.Trimmed(); }
-            set { _CarteIdentite = value; }
-        }
+        public string RegistreNational { get; set; }
+        public string CarteIdentite { get; set; }
         public Nullable<int> IDNationalite { get; set; }
         public Nullable<bool> PermisConduire { get; set; }
         public Nullable<System.DateTime> DatePermisConduire { get; set; }
-        private string _CommentairesFicheContact;
-        public string CommentairesFicheContact
-        {
-            get { return _CommentairesFicheContact.Trimmed(); }
-            set { _CommentairesFicheContact = value; }
-        }
+        public string CommentairesFicheContact { get; set; }
         public Nullable<int> IDMutuelle { get; set; }
-        public string N_InscriptionMutuelle { get; set; }
         public string RegimeMutuelle { get; set; }
         public Nullable<int> IDRegime { get; set; }
         public string MedecinConseil { get; set; }
-        public string CommentairesMututelle { get; set; }
         public Nullable<int> IDCPAS { get; set; }
         public string PersonneContactCPAS { get; set; }
-        public string N_TelContactCPAS { get; set; }
         public string CommentairesCPAS { get; set; }
         public Nullable<double> RevenusCPAS { get; set; }
         public Nullable<System.DateTime> DateDebutRevenuCPAS { get; set; }
@@ -111,11 +73,9 @@ namespace Trempoline.Models
         public Nullable<double> SoldeCompteEpargne { get; set; }
         public Nullable<System.DateTime> DateSoldeCompteEpargne { get; set; }
         public Nullable<bool> CompteTrempoline { get; set; }
-        public string FichierCompte { get; set; }
         public string CommentairesFinances { get; set; }
         public Nullable<bool> Dettes { get; set; }
         public string CommentairesDettes { get; set; }
-        public Nullable<bool> RèglementDettes { get; set; }
         public string AdministrateurBiens { get; set; }
         public string Adresse1AdminBien { get; set; }
         public string Adresse2AdminBien { get; set; }
@@ -187,7 +147,6 @@ namespace Trempoline.Models
         public string MailSyndicat { get; set; }
         public Nullable<System.DateTime> DateDebutSyndicat { get; set; }
         public Nullable<System.DateTime> DateFinSyndicat { get; set; }
-        public string PespectivesRS { get; set; }
         public string CommentairesSyndicat { get; set; }
         public Nullable<int> IDSexe { get; set; }
         public string SituationEntree { get; set; }
@@ -221,6 +180,16 @@ namespace Trempoline.Models
         public string CommentairesGroupeSolidarite { get; set; }
         public Nullable<int> IDDiplome { get; set; }
         public string FormationSuivie { get; set; }
+        public string NumeroInscriptionMutuelle { get; set; }
+        public string CommentairesMutuelle { get; set; }
+        public string NumeroTelContactCPAS { get; set; }
+        public byte[] FichierCompte { get; set; }
+        public string FichierCompteContentType { get; set; }
+        public string PerspectivesRS { get; set; }
+        public Nullable<bool> ReglementDettes { get; set; }
+        public string MailEmployeur { get; set; }
+        public string FaxEmployeur { get; set; }
+        public string PerspectiveRS { get; set; }
     
         public virtual ICollection<Action> Action { get; set; }
         public virtual ICollection<AdresseBeneficiaire> AdresseBeneficiaire { get; set; }
@@ -248,6 +217,7 @@ namespace Trempoline.Models
         public virtual ICollection<Fratrie> Fratrie { get; set; }
         public virtual ICollection<IntervenantFamilial> IntervenantFamilial { get; set; }
         public virtual ICollection<Participation> Participation { get; set; }
+        public virtual ICollection<PieceJointe> PieceJointe { get; set; }
         public virtual ICollection<Presentiel> Presentiel { get; set; }
         public virtual ICollection<Sejour> Sejour { get; set; }
         public virtual CPAS CPAS { get; set; }
@@ -258,6 +228,5 @@ namespace Trempoline.Models
         public virtual RegimeMutuelle RegimeMutuelle1 { get; set; }
         public virtual Sexe Sexe { get; set; }
         public virtual TypePriseEnCharge TypePriseEnCharge { get; set; }
-        public virtual ICollection<PieceJointe> PieceJointe { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace Trempoline.Models
     public partial class IntervenantFamilial
     {
         public int IDIntervenantFamimlial { get; set; }
-        public string Rôle { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse1 { get; set; }
@@ -26,6 +25,7 @@ namespace Trempoline.Models
         public string Email { get; set; }
         public string GSM { get; set; }
         public Nullable<int> IDBeneficiare { get; set; }
+        public string Role { get; set; }
     
         public virtual Beneficiaire Beneficiaire { get; set; }
     }

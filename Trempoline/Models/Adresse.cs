@@ -11,33 +11,18 @@ namespace Trempoline.Models
 {
     using System;
     using System.Collections.Generic;
-    using Trempoline.Helpers;
+    
     public partial class Adresse
     {
         public Adresse()
         {
             this.AdresseBeneficiaire = new HashSet<AdresseBeneficiaire>();
         }
-
-        private string _Ligne1;
-        private string _Ligne2;
-        private string _Pays;
+    
         public int IDAdresse { get; set; }
-        public string Ligne1
-        {
-            get { return _Ligne1.Trimmed(); }
-            set { _Ligne1 = value; }
-        }
-        public string Ligne2
-        {
-            get { return _Ligne2.Trimmed(); }
-            set { _Ligne2 = value; }
-        }
-        public string Pays
-        {
-            get { return _Pays.Trimmed(); }
-            set { _Pays = value; }
-        }
+        public string Ligne1 { get; set; }
+        public string Ligne2 { get; set; }
+        public string Pays { get; set; }
         public Nullable<int> IDTypeAdresse { get; set; }
         public Nullable<int> IDLocalite { get; set; }
     
